@@ -14,7 +14,7 @@ public class CompositeTest {
 
 	@Before
 	public  void start() throws Exception{
-		pack01.add(new Product("Vasellina", 10));
+		pack01.add(new Product("Usb Cable", 10));
 		pack01.add(new Product("TV", 150));
 		pack01.add(Scanner);
 	}
