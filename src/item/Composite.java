@@ -51,7 +51,6 @@ public class Composite implements Item {
 	public double getPrice() {
 		double sum = 0;
 		Iterator<Item> iteratorItems = createIterator();
-
 		while(iteratorItems.hasNext()) {
 			Item currentItem = iteratorItems.next();
 			sum = sum+currentItem.getPrice();
