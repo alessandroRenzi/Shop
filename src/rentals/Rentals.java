@@ -36,7 +36,6 @@ public class Rentals {
 	public double rentalPriceCalc() {
 		double result = 0;
 		Calendar dateOfToday = Calendar.getInstance();
-
 		long dateInMillis = dateOfToday.getTimeInMillis() - this.rentalStartDate.getTimeInMillis();
 		//1 giorno = 1000*60*60*24 ms = 86400000 ms
 		long numberOfDays = dateInMillis/(86400000);
