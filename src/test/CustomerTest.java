@@ -33,11 +33,11 @@ public class CustomerTest {
 		assertEquals("F",customer1.getGenre());
 	}
 
-	@Test
-	public void testGetID() {
-		assertEquals("CST1",customer1.getID());
-		assertEquals("CST2",customer2.getID());
-	}
+//	@Test
+//	public void testGetID() {
+//		assertEquals("CST1",customer1.getID());
+//		assertEquals("CST2",customer2.getID());
+//	}
 
 	@Test
 	public void testGetNominative() {

@@ -17,8 +17,8 @@ public class Main {
 		Customer c2 = new Customer("Alessandro Renzi","M",26,04,1996);
 		Customers c = new Customers();
 		Item ab = new Composite("Best of Grunge - Various artists - 2015");
-		Item a = new Product("Nevermind - Nirvana - 1991", 19.12);
-		Item b = new Product("Ten - Pearl Jam - 1991", 7.50);
+		Item a = new ConcreteProduct("Nevermind - Nirvana - 1991", 19.12);
+		Item b = new ConcreteProduct("Ten - Pearl Jam - 1991", 7.50);
 		Rentals r = new Rentals(c1,ab,22,11,2015);
 		c1.addRentals(r);
 

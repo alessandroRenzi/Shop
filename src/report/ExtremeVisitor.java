@@ -2,14 +2,20 @@ package report;
 
 import item.Composite;
 import item.Item;
-import item.Product;
+import item.ConcreteProduct;
+import item.DecoratedProduct;
 
 import java.util.Iterator;
 
 public abstract class ExtremeVisitor implements Visitor {
 	@Override
-	public void visitProduct(Product product) {
-		System.out.print(product.toString());
+	public void visitConcreteProduct(ConcreteProduct product) {
+		product.print();
+	}
+	
+	@Override
+	public void visitDecoratedProduct(DecoratedProduct decoratedProduct) {
+		decoratedProduct.print();
 	}
 
 	@Override
@@ -28,7 +34,7 @@ public abstract class ExtremeVisitor implements Visitor {
 				}
 			}
 		}		
-		System.out.print(maxItem.toString());
+		maxItem.print();
 	}
 
 	abstract <E extends Comparable<E>> boolean evaluate(E result, E currentItem);

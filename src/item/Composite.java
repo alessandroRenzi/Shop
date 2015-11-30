@@ -2,19 +2,15 @@ package item;
 
 import java.util.*;
 
-import discount.Discount;
 import report.Visitor;
-import discount.BaseDiscount;
 
 public class Composite implements Item {
 	private String description;
 	private List<Item> myItems;
-	private Discount discount;
 
 	public Composite(String description) {
 		this.description = description;
 		this.myItems = new LinkedList<Item>();
-		setDiscount(new BaseDiscount());
 	}
 
 	public String getDescription() {
@@ -32,11 +28,7 @@ public class Composite implements Item {
 	public void setMyItems(List<Item> myItems) {
 		this.myItems = myItems;
 	}
-
-	public Discount getDiscount() {
-		return discount;
-	}
-
+	
 	@Override
 	public void accept(Visitor v) {
 		v.visitComposite(this);
@@ -55,17 +47,12 @@ public class Composite implements Item {
 			Item currentItem = iteratorItems.next();
 			sum = sum+currentItem.getPrice();
 		}
-		return discount.discount(sum);
+		return sum;
 	}
 
 	@Override
-	public void setDiscount(Discount discount) {
-		this.discount = discount;
-	}
-
-	@Override
-	public String toString() {
-		return getDescription() + " - price: " + getPrice();
+	public void print() {
+		System.out.print(getDescription() + " - price: " + getPrice());
 	}
 
 	public Iterator<Item> createIterator(){

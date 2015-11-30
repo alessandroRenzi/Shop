@@ -1,10 +1,9 @@
 package item;
 
-import discount.*;
 import report.Visitor;
 
 public interface Item extends Comparable<Item>{
-	void accept(Visitor v);
+	void accept(Visitor visitor);
 	void add(Item item) throws Exception;
 
 	public default int compareTo(Item itemToCompare) {
@@ -18,7 +17,6 @@ public interface Item extends Comparable<Item>{
 	}
 
 	double getPrice();
-	void setDiscount(Discount discount);
-	String toString();
+	void print();
 }
 

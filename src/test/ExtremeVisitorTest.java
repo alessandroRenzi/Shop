@@ -16,8 +16,8 @@ import report.Visitor;
 public class ExtremeVisitorTest {
 	private ByteArrayOutputStream outContent;
 	private Composite pack;
-	private Product product1;
-	private Product product2;
+	private ConcreteProduct product1;
+	private ConcreteProduct product2;
 	private Visitor max;
 	private Visitor min;
 
@@ -26,8 +26,8 @@ public class ExtremeVisitorTest {
 		outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
 
-		product1 = new Product("Nevermind (20th Anniversary) - Nirvana - 2011", 5.99);
-		product2 = new Product("Ten - Pearl Jam - 1992", 7.99);
+		product1 = new ConcreteProduct("Nevermind (20th Anniversary) - Nirvana - 2011", 5.99);
+		product2 = new ConcreteProduct("Ten - Pearl Jam - 1992", 7.99);
 
 		pack = new Composite("Best of Grunge - Various artists - 2015");
 		try {
@@ -43,13 +43,13 @@ public class ExtremeVisitorTest {
 
 	@Test
 	public void testProductMax() {
-		max.visitProduct(product1);
+		max.visitConcreteProduct(product1);
 		assertEquals("Nevermind (20th Anniversary) - Nirvana - 2011 - price: 5.99",outContent.toString());
 	}
 
 	@Test
 	public void testProductMin(){
-		min.visitProduct(product1);
+		min.visitConcreteProduct(product1);
 		assertEquals("Nevermind (20th Anniversary) - Nirvana - 2011 - price: 5.99",outContent.toString());
 	}
 

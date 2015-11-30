@@ -10,24 +10,18 @@ import item.*;
 
 public class CompositeTest {
 	Composite pack01 = new Composite("Ciao!");
-	Product Scanner = new Product("Scanner", 130);
+	ConcreteProduct Scanner = new ConcreteProduct("Scanner", 130);
 
 	@Before
 	public  void start() throws Exception{
-		pack01.add(new Product("Usb Cable", 10));
-		pack01.add(new Product("TV", 150));
+		pack01.add(new ConcreteProduct("Usb Cable", 10));
+		pack01.add(new ConcreteProduct("TV", 150));
 		pack01.add(Scanner);
 	}
 
 	@Test
 	public void testGetPrice() {
 		assertEvaluatesTo(pack01, 290);
-	}
-
-	@Test
-	public void testStrategy() {
-		pack01.setDiscount(new GratisDiscount());
-		assertEvaluatesTo(pack01, 0);
 	}
 
 	private void assertEvaluatesTo(Item item, double expected) {

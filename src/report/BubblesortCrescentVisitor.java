@@ -3,13 +3,20 @@ package report;
 import sorter.BubbleSortCrescent;
 import item.Composite;
 import item.Item;
-import item.Product;
+import item.ConcreteProduct;
+import item.DecoratedProduct;
 
 public class BubblesortCrescentVisitor implements Visitor {
 
 	@Override
-	public void visitProduct(Product product) {
+	public void visitConcreteProduct(ConcreteProduct product) {
 
+	}
+	
+	@Override
+	public void visitDecoratedProduct(DecoratedProduct decoratedProduct) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -17,5 +24,4 @@ public class BubblesortCrescentVisitor implements Visitor {
 		BubbleSortCrescent<Item> sort = new BubbleSortCrescent<Item>();
 		sort.sort(composite.getMyItems());
 	}
-
 }
