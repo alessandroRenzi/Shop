@@ -6,7 +6,7 @@ public abstract class BubbleSorter<E extends Comparable<E>> implements Sorter<E>
 
 	private List<E> toSort;
 
-	public BubbleSorter(){
+	public BubbleSorter() {
 		super();
 	}
 	
