@@ -9,6 +9,10 @@ public class ConcreteInvoice implements Invoice {
 		this.shoppingCart = shoppingCart;
 	}
 
+	public ShoppingCart getShoppingCart() {
+		return shoppingCart;
+	}
+
 	@Override
 	public void doInvoice() {
 

@@ -41,6 +41,14 @@ public class Customer {
 		this.genre = genre;
 	}
 
+	public String getID() {
+		return ID;
+	}
+
+	public List<Rentals> getListRentals() {
+		return listRentals;
+	}
+
 	public String getNominative() {
 		return nominative;
 	}
@@ -49,20 +57,11 @@ public class Customer {
 		this.nominative = nominative;
 	}
 
-	public List<Rentals> getListRentals() {
-		return listRentals;
-	}
-
-	public String getID() {
-		return ID;
-	}
-
 	@Override
 	public String toString() {
-		int month = getDateOfBirth().get(Calendar.MONTH);
 		return "Customer n.: " + getID() + "| name: " + getNominative() + 
 				"| genre: " + getGenre() + "| date of birth: " + getDateOfBirth().get(Calendar.DATE) + 
-				"/" +  (month+1) + "/" +  getDateOfBirth().get(Calendar.YEAR);
+				"/" +  (getDateOfBirth().get(Calendar.MONTH)+1) + "/" +  getDateOfBirth().get(Calendar.YEAR);
 	}
 
 	public void addRentals(Rentals rentals) {
@@ -71,5 +70,9 @@ public class Customer {
 
 	public void removeRentals(Rentals rentals) {
 		this.listRentals.remove(rentals);
+	}
+
+	public void resetID() {
+		counter.set(0);
 	}
 }
