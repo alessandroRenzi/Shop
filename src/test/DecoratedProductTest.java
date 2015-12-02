@@ -34,7 +34,7 @@ public class DecoratedProductTest {
 	@Test
 	public void testPrint() {
 		decoratedProduct.print();
-		assertEquals("Green River - Creedence Clearwater Revival - 1969 - price: 23.49 - 10% = 21.141", outContent.toString());
+		assertEquals("Green River - Creedence Clearwater Revival - 1969 - price: 23.49 - 10% = 21.14", outContent.toString());
 	}
 
 }
