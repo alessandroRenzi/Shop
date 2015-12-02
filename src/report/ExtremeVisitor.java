@@ -12,7 +12,7 @@ public abstract class ExtremeVisitor implements Visitor {
 	public void visitConcreteProduct(ConcreteProduct product) {
 		product.print();
 	}
-	
+
 	@Override
 	public void visitDecoratedProduct(DecoratedProduct decoratedProduct) {
 		decoratedProduct.print();
@@ -20,21 +20,21 @@ public abstract class ExtremeVisitor implements Visitor {
 
 	@Override
 	public<E extends Comparable<Item>> void visitComposite(Composite composite) {
-		Item maxItem = null;
+		Item searchedItem = null;
 		Iterator<Item> iterator = composite.createIterator();
 
 		if(iterator.hasNext()){
-			maxItem = iterator.next();
+			searchedItem = iterator.next();
 
 			while(iterator.hasNext()) {
 				Item currentItem = iterator.next();
 
-				if(evaluate(currentItem, maxItem)) {
-					maxItem = currentItem;
+				if(evaluate(currentItem, searchedItem)) {
+					searchedItem = currentItem;
 				}
 			}
 		}		
-		maxItem.print();
+		searchedItem.print();
 	}
 
 	abstract <E extends Comparable<E>> boolean evaluate(E result, E currentItem);
