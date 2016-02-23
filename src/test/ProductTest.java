@@ -12,8 +12,8 @@ public class ProductTest {
 	
 	@Before 
 	public void setUp() {
-		product1 = new ConcreteProduct("Ten - Pearl Jam - 1991", 8.72);
-		product2 = new ConcreteProduct("Vs. - Pearl Jam - 1993", 19.12);
+		product1 = new ConcreteProduct("Ten - Pearl Jam - 1991", "CD e Vinili", 8.72);
+		product2 = new ConcreteProduct("Vs. - Pearl Jam - 1993", "CD e Vinili", 19.12);
 	}
 	
 	@Test(expected= Exception.class)

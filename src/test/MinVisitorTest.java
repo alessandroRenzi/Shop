@@ -17,8 +17,8 @@ public class MinVisitorTest {
 	public void setUp() {
 		min = new MinVisitor();
 
-		product1 = new ConcreteProduct("Highway 61 Revisited - Bob Dylan - 1965", 21.50);
-		product2 = new ConcreteProduct("Desire - Bob Dylan - 1976", 20.00);
+		product1 = new ConcreteProduct("Highway 61 Revisited - Bob Dylan - 1965", "CD e Vinili", 21.50);
+		product2 = new ConcreteProduct("Desire - Bob Dylan - 1976", "CD e Vinili", 20.00);
 	}
 
 	@Test

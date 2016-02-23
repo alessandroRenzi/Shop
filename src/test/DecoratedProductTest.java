@@ -22,7 +22,7 @@ public class DecoratedProductTest {
 		outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
 		
-		product = new ConcreteProduct("Green River - Creedence Clearwater Revival - 1969", 23.49);
+		product = new ConcreteProduct("Green River - Creedence Clearwater Revival - 1969", "CD e Vinili", 23.49);
 		decoratedProduct = new DecoratedProduct(product, 10);
 	}
 	
@@ -34,7 +34,7 @@ public class DecoratedProductTest {
 	@Test
 	public void testPrint() {
 		decoratedProduct.print();
-		assertEquals("Green River - Creedence Clearwater Revival - 1969 - price: 23.49 - 10% = 21.14", outContent.toString());
+		assertEquals("Green River - Creedence Clearwater Revival - 1969 - CD e Vinili - price: 23.49 - 10% = 21.14", outContent.toString());
 	}
 
 }

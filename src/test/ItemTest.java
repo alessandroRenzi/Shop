@@ -14,8 +14,8 @@ public class ItemTest {
 	
 	@Before
 	public void setUp() {
-		item1 = new ConcreteProduct("Fear of the Dark - Iron Maiden - 1992", 11.49);
-		item2 = new ConcreteProduct("A Matter of Life and Death - Iron Maiden - 2006", 7.99);
+		item1 = new ConcreteProduct("Fear of the Dark - Iron Maiden - 1992", "CD e Vinili", 11.49);
+		item2 = new ConcreteProduct("A Matter of Life and Death - Iron Maiden - 2006", "CD e Vinili", 7.99);
 	}
 	
 	@Test

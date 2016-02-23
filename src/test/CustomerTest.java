@@ -26,7 +26,7 @@ public class CustomerTest {
 		outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
 
-		rentals = new Rentals(customer,new ConcreteProduct("Dookie - Green Day - 1994", 9.90),01,02,1994);
+		rentals = new Rentals(customer,new ConcreteProduct("Dookie - Green Day - 1994", "CD e Vinili", 9.90),01,02,1994);
 	}
 
 	@After

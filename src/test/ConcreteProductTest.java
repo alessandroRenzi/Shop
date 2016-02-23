@@ -19,7 +19,7 @@ public class ConcreteProductTest {
 		outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
 		
-		product = new ConcreteProduct("The Wall - Pink Floyd - 1979", 6.99);
+		product = new ConcreteProduct("The Wall - Pink Floyd - 1979", "CD e Vinili", 6.99);
 	}
 	
 	@Test
@@ -47,6 +47,6 @@ public class ConcreteProductTest {
 	@Test
 	public void testPrint() {
 		product.print();
-		assertEquals("The Wall - Pink Floyd - 1979 - price: 6.99", outContent.toString());
+		assertEquals("The Wall - Pink Floyd - 1979 - CD e Vinili - price: 6.99", outContent.toString());
 	}
 }

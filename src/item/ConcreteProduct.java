@@ -55,7 +55,7 @@ public class ConcreteProduct extends Product {
 	}
 	
 	public void printCategory() {
-		System.out.print(getCategory());
+		System.out.print(" - " + getCategory());
 	}
 	
 	public void printPrice() {

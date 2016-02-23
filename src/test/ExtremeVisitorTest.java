@@ -25,8 +25,8 @@ public class ExtremeVisitorTest {
 		outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
 
-		product1 = new ConcreteProduct("Who's Next - The Who - 1971", 22.95);
-		product2 = new DecoratedProduct(new ConcreteProduct("My Generation - The Who - 1965", 19.12), 20);
+		product1 = new ConcreteProduct("Who's Next - The Who - 1971", "CD e Vinili", 22.95);
+		product2 = new DecoratedProduct(new ConcreteProduct("My Generation - The Who - 1965", "CD e Vinili", 19.12), 20);
 
 		pack = new Composite("Who's Next Generation? - The Who - 2015");
 		try {
@@ -40,18 +40,18 @@ public class ExtremeVisitorTest {
 	@Test
 	public void testProductMax() {
 		visitor.visitConcreteProduct(product1);
-		assertEquals("Who's Next - The Who - 1971 - price: 22.95", outContent.toString());
+		assertEquals("Who's Next - The Who - 1971 - CD e Vinili - price: 22.95", outContent.toString());
 	}
 
 	@Test
 	public void testDecoratedProductMax() {
 		visitor.visitDecoratedProduct(product2);
-		assertEquals("My Generation - The Who - 1965 - price: 19.12 - 20% = 15.3", outContent.toString());
+		assertEquals("My Generation - The Who - 1965 - CD e Vinili - price: 19.12 - 20% = 15.3", outContent.toString());
 	}
 
 	@Test
 	public void testCompositeMax(){
 		visitor.visitComposite(pack);
-		assertEquals("Who's Next - The Who - 1971 - price: 22.95", outContent.toString());
+		assertEquals("Who's Next - The Who - 1971 - CD e Vinili - price: 22.95", outContent.toString());
 	}
 }

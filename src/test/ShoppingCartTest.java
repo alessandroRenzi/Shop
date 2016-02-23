@@ -29,9 +29,9 @@ public class ShoppingCartTest {
 		outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
 
-		product1 = new ConcreteProduct("Nevermind - Nirvana - 1991", 19.12);
-		product2 = new ConcreteProduct("Ten - Pearl Jam - 1991", 7.50);
-		product3 = new ConcreteProduct("The Wall - Pink Floyd - 1979", 30.72);
+		product1 = new ConcreteProduct("Nevermind - Nirvana - 1991", "CD e Vinili", 19.12);
+		product2 = new ConcreteProduct("Ten - Pearl Jam - 1991", "CD e Vinili", 7.50);
+		product3 = new ConcreteProduct("The Wall - Pink Floyd - 1979", "CD e Vinili", 30.72);
 
 		customer1 = new Customer("Matteo Gori","M",1995,04,15);
 		customer2 = new Customer("Alessandro Renzi","M",1982,12,02);

@@ -13,7 +13,7 @@ import sorter.BubbleSortCrescent;
 public class BubbleSorterCrescentTest {
 	List<Integer> toSort;
 	List<Integer> Sorted;
-	
+
 	@Before
 	public void setUp(){
 		toSort = new LinkedList<Integer>();
@@ -25,7 +25,6 @@ public class BubbleSorterCrescentTest {
 		Sorted.add(5);
 		Sorted.add(10);
 	}
-	
 
 	@Test
 	public void sortCrescentTest() {
@@ -33,10 +32,8 @@ public class BubbleSorterCrescentTest {
 		assertArrayEquals(Sorted.toArray(),toSort.toArray());
 	}
 
-
 	private void sorting() {
 		BubbleSortCrescent<Integer> temp = new BubbleSortCrescent<Integer>();
 		temp.sort(toSort);
 	}
-
 }
