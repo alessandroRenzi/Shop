@@ -4,10 +4,12 @@ import report.Visitor;
 
 public class ConcreteProduct extends Product {
 	private String description;
+	private String category;
 	private double price;
 
-	public ConcreteProduct(String description, double price) {
+	public ConcreteProduct(String description, String category, double price) {
 		this.description = description;
+		this.category = category;
 		this.price = price;
 	}
 
@@ -17,6 +19,14 @@ public class ConcreteProduct extends Product {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public void setPrice(double price) {
@@ -36,11 +46,16 @@ public class ConcreteProduct extends Product {
 	@Override
 	public void print() {
 		printDescription();
+		printCategory();
 		printPrice();
 	}
 	
 	public void printDescription() {
 		System.out.print(getDescription());
+	}
+	
+	public void printCategory() {
+		System.out.print(getCategory());
 	}
 	
 	public void printPrice() {

@@ -15,7 +15,7 @@ public interface Item extends Comparable<Item>{
 		}
 		return result;
 	}
-
+	String getCategory();
 	double getPrice();
 	void print();
 }

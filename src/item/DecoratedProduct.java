@@ -35,4 +35,16 @@ public class DecoratedProduct extends AbstractProduct {
 	public void printDecoratedProduct() {
 		System.out.print(" - " + this.percentage + "% = " + getPrice());
 	}
+
+	@Override
+	public String getCategory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int compareTo(Item o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

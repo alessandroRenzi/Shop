@@ -7,30 +7,30 @@ import java.util.List;
 import customer.Customer;
 
 public class Customers {
-	private List<Customer> listRegister;
+	private List<Customer> listCustomers;
 
 	public Customers() {
-		listRegister = new LinkedList<Customer>();
+		listCustomers = new LinkedList<Customer>();
 	}
 
 	public List<Customer> getListRegister() {
-		return listRegister;
+		return listCustomers;
 	}
 
 	public void setListRegister(List<Customer> listRegister) {
-		this.listRegister = listRegister;
+		this.listCustomers = listRegister;
 	}
 
 	public void addToListRegister(Customer registered) {
-		this.listRegister.add(registered);
+		this.listCustomers.add(registered);
 	}
 
 	public void removeFromListRegister(Customer registered) {
-		this.listRegister.remove(registered);
+		this.listCustomers.remove(registered);
 	}
 
 	public void print() {
-		Iterator<Customer> iteratorCustomers = listRegister.iterator();
+		Iterator<Customer> iteratorCustomers = listCustomers.iterator();
 
 		while(iteratorCustomers.hasNext()) {
 			Customer currentCustomer = iteratorCustomers.next();

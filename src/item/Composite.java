@@ -58,4 +58,16 @@ public class Composite implements Item {
 	public Iterator<Item> createIterator(){
 		return myItems.iterator();
 	}
+
+	@Override
+	public int compareTo(Item o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getCategory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
