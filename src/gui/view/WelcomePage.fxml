@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" contentDisplay="TOP" layoutX="12.0" layoutY="86.0" prefHeight="150.0" prefWidth="1000.0" text="G&amp;R" textAlignment="CENTER" textOverrun="CLIP" AnchorPane.bottomAnchor="532.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="86.0">
+         <font>
+            <Font name="Calibri Bold" size="96.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="12.0" layoutY="161.0" prefHeight="291.0" prefWidth="1000.0" text="SHOP ONLINE" textAlignment="CENTER">
+         <font>
+            <Font name="Calibri" size="96.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="448.0" layoutY="541.0" prefHeight="90.0" prefWidth="128.0" text="Italiano">
+         <font>
+            <Font name="Calibri" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
