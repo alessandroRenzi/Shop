@@ -2,6 +2,7 @@ package gui;
 
 import cart.ShoppingCart;
 import customer.Customer;
+import customer.UnRegisteredCustomer;
 import database.Company;
 import invoice.ConcreteInvoice;
 import invoice.Invoice;
@@ -14,8 +15,8 @@ public class Main {
 		ConcreteProduct product2 = new ConcreteProduct("Ten - Pearl Jam - 1991", "CD e Vinili", 7.50);
 		ConcreteProduct product3 = new ConcreteProduct("The Wall - Pink Floyd - 1979", "CD e Vinili", 30.72);
 
-		Customer customer1 = new Customer("Matteo Gori","M",1995,04,15);
-		Customer customer2 = new Customer("Alessandro Renzi","M",1982,12,02);
+		Customer customer1 = new UnRegisteredCustomer("Matteo Gori","M","1995-04-12");
+		Customer customer2 = new UnRegisteredCustomer("Alessandro Renzi","M","1985-04-26");
 
 		Composite pack = new Composite("Best of Grunge - Various artists - 2015");
 		try {

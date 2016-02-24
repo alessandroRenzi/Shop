@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import cart.ShoppingCart;
 import customer.Customer;
+import customer.UnRegisteredCustomer;
 import item.ConcreteProduct;
 import payment.ConcretePayment;
 import payment.Payment;
@@ -24,7 +25,7 @@ public class ConcretePaymentTest {
 		outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
 
-		shoppingCart = new ShoppingCart(new Customer("Jimmy Page","M",9,1,1944));
+		shoppingCart = new ShoppingCart(new UnRegisteredCustomer("Jimmy Page","M","9-1-1944"));
 		shoppingCart.addToCart(new ConcreteProduct("Ten - Pearl Jam - 1991", "CD e Vinili", 7.50),1);
 
 		payment = new ConcretePayment(shoppingCart.getTotalPrice());

@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import cart.ShoppingCart;
 import customer.Customer;
+import customer.UnRegisteredCustomer;
 import item.Composite;
 import item.ConcreteProduct;
 
@@ -33,8 +34,8 @@ public class ShoppingCartTest {
 		product2 = new ConcreteProduct("Ten - Pearl Jam - 1991", "CD e Vinili", 7.50);
 		product3 = new ConcreteProduct("The Wall - Pink Floyd - 1979", "CD e Vinili", 30.72);
 
-		customer1 = new Customer("Matteo Gori","M",1995,04,15);
-		customer2 = new Customer("Alessandro Renzi","M",1982,12,02);
+		customer1 = new UnRegisteredCustomer("Matteo Gori","M","1995-04-15");
+		customer2 = new UnRegisteredCustomer("Alessandro Renzi","M","1982-1202");
 
 		pack = new Composite("Best of Grunge - Various artists - 2015");
 		try {
