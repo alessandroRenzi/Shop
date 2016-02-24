@@ -1,6 +1,6 @@
-package utility;
+package invoice;
 
-import sales.ShoppingCart;
+import cart.ShoppingCart;
 
 public class ConcreteInvoice implements Invoice {
 	private ShoppingCart shoppingCart;

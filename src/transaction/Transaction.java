@@ -1,9 +1,8 @@
 package transaction;
 
+import cart.ShoppingCart;
 import payment.Payment;
 import rentals.Rentals;
-import sales.ShoppingCart;
-//import utility.ConcreteInvoice;
 
 public class Transaction {
 	//private ConcreteInvoice invoice; 

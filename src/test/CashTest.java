@@ -8,12 +8,12 @@ import java.io.PrintStream;
 import org.junit.Before;
 import org.junit.Test;
 
+import cart.ShoppingCart;
 import customer.Customer;
 import item.ConcreteProduct;
 import payment.Cash;
 import payment.ConcretePayment;
 import payment.Payment;
-import sales.ShoppingCart;
 
 public class CashTest {
 	private ByteArrayOutputStream outContent;

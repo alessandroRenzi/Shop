@@ -8,11 +8,11 @@ import java.io.PrintStream;
 import org.junit.Before;
 import org.junit.Test;
 
+import cart.ShoppingCart;
 import customer.Customer;
 import item.ConcreteProduct;
 import payment.ConcretePayment;
 import payment.Payment;
-import sales.ShoppingCart;
 
 public class ConcretePaymentTest {
 	private ByteArrayOutputStream outContent;

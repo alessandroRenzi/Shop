@@ -8,10 +8,10 @@ import java.io.PrintStream;
 import org.junit.Before;
 import org.junit.Test;
 
+import cart.ShoppingCart;
 import customer.Customer;
 import item.Composite;
 import item.ConcreteProduct;
-import sales.ShoppingCart;
 
 public class ShoppingCartTest {
 	private ByteArrayOutputStream outContent;
