@@ -12,27 +12,27 @@ import customer.RegisteredCustomer;
 
 public class RegisteredCustomerTest {
 	private RegisteredCustomer customer;
-	
-	
+
+
 	@Before
 	public void setUp(){
 		this.customer = new RegisteredCustomer("Alessandro", "Renzi", "1985-04-26","Male","Via Belgio");
 	}
-	
+
 	@After
 	public void resetId(){
-		customer.resetID();
+		customer.resetId();
 	}
 	@Test
 	public void testGetAge() {
-			assertEquals(31, customer.getAge());
+		assertEquals(31, customer.getAge());
 	}
 
 	@Test
 	public void testGetName(){
 		assertEquals("Alessandro", customer.getName());
 	}
-	
+
 	@Test
 	public void testGetSurname(){
 		assertEquals("Renzi", customer.getSurname());

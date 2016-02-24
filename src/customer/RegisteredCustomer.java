@@ -6,40 +6,41 @@ import card.BasicCard;
 import card.Card;
 
 public class RegisteredCustomer extends AbstractCustomer {
-	private String genre, street,id;
 	private static AtomicInteger counter = new AtomicInteger(0);
+	private String genre;
+	private String id;
+	private String street;
 
-		public RegisteredCustomer(String name, String surname, String birthDay,String genre, String street){
-			super(name,surname,birthDay);
-			this.genre = genre;
-			this.street = street;
-			this.id = "CST" + counter.incrementAndGet();
-		}
+	public RegisteredCustomer(String name, String surname, String birthDay, String genre, String street){
+		super(name,surname,birthDay);
+		this.genre = genre;
+		this.id = "CST" + counter.incrementAndGet();
+		this.street = street;
+	}
 
-		public String getGenre(){
-			return this.genre;
-		}
-		
-		public String getStreet(){
-			return this.street;
-		}
-		
-		public String getiD() {
-			return this.id;
-		}
-		
-		public void resetID() {
-			counter.set(0);
-		}
+	public String getGenre(){
+		return this.genre;
+	}
 
-		@Override
-		public String addInformation(String result) {
-			return result =" Genre: "+ getGenre() + " Street: " + getStreet() + " Id: "+ getiD();
-			
-		}
+	public String getId() {
+		return this.id;
+	}
 
-		@Override
-		public Card myCard() {
-			return new BasicCard();
-		}
+	public String getStreet(){
+		return this.street;
+	}
+
+	@Override
+	public String addInformation(String result) {
+		return result = " - Genre: " + getGenre() + " - Street: " + getStreet() + " - Id: " + getId();
+	}
+
+	@Override
+	public Card myCard() {
+		return new BasicCard();
+	}
+
+	public void resetId() {
+		counter.set(0);
+	}
 }

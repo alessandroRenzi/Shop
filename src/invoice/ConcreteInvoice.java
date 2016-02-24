@@ -34,11 +34,8 @@ public class ConcreteInvoice implements Invoice {
 	public void doInvoice() {
 		invoiceDetails();
 		companyInfo();
+		customerInfo();
 		itemsDetails();
-	}
-
-	public void customerInfo() {
-
 	}
 
 	public void invoiceDetails() {
@@ -48,7 +45,11 @@ public class ConcreteInvoice implements Invoice {
 
 	public void companyInfo() {
 		company.printCompanyInfo();
-		System.out.print("\n");
+		System.out.println("\n");
+	}
+
+	public void customerInfo() {
+		System.out.println(shoppingCart.getCustomer().toString() + "\n");
 	}
 
 	public void itemsDetails() {
