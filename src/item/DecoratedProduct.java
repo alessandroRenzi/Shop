@@ -9,6 +9,14 @@ public class DecoratedProduct extends AbstractProduct {
 		super(product);
 		this.percentage = percentage;
 	}
+	
+	public int getPercentage() {
+		return percentage;
+	}
+
+	public void setPercentage(int percentage) {
+		this.percentage = percentage;
+	}
 
 	@Override
 	public double getPrice() {
@@ -33,6 +41,15 @@ public class DecoratedProduct extends AbstractProduct {
 	}
 
 	public void printDecoratedProduct() {
-		System.out.print(" - " + this.percentage + "% = " + getPrice());
+		printPercentage();
+		printPrice();
+	}
+	
+	public void printPercentage() {
+		System.out.print(" - " + getPercentage());
+	}
+	
+	public void printPrice() {
+		System.out.print("% = " + getPrice());
 	}
 }
