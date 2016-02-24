@@ -9,7 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import cart.ShoppingCart;
-import customer.Customer;
 import customer.UnRegisteredCustomer;
 import item.ConcreteProduct;
 import payment.Cash;
