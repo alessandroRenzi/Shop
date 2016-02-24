@@ -27,7 +27,7 @@ public class ConcreteInvoice implements Invoice {
 	}
 
 	public void setVat(int vat) {
-		vat = vat;
+		this.vat = vat;
 	}
 
 	@Override
