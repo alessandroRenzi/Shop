@@ -68,15 +68,27 @@ public class ShoppingCart {
 		quantityItems = quantityItems - quantity; 
 	}
 
-	@Override
-	public String toString() {
-		String contents = "Shopping Cart:\n";
-		Iterator<Item> iteratorCart = cart.iterator();
+	public void printCart() {
+		cartContents();
+		cartTotal();
+	}
+
+	public void cartContents() {
+		Iterator<Item> iteratorCart = getIterator();
 
 		while(iteratorCart.hasNext()) {
 			Item currentItem = iteratorCart.next();
-			contents = contents + currentItem.toString() + "\n";
+			currentItem.print();
+			System.out.print("\n");
 		}
-		return contents + "\nQuantity: " + getQuantityItems() + "\tTotal price: " + getTotalPrice();
+	}
+
+	public void cartTotal() {
+		String content = "\nQuantity: " + getQuantityItems() + "\tTotal price: " + getTotalPrice();
+		System.out.print(content);
+	}
+
+	public Iterator<Item> getIterator() {
+		return cart.iterator();
 	}
 }

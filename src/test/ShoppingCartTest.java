@@ -117,8 +117,8 @@ public class ShoppingCartTest {
 	}
 
 	@Test
-	public void testToString() {
-		String c = outContent.toString();
-		assertEquals(c,outContent.toString());
+	public void testPrintCart() {
+		shopCart1.printCart();
+		assertEquals("",outContent.toString());
 	}
 }
