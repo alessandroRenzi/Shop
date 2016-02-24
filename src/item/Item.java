@@ -1,5 +1,6 @@
 package item;
 
+import discount.Discount;
 import report.Visitor;
 
 public interface Item extends Comparable<Item>{
@@ -18,5 +19,6 @@ public interface Item extends Comparable<Item>{
 
 	double getPrice();
 	void print();
+	void setDiscount(Discount discount);
 }
 

@@ -1,5 +1,6 @@
 package discount;
 
 public interface Discount {
-	double discount(double price);
+	double doDiscount(double price, double percentage);
+	double getPercentage();
 }

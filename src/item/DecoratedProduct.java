@@ -1,5 +1,6 @@
 package item;
 
+import discount.Discount;
 import report.Visitor;
 
 public class DecoratedProduct extends AbstractProduct {
@@ -9,13 +10,18 @@ public class DecoratedProduct extends AbstractProduct {
 		super(product);
 		this.percentage = percentage;
 	}
-	
+
 	public int getPercentage() {
 		return percentage;
 	}
 
 	public void setPercentage(int percentage) {
 		this.percentage = percentage;
+	}
+
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visitDecoratedProduct(this);
 	}
 
 	@Override
@@ -30,8 +36,8 @@ public class DecoratedProduct extends AbstractProduct {
 	}
 
 	@Override
-	public void accept(Visitor visitor) {
-		visitor.visitDecoratedProduct(this);
+	public void setDiscount(Discount discount) {
+		super.setDiscount(discount);
 	}
 
 	public double getDecoratedPrice() {
@@ -44,11 +50,11 @@ public class DecoratedProduct extends AbstractProduct {
 		printPercentage();
 		printPrice();
 	}
-	
+
 	public void printPercentage() {
 		System.out.print(" - " + getPercentage());
 	}
-	
+
 	public void printPrice() {
 		System.out.print("% = " + getPrice());
 	}

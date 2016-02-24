@@ -8,6 +8,7 @@ import java.io.PrintStream;
 import org.junit.Before;
 import org.junit.Test;
 
+import discount.ChristmasDiscount;
 import item.*;
 
 public class CompositeTest {
@@ -41,16 +42,18 @@ public class CompositeTest {
 
 	@Test
 	public void testGetPrice() {
-		assertEvaluatesTo(composite, 26.52);
-	}
-
-	private void assertEvaluatesTo(Item item, double expected) {
-		assertEquals(expected,item.getPrice(),0.1);
+		assertEquals(26.52,composite.getPrice(),0.1);
 	}
 
 	@Test
 	public void testPrint() {
 		composite.print();
-		assertEquals("Complete Audioslave - price: 26.520000000000003",outContent.toString());
+		assertEquals("Complete Audioslave - price: 26.52",outContent.toString());
+	}
+
+	@Test
+	public void testSetDiscount() {
+		composite.setDiscount(new ChristmasDiscount(20));
+		assertEquals(21.216,composite.getPrice(),0.1);
 	}
 }

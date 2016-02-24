@@ -1,17 +1,17 @@
 package discount;
 
-public class BaseDiscount extends AbstractDiscount {
-	public BaseDiscount() {
-		
+public class TotalDiscount extends AbstractDiscount {
+	
+	public TotalDiscount() {
 	}
 	
 	@Override
 	public double getPercentage() {
-		return 0;
+		return 100;
 	}
-
+	
 	@Override
 	public double calcDiscount(double price, double percentage) {
-		return price;
+		return 0;
 	}
 }

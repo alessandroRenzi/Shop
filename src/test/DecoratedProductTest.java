@@ -8,6 +8,7 @@ import java.io.PrintStream;
 import org.junit.Before;
 import org.junit.Test;
 
+import discount.SummerDiscount;
 import item.ConcreteProduct;
 import item.DecoratedProduct;
 import item.Product;
@@ -43,4 +44,9 @@ public class DecoratedProductTest {
 		assertEquals("Green River - Creedence Clearwater Revival - 1969 - CD e Vinili - price: 23.49 - 10% = 21.14", outContent.toString());
 	}
 
+	@Test
+	public void testSetDiscount() {
+		decoratedProduct.setDiscount(new SummerDiscount(30));
+		assertEquals(14.7987,decoratedProduct.getPrice(),0.1);
+	}
 }
