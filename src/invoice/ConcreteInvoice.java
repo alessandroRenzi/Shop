@@ -3,17 +3,17 @@ package invoice;
 import java.time.LocalDate;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import cart.ShoppingCart;
+import cart.Cart;
 import database.Company;
 
 public class ConcreteInvoice implements Invoice {
 	private static AtomicInteger counter = new AtomicInteger(0);
 	private Company company = new Company();
 	private String invoiceNumber;
-	private ShoppingCart shoppingCart;
+	private Cart shoppingCart;
 	private int vat = 22;
 
-	public ConcreteInvoice(ShoppingCart shoppingCart) {
+	public ConcreteInvoice(Cart shoppingCart) {
 		this.invoiceNumber = "" + counter.incrementAndGet();
 		this.shoppingCart = shoppingCart;
 	}
@@ -22,7 +22,7 @@ public class ConcreteInvoice implements Invoice {
 		return invoiceNumber;
 	}
 
-	public ShoppingCart getShoppingCart() {
+	public Cart getShoppingCart() {
 		return shoppingCart;
 	}
 

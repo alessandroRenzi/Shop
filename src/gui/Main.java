@@ -4,9 +4,6 @@ import cart.ShoppingCart;
 import customer.Customer;
 import customer.UnRegisteredCustomer;
 import customer.WorkerCustomer;
-import database.Company;
-import invoice.ConcreteInvoice;
-import invoice.Invoice;
 import item.Composite;
 import item.ConcreteProduct;
 
@@ -25,20 +22,18 @@ public class Main {
 			pack.add(product2);
 		} catch(Exception exception) { }
 
-		Company company = new Company();
-
 		ShoppingCart shopCart1 = new ShoppingCart(customer1);
 		shopCart1.addToCart(pack, 1);
 
 		ShoppingCart shopCart2 = new ShoppingCart(customer2);
+		System.out.println(shopCart2.getTotalPrice());
+		//System.out.println(shopCart2.getQuantityItems());
 		shopCart2.addToCart(product2, 1);
+		System.out.println(shopCart2.getTotalPrice());
+		//System.out.println(shopCart2.getQuantityItems());
 		shopCart2.addToCart(product3, 1);
-
-		Invoice i = new ConcreteInvoice(shopCart1);
-		i.doInvoice();
-
-		System.out.print("\n\n");
-		company.printCompanyInfo();
+		System.out.println(shopCart2.getTotalPrice());
+		//System.out.println(shopCart2.getQuantityItems());
 	}
 
 	public static void main(String[] args) {

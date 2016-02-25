@@ -1,6 +1,6 @@
 package transaction;
 
-import cart.ShoppingCart;
+import cart.Cart;
 import payment.Payment;
 import rentals.Rentals;
 
@@ -8,9 +8,9 @@ public class Transaction {
 	//private ConcreteInvoice invoice; 
 	private Payment payment;
 	private Rentals rentals;
-	private ShoppingCart shoppingCart;
+	private Cart shoppingCart;
 
-	public Transaction(ShoppingCart shoppingCart, Payment payment) {
+	public Transaction(Cart shoppingCart, Payment payment) {
 		this.payment = payment;
 		this.shoppingCart = shoppingCart;
 	}
@@ -32,7 +32,7 @@ public class Transaction {
 		return rentals;
 	}
 
-	public ShoppingCart getShoppingCart() {
+	public Cart getShoppingCart() {
 		return shoppingCart;
 	}
 

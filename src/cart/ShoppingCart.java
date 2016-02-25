@@ -6,18 +6,40 @@ import java.util.List;
 
 import customer.Customer;
 import item.Item;
+import observer.CartObserver;
+import observer.TotalPriceObserver;
+import observer.TotalQuantityObserver;
 
-public class ShoppingCart {
+public class ShoppingCart implements Cart {
 	private List<Item> cart;
+	public static List<CartObserver> getListObserver() {
+		return listObserver;
+	}
+
+	public CartObserver getTotalQuantityObserver() {
+		return totalQuantityObserver;
+	}
+
+	public CartObserver getTotalPriceObserver() {
+		return totalPriceObserver;
+	}
+
 	private Customer customer;
-	private int quantityItems;     
+	private static List<CartObserver> listObserver;
+	private int quantityItems;  
+	private CartObserver totalQuantityObserver;
 	private double totalPrice;
+	private CartObserver totalPriceObserver;
+
 
 	public ShoppingCart(Customer customer) {
 		cart = new LinkedList<Item>();
 		this.customer = customer;
+		listObserver = new LinkedList<CartObserver>();
 		this.quantityItems = 0;
+		totalQuantityObserver = new TotalQuantityObserver(this);
 		this.totalPrice = 0;
+		totalPriceObserver = new TotalPriceObserver(this);
 	}
 
 	public List<Item> getCart() {
@@ -51,9 +73,7 @@ public class ShoppingCart {
 			cart.add(item);
 			quantityIndex = quantityIndex-1;
 		}
-
-		totalPrice = totalPrice + (item.getPrice() * quantity);
-		quantityItems = quantityItems + quantity; 
+		notifyAllObservers(0,item,quantity);
 	}
 
 	public void removeFromCart(Item item, int quantity) {
@@ -63,9 +83,7 @@ public class ShoppingCart {
 			cart.remove(item);
 			quantityIndex = quantityIndex-1;
 		}
-
-		totalPrice = totalPrice - (item.getPrice() * quantity);
-		quantityItems = quantityItems - quantity; 
+		notifyAllObservers(1,item,quantity); 
 	}
 
 	public void printCart() {
@@ -90,5 +108,19 @@ public class ShoppingCart {
 
 	public Iterator<Item> getIterator() {
 		return cart.iterator();
+	}
+
+	public void addObserver(CartObserver observer) {
+		listObserver.add(observer);
+	}
+
+	public void removeObserver(CartObserver observer) {
+		listObserver.remove(observer);
+	}
+
+	public void notifyAllObservers(int index, Item item, int quantity) {
+		for(CartObserver observer : listObserver) {
+			observer.update(this,index,item,quantity);
+		}
 	}
 }
