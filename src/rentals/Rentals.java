@@ -1,45 +1,51 @@
 package rentals;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
+import java.time.LocalDate;
 import customer.Customer;
 import item.Item;
+import utilRentals.FullRentalCalc;
+import utilRentals.calcRental;
 
-public class Rentals {
-	private Calendar rentalStartDate;
+public class Rentals implements Hire {
+	private LocalDate startRentalDate;
 	private Customer customer;
 	private Item item;
+	private calcRental rentalCalculator;
 
-	public Rentals(Customer customer, Item item, int day, int month, int year) {
+	public Rentals(Customer customer, Item item, String date) {
 		this.customer = customer;
 		this.item = item;
-		this.rentalStartDate = new GregorianCalendar(year,month-1,day);
+		this.startRentalDate = LocalDate.parse(date);
+		this.setTypeOfRental(new FullRentalCalc());
 	}
 
 	public Customer getCustomer() {
 		return customer;
 	}
 
-	public Calendar getRentalStartDate() {
-		return rentalStartDate;
+	@Override
+	public LocalDate getRentalStartDate() {
+		return this.startRentalDate;
 	}
 
-	public void setRentalStartDate(Calendar rentalStartDate) {
-		this.rentalStartDate = rentalStartDate;
+	@Override
+	public void setRentalStartDate(String rentalStartDate) {
+		this.startRentalDate = LocalDate.parse(rentalStartDate);
 	}
 
 	public Item getItem() {
 		return item;
 	}
 
+	@Override
 	public double rentalPriceCalc() {
 		double result = 0;
-		Calendar dateOfToday = Calendar.getInstance();
-		long dateInMillis = dateOfToday.getTimeInMillis() - this.rentalStartDate.getTimeInMillis();
-		//1 giorno = 1000*60*60*24 ms = 86400000 ms
-		long numberOfDays = dateInMillis/(86400000);
-		result = numberOfDays*1;
+		result = this.rentalCalculator.calculate(getRentalStartDate(), getItem());
 		return result;
+	}
+
+	@Override
+	public void setTypeOfRental(calcRental rentalType) {
+		this.rentalCalculator = rentalType;
 	}
 }
