@@ -8,7 +8,6 @@ import org.junit.Test;
 import cart.ShoppingCart;
 import customer.UnRegisteredCustomer;
 import item.ConcreteProduct;
-import payment.BankTransfer;
 import payment.ConcretePayment;
 import payment.CreditCard;
 import payment.Payment;
