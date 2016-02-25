@@ -9,8 +9,21 @@ public abstract class AbstractPayment implements Payment {
 
 	@Override
 	public void doPay() {
-		if(this.payment != null) {
-			this.payment.doPay();
-		}
+		this.payment.doPay();
 	}
+	
+	@Override
+	public String getPay() {
+		return this.payment.getPay();
+	}
+	
+	@Override
+	public void setPay(String pay) {
+		this.payment.setPay(pay);
+	}
+	
+	public Payment getPayment(){
+		return this.payment;
+	}
+
 }

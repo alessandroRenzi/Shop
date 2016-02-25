@@ -7,11 +7,13 @@ public class PayPal extends AbstractPayment {
 
 	@Override
 	public void doPay() {
-		this.payPalPay();
+		this.payPalPay(); 
 		super.doPay();
 	}
 
 	public void payPalPay() {
-		System.out.print("Paid by PayPal: ");
+		String temp = "Paid by PayPal: ";
+		super.getPayment().setPay(temp);
+		
 	}
 }

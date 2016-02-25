@@ -1,5 +1,8 @@
 package payment;
 
 public interface Payment {  
-	void doPay();
+	public void doPay();
+	public void setPay(String pay);
+	public String getPay();
+	
 }

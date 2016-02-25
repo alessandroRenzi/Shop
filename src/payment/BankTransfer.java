@@ -12,6 +12,8 @@ public class BankTransfer extends AbstractPayment {
 	}
 	
 	public void bankTransferPay() {
-		System.out.print("Paid by bank transfer: ");
+		String temp = "Paid by bank transfer: ";
+		super.getPayment().setPay(temp);
+	
 	}
 }

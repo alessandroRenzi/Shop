@@ -7,11 +7,12 @@ public class Cash extends AbstractPayment {
 
 	@Override
 	public void doPay() {
-		this.cashPay();
+		this.cashPay(); 
 		super.doPay();
 	}
 
 	public void cashPay() {
-		System.out.print("Paid in cash: ");
+		String temp = "Paid in cash: ";
+		super.getPayment().setPay(temp);
 	}
 }
