@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import cart.Cart;
+import cart.CartBase;
 import database.Company;
 
 public class ConcreteInvoice implements Invoice {
@@ -22,7 +23,7 @@ public class ConcreteInvoice implements Invoice {
 		return invoiceNumber;
 	}
 
-	public Cart getShoppingCart() {
+	public CartBase getShoppingCart() {
 		return shoppingCart;
 	}
 

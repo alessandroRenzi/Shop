@@ -25,12 +25,12 @@ public class Rentals implements Hire {
 
 	@Override
 	public LocalDate getRentalStartDate() {
-		return this.startRentalDate;
+		return startRentalDate;
 	}
 
 	@Override
 	public void setRentalStartDate(String rentalStartDate) {
-		this.startRentalDate = LocalDate.parse(rentalStartDate);
+		startRentalDate = LocalDate.parse(rentalStartDate);
 	}
 
 	public Item getItem() {
@@ -40,7 +40,7 @@ public class Rentals implements Hire {
 	@Override
 	public double rentalPriceCalc() {
 		double result = 0;
-		result = this.rentalCalculator.calculate(getRentalStartDate(), getItem());
+		result = rentalCalculator.calculate(getRentalStartDate(), getItem());
 		return result;
 	}
 

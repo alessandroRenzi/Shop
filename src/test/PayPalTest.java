@@ -8,6 +8,7 @@ import java.io.PrintStream;
 import org.junit.Before;
 import org.junit.Test;
 
+import cart.Cart;
 import cart.ShoppingCart;
 import customer.UnRegisteredCustomer;
 import item.ConcreteProduct;
@@ -18,14 +19,14 @@ import payment.Payment;
 public class PayPalTest {
 	private ByteArrayOutputStream outContent;
 	private Payment payment;
-	private ShoppingCart shoppingCart;
+	private Cart shoppingCart;
 
 	@Before
 	public void setUp() {
 		outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
 
-		shoppingCart = new ShoppingCart(new UnRegisteredCustomer("Jimmy Page","M","1944-9-1944"));
+		shoppingCart = new ShoppingCart(new UnRegisteredCustomer("Jimmy Page","M","1944-09-19"));
 		shoppingCart.addToCart(new ConcreteProduct("Ten - Pearl Jam - 1991", "CD e Vinili", 7.50),1);
 
 		payment = new PayPal(new ConcretePayment(shoppingCart.getTotalPrice()));

@@ -29,10 +29,6 @@ public class Composite implements Item {
 		return myItems;
 	}
 
-	public void setMyItems(List<Item> myItems) {
-		this.myItems = myItems;
-	}
-
 	@Override
 	public void accept(Visitor v) {
 		v.visitComposite(this);
@@ -68,7 +64,7 @@ public class Composite implements Item {
 	public Iterator<Item> createIterator(){
 		return myItems.iterator();
 	}
-	
+
 	public double roundingPrice(double sum) {
 		double discountedSum = discount.doDiscount(sum,discount.getPercentage());
 		double rounding = Math.pow(10,2);

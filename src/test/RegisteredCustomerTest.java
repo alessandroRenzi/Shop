@@ -48,6 +48,6 @@ public class RegisteredCustomerTest {
 	}
 	@Test 
 	public void toStringTest(){
-		assertEquals("Name: Alessandro Surname: Renzi Age: 31 Genre: Male Street: Via Belgio Id: CST1", customer.toString());
+		assertEquals("Name: Alessandro - Surname: Renzi - Age: 31 - Genre: Male - Street: Via Belgio - Id: CST1", customer.toString());
 	}
 }

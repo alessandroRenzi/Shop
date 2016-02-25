@@ -12,7 +12,7 @@ import card.NoCard;
 
 public class NoCardTest {
 	private Card noCard;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		noCard = new NoCard();
@@ -23,5 +23,4 @@ public class NoCardTest {
 	public void testAddPoint() {
 		assertEquals(0,noCard.getPoint());
 	}
-
 }

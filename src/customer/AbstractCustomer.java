@@ -20,12 +20,12 @@ public abstract class AbstractCustomer implements Customer{
 	}
 
 	public Card getCard(){
-		return this.card;
+		return card;
 	}
 
 	@Override
 	public int getAge() {
-		return this.age;
+		return age;
 	}
 
 	@Override

@@ -12,7 +12,7 @@ public class WorkerCustomerTest {
 
 	@Before
 	public void setUp(){
-		this.customer = new WorkerCustomer("Alessandro", "Renzi", "1985-04-26","Male","Via Belgio","Television");
+		customer = new WorkerCustomer("Alessandro", "Renzi", "1985-04-26","Male","Via Belgio","Television");
 	}
 
 	@Test
@@ -47,7 +47,7 @@ public class WorkerCustomerTest {
 
 	@Test 
 	public void toStringTest(){
-		assertEquals("Name: Alessandro Surname: Renzi Age: 31 Genre: Male Street: Via Belgio WorkingArea: Television", customer.toString());
+		assertEquals("Name: Alessandro - Surname: Renzi - Age: 31 - Genre: Male - Street: Via Belgio - WorkingArea: Television", customer.toString());
 	}
 }
 

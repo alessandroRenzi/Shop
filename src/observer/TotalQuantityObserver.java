@@ -4,8 +4,8 @@ import cart.Cart;
 import item.Item;
 
 public class TotalQuantityObserver extends AbstractCartObserver {
-	public TotalQuantityObserver(Cart shoppincgCart) {
-		super(shoppincgCart);
+	public TotalQuantityObserver(Cart shoppingCart) {
+		super(shoppingCart);
 	}
 
 	@Override

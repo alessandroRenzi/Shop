@@ -34,7 +34,7 @@ public class UnRegisteredCustomerTest {
 
 	@Test 
 	public void toStringTest(){
-		assertEquals("Name: Alessandro Surname: Renzi Age: 31", customer.toString());
+		assertEquals("Name: Alessandro - Surname: Renzi - Age: 31", customer.toString());
 	}
 
 

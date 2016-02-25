@@ -12,11 +12,10 @@ public class BubblesortCrescentVisitor implements Visitor {
 	public void visitConcreteProduct(ConcreteProduct product) {
 
 	}
-	
+
 	@Override
 	public void visitDecoratedProduct(DecoratedProduct decoratedProduct) {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
