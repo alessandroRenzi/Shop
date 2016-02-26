@@ -6,6 +6,7 @@ public class ConcretePayment implements Payment {
 
 	public ConcretePayment(double totalPrice) {
 		this.totalPrice=totalPrice;
+		this.pay = "";
 	}
 
 	@Override

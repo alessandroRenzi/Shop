@@ -16,12 +16,14 @@ public class GoldRentalCalcTest {
 	calcRental goldCalculate;
 	LocalDate startDate;
 	Item rent;
+	LocalDate endDate;
 	
 	@Before
 	public void setUp() throws Exception {
 		startDate = LocalDate.parse("2016-01-22");
 		rent = new ConcreteProduct("Hurricane", "Dvd", 30);
-		goldCalculate = new GoldRentalCalc();
+		endDate = LocalDate.parse("2016-02-25");
+		goldCalculate = new GoldRentalCalc(endDate);
 	}
 
 	

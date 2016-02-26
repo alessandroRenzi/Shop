@@ -18,12 +18,16 @@ public class RentalTest {
 	private Customer customer;
 	private Item rent;
 	private Rentals rental;
+	private LocalDate endDate;
 
 	@Before
 	public void setUp() throws Exception {
 		customer = new UnRegisteredCustomer("Alessandro", "Renzi", "1985-04-26");
 		rent = new ConcreteProduct("Hurricane", "Dvd", 30);
 		rental = new Rentals(customer, rent, "2016-01-22");
+		endDate = LocalDate.parse("2016-02-25");
+
+		rental.setEndRentalDate(endDate);
 	}
 
 	@Test
@@ -49,7 +53,7 @@ public class RentalTest {
 
 	@Test
 	public void testSetTypeOfRental(){
-		rental.setTypeOfRental(new GoldRentalCalc());
+		rental.setTypeOfRental(new GoldRentalCalc(endDate));
 		assertEquals(rental.rentalPriceCalc(), 6.8, 0.1);
 	}
 

@@ -40,18 +40,19 @@ public class ExtremeVisitorTest {
 	@Test
 	public void testProductMax() {
 		visitor.visitConcreteProduct(product1);
-		assertEquals("Who's Next - The Who - 1971 - CD e Vinili - price: 22.95", outContent.toString());
+		assertEquals("Description: Who's Next - The Who - 1971 | Category: CD e Vinili | Price: 22.95", outContent.toString());
 	}
 
 	@Test
 	public void testDecoratedProductMax() {
 		visitor.visitDecoratedProduct(product2);
-		assertEquals("My Generation - The Who - 1965 - CD e Vinili - price: 19.12 - 20% = 15.3", outContent.toString());
+		assertEquals("Description: My Generation - The Who - 1965 | Category: CD e Vinili | Price: 19.12 | Discount: "
+				+ "20% | Discounted price: 15.3", outContent.toString());
 	}
 
 	@Test
 	public void testCompositeMax(){
 		visitor.visitComposite(pack);
-		assertEquals("Who's Next - The Who - 1971 - CD e Vinili - price: 22.95", outContent.toString());
+		assertEquals("Description: Who's Next - The Who - 1971 | Category: CD e Vinili | Price: 22.95", outContent.toString());
 	}
 }

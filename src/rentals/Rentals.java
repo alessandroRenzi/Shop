@@ -8,6 +8,7 @@ import utilRentals.calcRental;
 
 public class Rentals implements Hire {
 	private LocalDate startRentalDate;
+	private LocalDate endRentalDate;
 	private Customer customer;
 	private Item item;
 	private calcRental rentalCalculator;
@@ -16,7 +17,6 @@ public class Rentals implements Hire {
 		this.customer = customer;
 		this.item = item;
 		this.startRentalDate = LocalDate.parse(date);
-		this.setTypeOfRental(new FullRentalCalc());
 	}
 
 	public Customer getCustomer() {
@@ -26,6 +26,16 @@ public class Rentals implements Hire {
 	@Override
 	public LocalDate getRentalStartDate() {
 		return startRentalDate;
+	}
+	
+	public LocalDate getEndRentalDate() {
+		return endRentalDate;
+	}
+
+	@Override
+	public void setEndRentalDate(LocalDate endRentalDate) {
+		this.endRentalDate = endRentalDate;
+		this.setTypeOfRental(new FullRentalCalc(endRentalDate));
 	}
 
 	@Override

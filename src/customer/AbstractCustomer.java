@@ -49,7 +49,7 @@ public abstract class AbstractCustomer implements Customer{
 	}
 
 	public  String toString(){
-		String result = "Name: " + getName() + " - Surname: " + getSurname() + " - Age: " + getAge();
+		String result = "Name: " + getName() + " | Surname: " + getSurname() + " | Age: " + getAge();
 		result = result+addInformation(result);
 		return result;
 	}

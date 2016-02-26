@@ -30,8 +30,8 @@ public class DecoratedProduct extends AbstractProduct {
 	}
 
 	@Override
-	public void print() {
-		super.print();
+	public void printItem() {
+		super.printItem();
 		this.printDecoratedProduct();
 	}
 
@@ -47,15 +47,15 @@ public class DecoratedProduct extends AbstractProduct {
 	}
 
 	public void printDecoratedProduct() {
-		printPercentage();
-		printPrice();
+		System.out.print(this.decoratedProductToString());
 	}
 
-	public void printPercentage() {
-		System.out.print(" - " + getPercentage());
+	@Override
+	public String toString() {
+		return super.toString() + this.decoratedProductToString();
 	}
 
-	public void printPrice() {
-		System.out.print("% = " + getPrice());
+	public String decoratedProductToString() {
+		return " | Discount: " + getPercentage() + "% | Discounted price: " + getPrice();	
 	}
 }

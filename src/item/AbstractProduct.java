@@ -15,9 +15,9 @@ public abstract class AbstractProduct extends Product {
 	}
 
 	@Override
-	public void print() {
+	public void printItem() {
 		if(this.product != null) {
-			this.product.print();
+			this.product.printItem();
 		}
 	}
 
@@ -26,6 +26,14 @@ public abstract class AbstractProduct extends Product {
 		if(this.product != null) {
 			this.product.setDiscount(discount);
 		}
+	}
+
+	@Override
+	public String toString() {
+		if(this.product != null) {
+			return this.product.toString();
+		}
+		return null;
 	}
 
 	public abstract void accept(Visitor visitor);

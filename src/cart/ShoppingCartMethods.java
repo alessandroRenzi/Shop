@@ -23,26 +23,31 @@ public abstract class ShoppingCartMethods extends ShoppingCartBase implements Ca
 	}
 
 	@Override
-	public void cartContents() {
+	public String cartContents() {
+		String content = "";
 		Iterator<Item> iteratorCart = getIterator();
 
 		while(iteratorCart.hasNext()) {
 			Item currentItem = iteratorCart.next();
-			currentItem.print();
-			System.out.print("\n");
+			content = content+currentItem.toString() + "\n";
 		}
+		return content;
 	}
 
 	@Override
-	public void cartTotal() {
+	public String cartTotal() {
 		String content = "\nQuantity: " + getQuantityItems() + "\tTotal price: " + getTotalPrice();
-		System.out.print(content);
+		return content;
+	}
+	
+	@Override
+	public String toString() {
+		return cartContents() + cartTotal();
 	}
 
 	@Override
 	public void printCart() {
-		cartContents();
-		cartTotal();
+		System.out.print(this.toString());
 	}
 
 	@Override

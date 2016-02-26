@@ -42,7 +42,7 @@ public class Composite implements Item {
 	@Override
 	public double getPrice() {
 		double sum = 0;
-		Iterator<Item> iteratorItems = createIterator();
+		Iterator<Item> iteratorItems = getIterator();
 
 		while(iteratorItems.hasNext()) {
 			Item currentItem = iteratorItems.next();
@@ -52,8 +52,21 @@ public class Composite implements Item {
 	}
 
 	@Override
-	public void print() {
-		System.out.print(getDescription() + " - price: " + getPrice());
+	public void printItem() {
+		System.out.print(this.toString());
+	}
+
+	@Override
+	public String toString() {
+		String content = "Description: " + getDescription() + " | Content:\n";
+		Iterator<Item> iteratorItems = getIterator();
+
+		while(iteratorItems.hasNext()) {
+			Item currentItem = iteratorItems.next();
+			content = content+currentItem.toString() + "\n";
+		}
+		content = content + "Quantity of items: " + getMyItems().size() + " | Price: " + getPrice();
+		return content;
 	}
 
 	@Override
@@ -61,7 +74,7 @@ public class Composite implements Item {
 		this.discount = discount;
 	}
 
-	public Iterator<Item> createIterator(){
+	public Iterator<Item> getIterator(){
 		return myItems.iterator();
 	}
 

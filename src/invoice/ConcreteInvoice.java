@@ -4,71 +4,34 @@ import java.time.LocalDate;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import cart.Cart;
-import cart.CartBase;
-import database.Company;
 
-public class ConcreteInvoice implements Invoice {
+public class ConcreteInvoice extends AbstractInvoice {
 	private static AtomicInteger counter = new AtomicInteger(0);
-	private Company company = new Company();
 	private String invoiceNumber;
-	private Cart shoppingCart;
-	private int vat = 22;
 
 	public ConcreteInvoice(Cart shoppingCart) {
+		super(shoppingCart);
 		this.invoiceNumber = "" + counter.incrementAndGet();
-		this.shoppingCart = shoppingCart;
 	}
 
 	public String getInvoiceNumber() {
 		return invoiceNumber;
 	}
 
-	public CartBase getShoppingCart() {
-		return shoppingCart;
+	public String invoiceDetails() {
+		String content = "Fattura n: " + getInvoiceNumber() + " | Data: " + LocalDate.now();
+		return content;
 	}
 
-	public void setVat(int vat) {
-		this.vat = vat;
+	public String itemsDetails() {
+		String content = "Items:\n" + getShoppingCart().cartContents()
+				+ "\nTaxable: " + taxable(getShoppingCart().getTotalPrice()) 
+				+ "\nVAT tax: " + tax(getShoppingCart().getTotalPrice()) 
+				+ "\nTotal amount: " + getShoppingCart().getTotalPrice();
+		return content;
 	}
-
-	@Override
-	public void doInvoice() {
-		invoiceDetails();
-		companyInfo();
-		customerInfo();
-		itemsDetails();
-	}
-
-	public void invoiceDetails() {
-		String content = "Invoice n: " + getInvoiceNumber() + " | Date: " + LocalDate.now() + "\n";
-		System.out.println(content);
-	}
-
-	public void companyInfo() {
-		company.printCompanyInfo();
-		System.out.println("\n");
-	}
-
-	public void customerInfo() {
-		System.out.println(shoppingCart.getCustomer().toString() + "\n");
-	}
-
-	public void itemsDetails() {
-		shoppingCart.cartContents();
-		System.out.print("\n" + "Taxable: " + taxable(shoppingCart.getTotalPrice()));
-		System.out.print("\n" + "VAT: " + tax(shoppingCart.getTotalPrice()));
-		shoppingCart.cartTotal();
-	}
-
-	public double taxable(double totalPrice) {
-		double rounding = Math.pow(10,2);
-		double taxable = (totalPrice*(100-vat))/100;
-		return Math.round(taxable*rounding)/rounding;
-	}
-
-	public double tax(double totalPrice) {
-		double rounding = Math.pow(10,2);
-		double tax = (totalPrice*(vat))/100;
-		return Math.round(tax*rounding)/rounding;
+	
+	public void resetInvoiceNumber() {
+		counter.set(0);
 	}
 }

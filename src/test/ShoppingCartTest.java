@@ -121,7 +121,10 @@ public class ShoppingCartTest {
 	@Test
 	public void testPrintCart() {
 		shopCart1.printCart();
-		assertEquals("Best of Grunge - Various artists - 2015 - price: 26.62" + "\n" 
+		assertEquals("Description: Best of Grunge - Various artists - 2015 | Content:\n" 
+				+ "Description: Nevermind - Nirvana - 1991 | Category: CD e Vinili | Price: 19.12" + "\n" 
+				+ "Description: Ten - Pearl Jam - 1991 | Category: CD e Vinili | Price: 7.5" + "\n" 
+				+ "Quantity of items: 2 | Price: 26.62" + "\n" 
 				+ "\n" + "Quantity: 1	Total price: 26.62",outContent.toString());
 	}
 

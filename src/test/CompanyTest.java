@@ -68,7 +68,7 @@ public class CompanyTest {
 
 	@Test
 	public void testPrint() {
-		company.printCompanyInfo();
+		company.printCompany();
 		assertEquals("G&R Megastore di Gori M. e Renzi A.\n" +
 				"Viale Giovan Battista Morgagni, 66 - 50134 Firenze (Fi) - Italy\n"+
 				"Tel: 055.653258 - Fax: 055.653126\n" +

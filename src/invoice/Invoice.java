@@ -1,5 +1,5 @@
 package invoice;
 
 public interface Invoice {
-	void doInvoice();
+	String doInvoice();
 }

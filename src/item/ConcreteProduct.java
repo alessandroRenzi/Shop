@@ -48,32 +48,23 @@ public class ConcreteProduct extends Product {
 	}
 
 	@Override
-	public void print() {
-		printDescription();
-		printCategory();
-		printPrice();
+	public void printItem() {
+		System.out.print(this.toString());
 	}
 
 	@Override
 	public void setDiscount(Discount discount) {
 		this.discount = discount;
 	}
+	
+	@Override 
+	public String toString() {
+		return "Description: " + getDescription() + " | Category: " + getCategory() + " | Price: " + getPrice(); 
+	}
 
 	public double calcPrice() {
 		double discountedPrice = discount.doDiscount(price,discount.getPercentage());
 		double rounding = Math.pow(10,2);
 		return Math.round(discountedPrice*rounding)/rounding;
-	}
-
-	public void printDescription() {
-		System.out.print(getDescription());
-	}
-
-	public void printCategory() {
-		System.out.print(" - " + getCategory());
-	}
-
-	public void printPrice() {
-		System.out.print(" - price: " + getPrice());
 	}
 }

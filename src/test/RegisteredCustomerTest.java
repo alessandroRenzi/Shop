@@ -13,41 +13,48 @@ import customer.RegisteredCustomer;
 public class RegisteredCustomerTest {
 	private RegisteredCustomer customer;
 
-
 	@Before
 	public void setUp(){
-		this.customer = new RegisteredCustomer("Alessandro", "Renzi", "1985-04-26","Male","Via Belgio");
+		this.customer = new RegisteredCustomer("Paul David","Hewson","1960-05-10","Male","No Name Road");
 	}
 
 	@After
 	public void resetId(){
 		customer.resetId();
 	}
+
+	@Test
+	public void testGetGenre(){
+		assertEquals("Male",customer.getGenre());
+	}
+
+	@Test
+	public void testGetId(){
+		assertEquals("CST1",customer.getId());
+	}
+
+	@Test
+	public void testGetStreet(){
+		assertEquals("No Name Road",customer.getStreet());
+	}
+
 	@Test
 	public void testGetAge() {
-		assertEquals(31, customer.getAge());
+		assertEquals(56,customer.getAge());
 	}
 
 	@Test
 	public void testGetName(){
-		assertEquals("Alessandro", customer.getName());
+		assertEquals("Paul David",customer.getName());
 	}
 
 	@Test
 	public void testGetSurname(){
-		assertEquals("Renzi", customer.getSurname());
+		assertEquals("Hewson",customer.getSurname());
 	}
 
-	@Test
-	public void testGetGenre(){
-		assertEquals("Male", customer.getGenre());
-	}
-	@Test
-	public void testGetStreet(){
-		assertEquals("Via Belgio", customer.getStreet());
-	}
 	@Test 
 	public void toStringTest(){
-		assertEquals("Name: Alessandro - Surname: Renzi - Age: 31 - Genre: Male - Street: Via Belgio - Id: CST1", customer.toString());
+		assertEquals("Name: Paul David | Surname: Hewson | Age: 56 | Genre: Male | Street: No Name Road | Id: CST1",customer.toString());
 	}
 }

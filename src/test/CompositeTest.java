@@ -47,8 +47,12 @@ public class CompositeTest {
 
 	@Test
 	public void testPrint() {
-		composite.print();
-		assertEquals("Complete Audioslave - price: 26.52",outContent.toString());
+		composite.printItem();
+		assertEquals("Description: Complete Audioslave | Content:\n" 
+				+ "Description: Out of Exile - Audioslave - 2005 | Category: CD e Vinili | Price: 9.89" + "\n" 
+				+ "Description: Revelations - Audioslave - 2006 | Category: CD e Vinili | Price: 10.89" + "\n"
+				+ "Description: Audioslave - Audioslave - 2002 | Category: CD e Vinili | Price: 5.74" + "\n"
+				+ "Quantity of items: 3 | Price: 26.52",outContent.toString());
 	}
 
 	@Test

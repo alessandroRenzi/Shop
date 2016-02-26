@@ -52,8 +52,8 @@ public class ConcreteProductTest {
 
 	@Test
 	public void testPrint() {
-		product.print();
-		assertEquals("The Wall - Pink Floyd - 1979 - CD e Vinili - price: 6.99", outContent.toString());
+		product.printItem();
+		assertEquals("Description: The Wall - Pink Floyd - 1979 | Category: CD e Vinili | Price: 6.99", outContent.toString());
 	}
 
 	@Test

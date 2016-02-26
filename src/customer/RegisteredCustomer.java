@@ -32,7 +32,7 @@ public class RegisteredCustomer extends AbstractCustomer {
 
 	@Override
 	public String addInformation(String result) {
-		return result = " - Genre: " + getGenre() + " - Street: " + getStreet() + " - Id: " + getId();
+		return result = " | Genre: " + getGenre() + " | Street: " + getStreet() + " | Id: " + getId();
 	}
 
 	@Override

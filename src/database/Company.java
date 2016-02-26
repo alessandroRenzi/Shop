@@ -45,26 +45,12 @@ public class Company {
 		this.other = other;
 	}
 
-	public void printCompanyInfo() {
-		printBusinessName();
-		printAddress();
-		printContactDetails();
-		printOther();
+	public void printCompany() {
+		System.out.print(this.toString());
 	}
 
-	private void printAddress() {
-		System.out.print(getAddress() + "\n");
-	}
-
-	private void printBusinessName() {
-		System.out.print(getBusinessName() + "\n");
-	}
-
-	private void printContactDetails() {
-		System.out.print(getContactDetails() + "\n");
-	}
-
-	private void printOther() {
-		System.out.print(getOther());
+	@Override
+	public String toString() {
+		return getBusinessName() + "\n" + getAddress() + "\n" + getContactDetails() + "\n" + getOther();
 	}
 }

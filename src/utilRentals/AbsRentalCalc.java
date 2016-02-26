@@ -5,9 +5,19 @@ import java.time.LocalDate;
 import item.Item;
 
 public abstract class AbsRentalCalc implements calcRental {
-
-	public AbsRentalCalc() {
+	private LocalDate date;
+	
+	public AbsRentalCalc(LocalDate date) {
 		super();
+		this.date = date;
+	}
+	
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
 	}
 
 	@Override
@@ -22,7 +32,7 @@ public abstract class AbsRentalCalc implements calcRental {
 	@Override
 	public int daysCalc(LocalDate startDate) {
 		int result;
-		result = LocalDate.now().getDayOfYear() - startDate.getDayOfYear();
+		result = getDate().getDayOfYear() - startDate.getDayOfYear();
 		return result;
 	}
 

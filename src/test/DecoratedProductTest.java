@@ -40,8 +40,17 @@ public class DecoratedProductTest {
 
 	@Test
 	public void testPrint() {
-		decoratedProduct.print();
-		assertEquals("Green River - Creedence Clearwater Revival - 1969 - CD e Vinili - price: 23.49 - 10% = 21.14", outContent.toString());
+		decoratedProduct.printItem();
+		assertEquals("Description: Green River - Creedence Clearwater Revival - 1969 | "
+				+ "Category: CD e Vinili | Price: 23.49 | Discount: 10% | Discounted price: "
+				+ "21.14", outContent.toString());
+	}
+	
+	@Test
+	public void testToString() {
+		assertEquals("Description: Green River - Creedence Clearwater Revival - 1969 | "
+				+ "Category: CD e Vinili | Price: 23.49 | Discount: 10% | Discounted price: "
+				+ "21.14", decoratedProduct.toString());
 	}
 
 	@Test

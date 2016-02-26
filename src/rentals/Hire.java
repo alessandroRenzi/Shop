@@ -13,4 +13,6 @@ public interface Hire {
 	public double rentalPriceCalc();
 
 	public void setTypeOfRental(calcRental rentalType);
+	
+	public void setEndRentalDate(LocalDate endRentalDate);
 }

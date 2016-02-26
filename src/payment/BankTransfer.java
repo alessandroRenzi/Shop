@@ -10,10 +10,9 @@ public class BankTransfer extends AbstractPayment {
 		this.bankTransferPay();
 		super.doPay();
 	}
-	
+
 	public void bankTransferPay() {
 		String temp = "Paid by bank transfer: ";
 		super.getPayment().setPay(temp);
-	
 	}
 }

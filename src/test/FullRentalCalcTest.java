@@ -15,21 +15,25 @@ import utilRentals.calcRental;
 public class FullRentalCalcTest {
 	calcRental calculation;
 	Item rent;
-	LocalDate date;
+	LocalDate dateStart;
+	LocalDate dateFinish;
+
 	@Before
 	public void setUp() throws Exception {
-		calculation = new FullRentalCalc();
 		rent = new ConcreteProduct("Hurricane", "Dvd", 30);
-		date = LocalDate.parse("2016-01-22");
+		dateStart = LocalDate.parse("2016-01-22");
+		dateFinish = LocalDate.parse("2016-02-25");
+		calculation = new FullRentalCalc(dateFinish);
 	}
 
 	@Test
 	public void testDaysCalculation(){
-		assertEquals(calculation.daysCalc(date), 34);
+		assertEquals(calculation.daysCalc(dateStart), 34);
 	}
+
 	@Test
 	public void testCalculationRentalPrice() {
-		assertEquals(calculation.calculate(date,rent), 10.2 ,0.1 );
+		assertEquals(calculation.calculate(dateStart,rent), 10.2 ,0.1 );
 	}
 
 }

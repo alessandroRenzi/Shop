@@ -29,7 +29,7 @@ public class WorkerCustomer extends AbstractCustomer {
 
 	@Override
 	public String addInformation(String result) {
-		return result = " - Genre: " + getGenre() + " - Street: " + getStreet() + " - WorkingArea: " + getWorkingArea();
+		return result = " | Genre: " + getGenre() + " | Street: " + getStreet() + " | WorkingArea: " + getWorkingArea();
 	}
 
 	@Override

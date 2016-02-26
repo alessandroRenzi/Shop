@@ -10,18 +10,18 @@ import java.util.Iterator;
 public abstract class ExtremeVisitor implements Visitor {
 	@Override
 	public void visitConcreteProduct(ConcreteProduct product) {
-		product.print();
+		product.printItem();
 	}
 
 	@Override
 	public void visitDecoratedProduct(DecoratedProduct decoratedProduct) {
-		decoratedProduct.print();
+		decoratedProduct.printItem();
 	}
 
 	@Override
 	public<E extends Comparable<Item>> void visitComposite(Composite composite) {
 		Item searchedItem = null;
-		Iterator<Item> iterator = composite.createIterator();
+		Iterator<Item> iterator = composite.getIterator();
 
 		if(iterator.hasNext()){
 			searchedItem = iterator.next();
@@ -34,7 +34,7 @@ public abstract class ExtremeVisitor implements Visitor {
 				}
 			}
 		}		
-		searchedItem.print();
+		searchedItem.printItem();
 	}
 
 	abstract <E extends Comparable<E>> boolean evaluate(E result, E currentItem);

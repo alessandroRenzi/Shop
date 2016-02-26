@@ -18,7 +18,7 @@ public interface Item extends Comparable<Item>{
 	}
 
 	double getPrice();
-	void print();
+	void printItem();
 	void setDiscount(Discount discount);
 }
 
