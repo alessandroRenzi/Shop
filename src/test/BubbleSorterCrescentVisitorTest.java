@@ -20,8 +20,8 @@ public class BubbleSorterCrescentVisitorTest {
 		dvd = new ConcreteProduct("Back to Black - Amy Winehouse - 2006", "CD e Vinili", 9.90);
 		cd = new ConcreteProduct("Strangers to Ourselves - Modest Mouse - 2015", "CD e Vinili", 15.29);
 
-		composite = new Composite("Pack one");
-		compositeSorted = new Composite("Pack two");
+		composite = new Composite("Pack one", null);
+		compositeSorted = new Composite("Pack two", null);
 
 		try {
 			composite.add(cd);

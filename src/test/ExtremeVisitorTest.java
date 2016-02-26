@@ -28,7 +28,7 @@ public class ExtremeVisitorTest {
 		product1 = new ConcreteProduct("Who's Next - The Who - 1971", "CD e Vinili", 22.95);
 		product2 = new DecoratedProduct(new ConcreteProduct("My Generation - The Who - 1965", "CD e Vinili", 19.12), 20);
 
-		pack = new Composite("Who's Next Generation? - The Who - 2015");
+		pack = new Composite("Who's Next Generation? - The Who - 2015", null);
 		try {
 			pack.add(product1);
 			pack.add(product2);

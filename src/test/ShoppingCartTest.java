@@ -41,7 +41,7 @@ public class ShoppingCartTest {
 		customer1 = new UnRegisteredCustomer("Matteo Gori","M","1995-04-15");
 		customer2 = new UnRegisteredCustomer("Alessandro Renzi","M","1982-12-02");
 
-		pack = new Composite("Best of Grunge - Various artists - 2015");
+		pack = new Composite("Best of Grunge - Various artists - 2015", null);
 		try {
 			pack.add(product1);
 			pack.add(product2);

@@ -20,5 +20,6 @@ public interface Item extends Comparable<Item>{
 	double getPrice();
 	void printItem();
 	void setDiscount(Discount discount);
+	String getCategory();
 }
 

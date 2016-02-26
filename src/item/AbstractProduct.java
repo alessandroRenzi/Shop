@@ -35,6 +35,14 @@ public abstract class AbstractProduct extends Product {
 		}
 		return null;
 	}
+	
+	@Override
+	public String getCategory() {
+		if(this.product != null) {
+			return this.product.getCategory();
+		}
+		return null;
+	}
 
 	public abstract void accept(Visitor visitor);
 	public abstract double getPrice();	

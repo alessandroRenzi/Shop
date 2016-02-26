@@ -18,7 +18,7 @@ public class CompositeTest {
 
 	@Before
 	public  void start() throws Exception{
-		composite = new Composite("Complete Audioslave");
+		composite = new Composite("Complete Audioslave", null);
 		concreteProduct = new ConcreteProduct("Audioslave - Audioslave - 2002", "CD e Vinili", 5.74);
 
 		composite.add(new ConcreteProduct("Out of Exile - Audioslave - 2005", "CD e Vinili", 9.89));

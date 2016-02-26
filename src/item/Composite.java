@@ -7,11 +7,13 @@ import discount.Discount;
 import report.Visitor;
 
 public class Composite implements Item {
+	private String category;
 	private String description;
 	private Discount discount;
 	private List<Item> myItems;
 
-	public Composite(String description) {
+	public Composite(String description, String category) {
+		this.category = category;
 		this.description = description;
 		this.discount = new BaseDiscount();
 		this.myItems = new LinkedList<Item>();
@@ -29,6 +31,11 @@ public class Composite implements Item {
 		return myItems;
 	}
 
+	@Override 
+	public String getCategory() {
+		return category;
+	}
+	
 	@Override
 	public void accept(Visitor v) {
 		v.visitComposite(this);

@@ -32,11 +32,15 @@ public class Items {
 	}
 
 	public void print() {
-		Iterator<Item> iteratorItems = listItems.iterator();
+		Iterator<Item> iteratorItems = getIterator();
 
 		while(iteratorItems.hasNext()) {
 			Item currentCustomer = iteratorItems.next();
 			System.out.println(currentCustomer.toString());
 		}
+	}
+	
+	public Iterator<Item> getIterator() {
+		return listItems.iterator();
 	}
 }

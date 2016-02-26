@@ -14,4 +14,5 @@ public abstract class Product implements Item {
 	public abstract double getPrice();
 	public abstract void printItem();
 	public abstract void setDiscount(Discount discount);
+	public abstract String getCategory();
 }
