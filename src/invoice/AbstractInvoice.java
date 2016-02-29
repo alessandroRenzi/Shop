@@ -57,5 +57,4 @@ public abstract class AbstractInvoice implements Invoice {
 
 	abstract String invoiceDetails();
 	abstract String itemsDetails();
-
 }

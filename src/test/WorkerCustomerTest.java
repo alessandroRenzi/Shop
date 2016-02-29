@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import card.GoldCard;
 import customer.WorkerCustomer;
 
 public class WorkerCustomerTest {
@@ -46,8 +47,13 @@ public class WorkerCustomerTest {
 	}
 
 	@Test 
-	public void toStringTest(){
+	public void testToString(){
 		assertEquals("Name: Alessandro | Surname: Renzi | Age: 31 | Genre: Male | Street: Via Belgio | WorkingArea: Television", customer.toString());
+	}
+	
+	@Test
+	public void testGetCard() {
+		equals(customer.getCard().equals(new GoldCard()));
 	}
 }
 

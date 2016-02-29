@@ -1,17 +1,14 @@
 package test;
 
-
-
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import card.Card;
 import card.NoCard;
 
 public class NoCardTest {
-	private Card noCard;
+	private NoCard noCard;
 
 	@Before
 	public void setUp() throws Exception {
@@ -22,5 +19,11 @@ public class NoCardTest {
 	@Test
 	public void testAddPoint() {
 		assertEquals(0,noCard.getPoint());
+	}
+
+	@Test
+	public void testSetPoint() {
+		noCard.setPoint(23);
+		assertEquals(23,noCard.getPoint());
 	}
 }

@@ -4,14 +4,14 @@ import java.time.LocalDate;
 import customer.Customer;
 import item.Item;
 import utilRentals.FullRentalCalc;
-import utilRentals.calcRental;
+import utilRentals.CalcRental;
 
 public class Rentals implements Hire {
 	private LocalDate startRentalDate;
 	private LocalDate endRentalDate;
 	private Customer customer;
 	private Item item;
-	private calcRental rentalCalculator;
+	private CalcRental rentalCalculator;
 
 	public Rentals(Customer customer, Item item, String date) {
 		this.customer = customer;
@@ -55,7 +55,7 @@ public class Rentals implements Hire {
 	}
 
 	@Override
-	public void setTypeOfRental(calcRental rentalType) {
+	public void setTypeOfRental(CalcRental rentalType) {
 		this.rentalCalculator = rentalType;
 	}
 }

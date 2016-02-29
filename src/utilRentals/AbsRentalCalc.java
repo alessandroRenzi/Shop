@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import item.Item;
 
-public abstract class AbsRentalCalc implements calcRental {
+public abstract class AbsRentalCalc implements CalcRental {
 	private LocalDate date;
 	
 	public AbsRentalCalc(LocalDate date) {

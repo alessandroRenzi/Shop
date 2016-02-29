@@ -10,10 +10,10 @@ import org.junit.Test;
 import item.ConcreteProduct;
 import item.Item;
 import utilRentals.FullRentalCalc;
-import utilRentals.calcRental;
+import utilRentals.CalcRental;
 
 public class FullRentalCalcTest {
-	calcRental calculation;
+	CalcRental calculation;
 	Item rent;
 	LocalDate dateStart;
 	LocalDate dateFinish;

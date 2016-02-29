@@ -7,6 +7,10 @@ public class NoCard implements Card {
 		super();
 	}
 
+	public void setPoint(int point) {
+		this.point = point;
+	}
+
 	@Override
 	public int getPoint() {
 		return point;
@@ -15,9 +19,5 @@ public class NoCard implements Card {
 	@Override
 	public void givePoints(int amount) {
 		this.point = 0;
-	}
-
-	public void setPoint(int point) {
-		this.point = point;
 	}
 }

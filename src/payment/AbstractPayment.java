@@ -7,23 +7,22 @@ public abstract class AbstractPayment implements Payment {
 		this.payment = payment;
 	}
 
+	public Payment getPayment(){
+		return payment;
+	}
+
 	@Override
 	public void doPay() {
 		this.payment.doPay();
 	}
-	
+
 	@Override
 	public String getPay() {
-		return this.payment.getPay();
+		return payment.getPay();
 	}
-	
+
 	@Override
 	public void setPay(String pay) {
 		this.payment.setPay(pay);
 	}
-	
-	public Payment getPayment(){
-		return this.payment;
-	}
-
 }

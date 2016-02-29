@@ -18,5 +18,4 @@ public class UnRegisteredCustomer extends AbstractCustomer {
 	public Card myCard() {
 		return new NoCard();
 	}
-
 }

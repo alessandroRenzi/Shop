@@ -11,7 +11,6 @@ import customer.UnRegisteredCustomer;
 public class UnRegisteredCustomerTest {
 	private AbstractCustomer customer;
 
-
 	@Before
 	public void setUp(){
 		this.customer = new UnRegisteredCustomer("Alessandro", "Renzi", "1985-04-26");
@@ -33,9 +32,7 @@ public class UnRegisteredCustomerTest {
 	}
 
 	@Test 
-	public void toStringTest(){
-	assertEquals("Name: Alessandro | Surname: Renzi | Age: 31", customer.toString());
+	public void testToString(){
+		assertEquals("Name: Alessandro | Surname: Renzi | Age: 31", customer.toString());
 	}
-
-
 }

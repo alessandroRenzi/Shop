@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class FullRentalCalc extends AbsRentalCalc  {
 	private final int MPARAM = 100;
-	
+
 	public FullRentalCalc(LocalDate date){
 		super(date);
 	}
@@ -13,5 +13,4 @@ public class FullRentalCalc extends AbsRentalCalc  {
 	public int getParameter() {
 		return this.MPARAM;
 	}
-
 }
