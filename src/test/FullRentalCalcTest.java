@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
+import category.ItemCategory;
 import item.ConcreteProduct;
 import item.Item;
 import utilRentals.FullRentalCalc;
@@ -20,7 +21,7 @@ public class FullRentalCalcTest {
 
 	@Before
 	public void setUp() throws Exception {
-		rent = new ConcreteProduct("Hurricane", "Dvd", 30);
+		rent = new ConcreteProduct("Hurricane",  new ItemCategory("DVD"), 30);
 		dateStart = LocalDate.parse("2016-01-22");
 		dateFinish = LocalDate.parse("2016-02-25");
 		calculation = new FullRentalCalc(dateFinish);

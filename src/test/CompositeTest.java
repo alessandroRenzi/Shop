@@ -8,6 +8,7 @@ import java.io.PrintStream;
 import org.junit.Before;
 import org.junit.Test;
 
+import category.ItemCategory;
 import discount.ChristmasDiscount;
 import item.*;
 
@@ -18,11 +19,11 @@ public class CompositeTest {
 
 	@Before
 	public  void start() throws Exception{
-		composite = new Composite("Complete Audioslave", null);
-		concreteProduct = new ConcreteProduct("Audioslave - Audioslave - 2002", "CD e Vinili", 5.74);
+		composite = new Composite("Complete Audioslave");
+		concreteProduct = new ConcreteProduct("Audioslave - Audioslave - 2002",  new ItemCategory("CD e Vinili"), 5.74);
 
-		composite.add(new ConcreteProduct("Out of Exile - Audioslave - 2005", "CD e Vinili", 9.89));
-		composite.add(new ConcreteProduct("Revelations - Audioslave - 2006", "CD e Vinili", 10.89));
+		composite.add(new ConcreteProduct("Out of Exile - Audioslave - 2005",  new ItemCategory("CD e Vinili"), 9.89));
+		composite.add(new ConcreteProduct("Revelations - Audioslave - 2006",  new ItemCategory("CD e Vinili"), 10.89));
 		composite.add(concreteProduct);
 
 		outContent = new ByteArrayOutputStream();

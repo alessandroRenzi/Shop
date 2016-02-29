@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
+import category.ItemCategory;
 import item.ConcreteProduct;
 import item.Item;
 import utilRentals.GoldRentalCalc;
@@ -21,7 +22,7 @@ public class GoldRentalCalcTest {
 	@Before
 	public void setUp() throws Exception {
 		startDate = LocalDate.parse("2016-01-22");
-		rent = new ConcreteProduct("Hurricane", "Dvd", 30);
+		rent = new ConcreteProduct("Hurricane", new ItemCategory("DVD"), 30);
 		endDate = LocalDate.parse("2016-02-25");
 		goldCalculate = new GoldRentalCalc(endDate);
 	}

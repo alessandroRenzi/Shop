@@ -7,6 +7,7 @@ import item.ConcreteProduct;
 import org.junit.Before;
 import org.junit.Test;
 
+import category.ItemCategory;
 import report.BubblesortCrescentVisitor;
 
 public class BubbleSorterCrescentVisitorTest {
@@ -17,11 +18,11 @@ public class BubbleSorterCrescentVisitorTest {
 
 	@Before
 	public void setUp(){
-		dvd = new ConcreteProduct("Back to Black - Amy Winehouse - 2006", "CD e Vinili", 9.90);
-		cd = new ConcreteProduct("Strangers to Ourselves - Modest Mouse - 2015", "CD e Vinili", 15.29);
+		dvd = new ConcreteProduct("Back to Black - Amy Winehouse - 2006",  new ItemCategory("CD e Vinili"), 9.90);
+		cd = new ConcreteProduct("Strangers to Ourselves - Modest Mouse - 2015",  new ItemCategory("CD e Vinili"), 15.29);
 
-		composite = new Composite("Pack one", null);
-		compositeSorted = new Composite("Pack two", null);
+		composite = new Composite("Pack one");
+		compositeSorted = new Composite("Pack two");
 
 		try {
 			composite.add(cd);

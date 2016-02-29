@@ -1,5 +1,6 @@
 package item;
 
+import category.Category;
 import discount.BaseDiscount;
 import discount.Discount;
 import report.Visitor;
@@ -7,10 +8,10 @@ import report.Visitor;
 public class ConcreteProduct extends Product {
 	private String description;
 	private Discount discount;
-	private String category;
+	private Category category;
 	private double price;
 
-	public ConcreteProduct(String description, String category, double price) {
+	public ConcreteProduct(String description, Category category, double price) {
 		this.description = description;
 		this.discount = new BaseDiscount();
 		this.category = category;
@@ -23,14 +24,6 @@ public class ConcreteProduct extends Product {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
 	}
 
 	public void setPrice(double price) {
@@ -59,7 +52,7 @@ public class ConcreteProduct extends Product {
 	
 	@Override 
 	public String toString() {
-		return "Description: " + getDescription() + " | Category: " + getCategory() + " | Price: " + getPrice(); 
+		return "Description: " + getDescription() + " | Category: " + this.category.getCategory() + " | Price: " + getPrice(); 
 	}
 
 	public double calcPrice() {
@@ -67,4 +60,10 @@ public class ConcreteProduct extends Product {
 		double rounding = Math.pow(10,2);
 		return Math.round(discountedPrice*rounding)/rounding;
 	}
+
+	@Override
+	public Category getCategory() {
+		return this.category;
+	}
+
 }

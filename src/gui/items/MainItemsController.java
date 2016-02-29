@@ -19,11 +19,12 @@ public class MainItemsController {
 	@FXML
 	private void initialize() {
 		categoryColumn.setCellValueFactory(cellData -> cellData.getValue().getCategoryProperty());
+		itemsColumn.setCellValueFactory(cellData -> cellData.getValue().getDescriptionProperty());
 	}
 
 	@FXML 
 	private void showCategoryItems(ActionEvent actionEvent){
-		itemsColumn.setCellValueFactory(cellData -> cellData.getValue().getDescriptionProperty());
+		
 	}
 
 	public void setMain(MainFX mainFx){

@@ -1,5 +1,6 @@
 package item;
 
+import category.Category;
 import discount.Discount;
 import report.Visitor;
 
@@ -37,7 +38,7 @@ public abstract class AbstractProduct extends Product {
 	}
 	
 	@Override
-	public String getCategory() {
+	public Category getCategory() {
 		if(this.product != null) {
 			return this.product.getCategory();
 		}

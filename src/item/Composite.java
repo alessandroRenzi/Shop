@@ -2,18 +2,17 @@ package item;
 
 import java.util.*;
 
+import category.Category;
 import discount.BaseDiscount;
 import discount.Discount;
 import report.Visitor;
 
 public class Composite implements Item {
-	private String category;
 	private String description;
 	private Discount discount;
 	private List<Item> myItems;
 
-	public Composite(String description, String category) {
-		this.category = category;
+	public Composite(String description) {
 		this.description = description;
 		this.discount = new BaseDiscount();
 		this.myItems = new LinkedList<Item>();
@@ -29,11 +28,6 @@ public class Composite implements Item {
 
 	public List<Item> getMyItems() {
 		return myItems;
-	}
-
-	@Override 
-	public String getCategory() {
-		return category;
 	}
 	
 	@Override
@@ -89,5 +83,10 @@ public class Composite implements Item {
 		double discountedSum = discount.doDiscount(sum,discount.getPercentage());
 		double rounding = Math.pow(10,2);
 		return Math.round(discountedSum*rounding)/rounding;
+	}
+
+	@Override
+	public Category getCategory() {
+		return null;
 	}
 }

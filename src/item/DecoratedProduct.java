@@ -1,5 +1,6 @@
 package item;
 
+import category.Category;
 import discount.Discount;
 import report.Visitor;
 
@@ -58,4 +59,10 @@ public class DecoratedProduct extends AbstractProduct {
 	public String decoratedProductToString() {
 		return " | Discount: " + getPercentage() + "% | Discounted price: " + getPrice();	
 	}
+
+	@Override
+	public Category getCategory() {
+		return super.getCategory();
+	}
+
 }

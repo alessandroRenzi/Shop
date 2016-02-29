@@ -9,12 +9,13 @@ public class ItemsModelClass {
 	private StringProperty category;
 	private StringProperty description;
 	private Items items;
+	
 
 	public ItemsModelClass() {
 	}
 
 	public ItemsModelClass(Item item) {
-		this.category = new SimpleStringProperty(item.getCategory());
+		this.category = new SimpleStringProperty(item.getCategory().getCategory());
 		this.description = new SimpleStringProperty(item.getDescription());
 	}
 

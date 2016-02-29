@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import cart.Cart;
 import cart.ShoppingCart;
+import category.ItemCategory;
 import customer.UnRegisteredCustomer;
 import item.ConcreteProduct;
 import payment.BankTransfer;
@@ -22,7 +23,7 @@ public class BankTransferTest {
 
 		shoppingCart = new ShoppingCart(new UnRegisteredCustomer("DA","M","1944-09-03"));
 		shoppingCart = new ShoppingCart(new UnRegisteredCustomer("DA","M","1944-01-09"));
-		shoppingCart.addToCart(new ConcreteProduct("Ten - Pearl Jam - 1991", "CD e Vinili",7.50),1);
+		shoppingCart.addToCart(new ConcreteProduct("Ten - Pearl Jam - 1991", new ItemCategory("CD e Vinili"),7.50),1);
 		payment = new BankTransfer(new ConcretePayment(shoppingCart.getTotalPrice()));
 	}
 
