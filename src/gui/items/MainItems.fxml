@@ -18,7 +18,7 @@
                   <TableView fx:id="itemTable" layoutX="51.0" layoutY="75.0" prefHeight="566.0" prefWidth="301.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
                       <TableColumn fx:id="categoryColumn" prefWidth="151.0" text="Categories" />
-                      <TableColumn prefWidth="149.0" text="Items" />
+                      <TableColumn fx:id="itemsColumn" prefWidth="149.0" text="Items" />
                     </columns>
                   </TableView>
                </children>

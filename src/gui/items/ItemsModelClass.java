@@ -7,14 +7,15 @@ import javafx.beans.property.StringProperty;
 
 public class ItemsModelClass {
 	private StringProperty category;
+	private StringProperty description;
 	private Items items;
 
 	public ItemsModelClass() {
-
 	}
 
 	public ItemsModelClass(Item item) {
 		this.category = new SimpleStringProperty(item.getCategory());
+		this.description = new SimpleStringProperty(item.getDescription());
 	}
 
 	public Items getItems() {
@@ -36,8 +37,21 @@ public class ItemsModelClass {
 	public StringProperty getCategoryProperty() {
 		return category;
 	}
+	
+	public String getDescription(){
+		return this.description.get();
+	}
 
+	public void setDescription(String description){
+		this.description.set(description);
+	}
+	
+	public StringProperty getDescriptionProperty(){
+		return description;
+	}
 	public void setCategoryProperty(StringProperty category) {
 		this.category = category;
 	}
+
+
 }
