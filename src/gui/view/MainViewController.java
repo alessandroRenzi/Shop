@@ -8,13 +8,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainViewController {
 	private MainFX mainFx;
-	
 	
 	@FXML
 	public void Close(ActionEvent actionEvent) {
@@ -23,12 +23,12 @@ public class MainViewController {
 
 	@FXML
 	public void AboutGeR(ActionEvent actionEvent) throws IOException {
-		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(MainFX.class.getResource("about/MainAbout.fxml"));
 		AnchorPane mainAbout = loader.load();
 
 		Stage addMainAbout = new Stage();
+		addMainAbout.getIcons().add(new Image("http://www.helisaaugusto.com.br/site/2011/imagens/logo_gr.png"));
 		addMainAbout.setTitle("About G&R");
 		addMainAbout.initModality(Modality.WINDOW_MODAL);
 		addMainAbout.initOwner(this.mainFx.getPrimaryStage());

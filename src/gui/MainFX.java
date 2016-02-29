@@ -13,6 +13,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -27,6 +28,8 @@ public class MainFX extends Application {
 	public void start(Stage primaryStage) throws IOException {
 		this.generateItemsObservList();
 		this.primaryStage = primaryStage;
+		
+		primaryStage.getIcons().add(new Image("http://www.helisaaugusto.com.br/site/2011/imagens/logo_gr.png"));
 		primaryStage.setTitle("G&R Megastore");
 		showMainView();
 	}

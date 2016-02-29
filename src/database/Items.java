@@ -12,7 +12,7 @@ public class Items {
 
 	public Items() {
 		listItems = new LinkedList<Item>();
-		initialItems();
+		itemsInStock();
 	}
 
 	public List<Item> getListItems() {
@@ -44,7 +44,7 @@ public class Items {
 		return listItems.iterator();
 	}
 	
-	private void initialItems() {
+	private void itemsInStock() {
 		listItems.add(new ConcreteProduct("The Wall - Pink Floyd - 1979", "CD e Vinili", 24.41));
 		listItems.add(new ConcreteProduct("Sixteen Stone - Bush - 1994", "CD e Vinili", 17.95));
 	}
