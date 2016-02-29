@@ -37,7 +37,7 @@ public class ItemsModelClass {
 	public StringProperty getCategoryProperty() {
 		return category;
 	}
-	
+
 	public String getDescription(){
 		return this.description.get();
 	}
@@ -45,13 +45,11 @@ public class ItemsModelClass {
 	public void setDescription(String description){
 		this.description.set(description);
 	}
-	
+
 	public StringProperty getDescriptionProperty(){
 		return description;
 	}
 	public void setCategoryProperty(StringProperty category) {
 		this.category = category;
 	}
-
-
 }

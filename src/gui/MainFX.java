@@ -35,10 +35,10 @@ public class MainFX extends Application {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(MainFX.class.getResource("view/MainView.fxml"));
 		mainLayout = loader.load();
-		
+
 		MainViewController controller = loader.getController();
 		controller.setMainApp(this);
-		
+
 		showMainItems();
 
 		Scene scene = new Scene(mainLayout);
@@ -50,34 +50,33 @@ public class MainFX extends Application {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(MainFX.class.getResource("items/MainItems.fxml"));
 		BorderPane mainItems = loader.load();
-		
+
 		MainItemsController controller = loader.getController();
 		controller.setMain(this);
-		
+
 		this.mainLayout.setCenter(mainItems);
-		
 	}
-	
-	
+
+
 	public void generateItemsObservList(){
 		Iterator<Item> iteratorItems = items.getIterator();
-		while (iteratorItems.hasNext()) {
-			observableList.add(new ItemsModelClass(iteratorItems.next()));
+
+		while(iteratorItems.hasNext()) {
+			if(!observableList.contains(iteratorItems.next().getCategory())) {
+				observableList.add(new ItemsModelClass(iteratorItems.next()));
+			}
 		}
 	}
-	
-	
+
 	public ObservableList<ItemsModelClass> getObservableList() {
 		return observableList;
 	}
-	
+
 	public Stage getPrimaryStage() {
 		return this.primaryStage;
 	}
-	
+
 	public static void main(String[] args) {
 		launch(args);
-	}
-
-	
+	}	
 }

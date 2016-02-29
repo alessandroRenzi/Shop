@@ -13,20 +13,19 @@ public class MainItemsController {
 	private TableColumn<ItemsModelClass, String> categoryColumn;
 	@FXML
 	private TableColumn<ItemsModelClass, String> itemsColumn;
-	
-	private MainFX mainFX;
 
+	private MainFX mainFX;
 
 	@FXML
 	private void initialize() {
 		categoryColumn.setCellValueFactory(cellData -> cellData.getValue().getCategoryProperty());
 	}
-	
+
 	@FXML 
 	private void showCategoryItems(ActionEvent actionEvent){
 		itemsColumn.setCellValueFactory(cellData -> cellData.getValue().getDescriptionProperty());
 	}
-	
+
 	public void setMain(MainFX mainFx){
 		this.mainFX = mainFx;
 		itemTable.setItems(mainFX.getObservableList());
