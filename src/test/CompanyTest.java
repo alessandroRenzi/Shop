@@ -16,7 +16,7 @@ public class CompanyTest {
 
 	@Before
 	public void setUp() {
-		company = new Company();
+		company = Company.getInstance();
 
 		outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
@@ -28,20 +28,8 @@ public class CompanyTest {
 	}
 
 	@Test
-	public void testSetAddress() {
-		company.setAddress("Amphitheatre Parkway, 1600 - 94034 Mountain View (CA) - USA");
-		assertEquals("Amphitheatre Parkway, 1600 - 94034 Mountain View (CA) - USA",company.getAddress());
-	}
-
-	@Test
 	public void testGetBusinessName() {
 		assertEquals("G&R Megastore di Gori M. e Renzi A.",company.getBusinessName());
-	}
-
-	@Test
-	public void testSetBusinessName() {
-		company.setBusinessName("Google Inc.");
-		assertEquals("Google Inc.",company.getBusinessName());
 	}
 
 	@Test
@@ -50,20 +38,8 @@ public class CompanyTest {
 	}
 
 	@Test
-	public void testSetContactDetails() {
-		company.setContactDetails("Tel: 650.6234000 - Fax: 650.6182678");
-		assertEquals("Tel: 650.6234000 - Fax: 650.6182678",company.getContactDetails());
-	}
-
-	@Test
 	public void testGetOther() {
 		assertEquals("VAT: 00231500246 - E-mail: gerMegastore@gmail.com",company.getOther());
-	}
-
-	@Test
-	public void testSetOther() {
-		company.setOther("VAT: 00231500246 - E-mail: googleinc@gmail.com");
-		assertEquals("VAT: 00231500246 - E-mail: googleinc@gmail.com",company.getOther());
 	}
 
 	@Test

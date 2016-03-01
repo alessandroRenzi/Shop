@@ -4,7 +4,7 @@ import cart.Cart;
 import database.Company;
 
 public abstract class AbstractInvoice implements Invoice {
-	private Company company = new Company();
+	private Company company = Company.getInstance();
 	private Cart shoppingCart;
 	private int vat = 22;
 

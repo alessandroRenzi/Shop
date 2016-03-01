@@ -1,6 +1,7 @@
 package item;
 
 import category.Category;
+import database.Stock;
 import discount.BaseDiscount;
 import discount.Discount;
 import report.Visitor;
@@ -10,12 +11,15 @@ public class ConcreteProduct extends Product {
 	private Discount discount;
 	private Category category;
 	private double price;
+	private Stock stock = Stock.getInstance();
 
 	public ConcreteProduct(String description, Category category, double price) {
 		this.description = description;
 		this.discount = new BaseDiscount();
 		this.category = category;
 		this.price = price;
+
+		generate();
 	}
 
 	public String getDescription() {
@@ -49,7 +53,7 @@ public class ConcreteProduct extends Product {
 	public void setDiscount(Discount discount) {
 		this.discount = discount;
 	}
-	
+
 	@Override 
 	public String toString() {
 		return "Description: " + getDescription() + " | Category: " + this.category.getCategory() + " | Price: " + getPrice(); 
@@ -66,4 +70,12 @@ public class ConcreteProduct extends Product {
 		return this.category;
 	}
 
+	public void generate() {
+		this.stock.addItem(this);
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+		//		this.category.notifyAllObservers();
+	}
 }

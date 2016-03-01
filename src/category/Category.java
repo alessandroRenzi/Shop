@@ -1,6 +1,9 @@
 package category;
 
+import database.Categories;
+
 public interface Category {
-	public String getCategory();
-	public void setCategory(String category);
+	String getCategory();
+	void setCategory(String category);
+	Categories getCategories();
 }

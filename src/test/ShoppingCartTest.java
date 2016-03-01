@@ -16,7 +16,7 @@ import customer.UnRegisteredCustomer;
 import item.Composite;
 import item.ConcreteProduct;
 import observer.Observer;
-import observer.TotalPriceObserver;
+import observer.TotalPrice;
 
 public class ShoppingCartTest {
 	private ByteArrayOutputStream outContent;
@@ -53,7 +53,7 @@ public class ShoppingCartTest {
 		shopCart1 = new ShoppingCart(customer1);
 		shopCart1.addToCart(pack, 1);
 
-		observer = new TotalPriceObserver(shopCart1);
+		observer = new TotalPrice(shopCart1);
 		shopCart1.addObserver(observer);
 
 		shopCart2 = new ShoppingCart(customer2);

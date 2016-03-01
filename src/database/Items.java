@@ -4,8 +4,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import category.ItemCategory;
-import item.ConcreteProduct;
 import item.Item;
 
 public class Items {
@@ -13,7 +11,6 @@ public class Items {
 
 	public Items() {
 		listItems = new LinkedList<Item>();
-		itemsInStock();
 	}
 
 	public List<Item> getListItems() {
@@ -40,13 +37,8 @@ public class Items {
 			System.out.println(currentCustomer.toString());
 		}
 	}
-	
+
 	public Iterator<Item> getIterator() {
 		return listItems.iterator();
-	}
-	
-	private void itemsInStock() {
-		listItems.add(new ConcreteProduct("The Wall - Pink Floyd - 1979", new ItemCategory("CD e Vinili"), 24.41));
-		listItems.add(new ConcreteProduct("Sixteen Stone - Bush - 1994", new ItemCategory("CD e Vinili"), 17.95));
 	}
 }

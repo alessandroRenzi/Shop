@@ -3,8 +3,8 @@ package observer;
 import cart.Cart;
 import item.Item;
 
-public class TotalPriceObserver extends AbstractCartObserver {
-	public TotalPriceObserver(Cart shoppingCart) {
+public class TotalPrice extends AbstractCartObserver {
+	public TotalPrice(Cart shoppingCart) {
 		super(shoppingCart);
 	}
 

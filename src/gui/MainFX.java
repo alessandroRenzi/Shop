@@ -2,8 +2,12 @@ package gui;
 
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
 
+import category.Category;
+import database.Categories;
 import database.Items;
+import gui.items.CategoryModelClass;
 import gui.items.ItemsModelClass;
 import gui.items.MainItemsController;
 import gui.view.MainViewController;
@@ -21,14 +25,17 @@ import javafx.stage.Stage;
 public class MainFX extends Application {
 	private Stage primaryStage;
 	private BorderPane mainLayout;
-	private ObservableList<ItemsModelClass> observableList = FXCollections.observableArrayList();
+	private ObservableList<CategoryModelClass> observableListCategory = FXCollections.observableArrayList();
+	private ObservableList<ItemsModelClass> observableListItems = FXCollections.observableArrayList();
 	private Items items = new Items();
+	private Categories categories = new Categories();
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		this.generateItemsObservList();
+		this.generateCategoryObservList(categories.getListCategories());
+		this.generateItemsObservList(items.getListItems());
 		this.primaryStage = primaryStage;
-		
+
 		primaryStage.getIcons().add(new Image("http://www.helisaaugusto.com.br/site/2011/imagens/logo_gr.png"));
 		primaryStage.setTitle("G&R Megastore");
 		showMainView();
@@ -61,18 +68,38 @@ public class MainFX extends Application {
 	}
 
 
-	public void generateItemsObservList(){
-		Iterator<Item> iteratorItems = items.getIterator();
+	public void generateCategoryObservList(List<Category> list){
+		Iterator<Category> iterator = createIteratorCategories(list);
 
-		while(iteratorItems.hasNext()) {
-			if(!observableList.contains(iteratorItems.next().getCategory())) {
-				observableList.add(new ItemsModelClass(iteratorItems.next()));
+		while(iterator.hasNext()) {
+			if(!observableListCategory.contains(iterator.next())) {
+				observableListCategory.add(new CategoryModelClass(iterator.next()));
 			}
 		}
 	}
 
-	public ObservableList<ItemsModelClass> getObservableList() {
-		return observableList;
+	public void generateItemsObservList(List<Item> list){
+		Iterator<Item> iterator = createIteratorItems(list);
+
+		while(iterator.hasNext()) {
+			observableListItems.add(new ItemsModelClass(iterator.next()));
+		}
+	}
+
+	public Iterator<Category> createIteratorCategories(List<Category> list) {
+		return list.iterator();
+	}
+
+	public Iterator<Item> createIteratorItems(List<Item> list) {
+		return list.iterator();
+	}
+
+	public ObservableList<CategoryModelClass> getObservableListCategory() {
+		return observableListCategory;
+	}
+
+	public ObservableList<ItemsModelClass> getObservableListItems() {
+		return observableListItems;
 	}
 
 	public Stage getPrimaryStage() {

@@ -1,48 +1,41 @@
 package database;
 
 public class Company {
+	private static Company instance = null;
+
 	private String address;
 	private String businessName;
 	private String contactDetails;
 	private String other;
 
-	public Company() {
+	private Company() {
 		this.address = "Viale Giovan Battista Morgagni, 66 - 50134 Firenze (Fi) - Italy";
 		this.businessName = "G&R Megastore di Gori M. e Renzi A.";
 		this.contactDetails = "Tel: 055.653258 - Fax: 055.653126";
 		this.other = "VAT: 00231500246 - E-mail: gerMegastore@gmail.com";
+	}
+	
+	public static Company getInstance() {
+		if(instance == null) {
+			instance = new Company();
+		}
+		return instance;
 	}
 
 	public String getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 	public String getBusinessName() {
 		return businessName;
-	}
-
-	public void setBusinessName(String businessName) {
-		this.businessName = businessName;
 	}
 
 	public String getContactDetails() {
 		return contactDetails;
 	}
 
-	public void setContactDetails(String contactDetails) {
-		this.contactDetails = contactDetails;
-	}
-
 	public String getOther() {
 		return other;
-	}
-
-	public void setOther(String other) {
-		this.other = other;
 	}
 
 	public void printCompany() {

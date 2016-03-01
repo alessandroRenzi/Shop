@@ -3,14 +3,14 @@ package cart;
 import customer.Customer;
 import item.Item;
 import observer.Observer;
-import observer.TotalPriceObserver;
-import observer.TotalQuantityObserver;
+import observer.TotalPrice;
+import observer.TotalQuantity;
 
 public class ShoppingCart extends ShoppingCartObserver implements Cart {
 	public ShoppingCart(Customer customer) {
 		super(customer);
-		new TotalPriceObserver(this);
-		new TotalQuantityObserver(this);
+		new TotalPrice(this);
+		new TotalQuantity(this);
 	}
 
 	@Override

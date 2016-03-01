@@ -8,9 +8,11 @@ import javafx.scene.control.TableView;
 
 public class MainItemsController {
 	@FXML
+	private TableView<CategoryModelClass> categoryTable;
+	@FXML
 	private TableView<ItemsModelClass> itemTable;
 	@FXML
-	private TableColumn<ItemsModelClass, String> categoryColumn;
+	private TableColumn<CategoryModelClass, String> categoryColumn;
 	@FXML
 	private TableColumn<ItemsModelClass, String> itemsColumn;
 
@@ -18,17 +20,18 @@ public class MainItemsController {
 
 	@FXML
 	private void initialize() {
-		categoryColumn.setCellValueFactory(cellData -> cellData.getValue().getCategoryProperty());
 		itemsColumn.setCellValueFactory(cellData -> cellData.getValue().getDescriptionProperty());
+		categoryColumn.setCellValueFactory(cellData -> cellData.getValue().getCategoryProperty());
 	}
 
 	@FXML 
 	private void showCategoryItems(ActionEvent actionEvent){
-		
+
 	}
 
 	public void setMain(MainFX mainFx){
 		this.mainFX = mainFx;
-		itemTable.setItems(mainFX.getObservableList());
+		itemTable.setItems(mainFX.getObservableListItems());
+		categoryTable.setItems(mainFx.getObservableListCategory());
 	}
 }
