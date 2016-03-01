@@ -1,13 +1,14 @@
 package gui.items;
 
 import database.Items;
+import database.Stock;
 import item.Item;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class ItemsModelClass {
 	private StringProperty description;
-	private Items items;
+	private Stock stock = Stock.getInstance();
 
 	public ItemsModelClass() {
 
@@ -18,11 +19,12 @@ public class ItemsModelClass {
 	}
 
 	public Items getItems() {
-		return items;
+		return stock.getItems();
 	}
 
 	public void setItems(Items items) {
-		this.items = items;
+		Items stockItems = stock.getItems();
+		stockItems = items;
 	}
 
 	public String getDescription(){
@@ -32,7 +34,7 @@ public class ItemsModelClass {
 	public void setDescription(String description){
 		this.description.set(description);
 	}
-	
+
 	public StringProperty getDescriptionProperty() {
 		return description;
 	}

@@ -5,8 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import category.Category;
-import database.Categories;
-import database.Items;
+import database.Stock;
 import gui.items.CategoryModelClass;
 import gui.items.ItemsModelClass;
 import gui.items.MainItemsController;
@@ -27,13 +26,12 @@ public class MainFX extends Application {
 	private BorderPane mainLayout;
 	private ObservableList<CategoryModelClass> observableListCategory = FXCollections.observableArrayList();
 	private ObservableList<ItemsModelClass> observableListItems = FXCollections.observableArrayList();
-	private Items items = new Items();
-	private Categories categories = new Categories();
+	private Stock stock = Stock.getInstance();
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		this.generateCategoryObservList(categories.getListCategories());
-		this.generateItemsObservList(items.getListItems());
+		generateCategoryObservList(stock.getCategories().getListCategories());
+		generateItemsObservList(stock.getItems().getListItems());
 		this.primaryStage = primaryStage;
 
 		primaryStage.getIcons().add(new Image("http://www.helisaaugusto.com.br/site/2011/imagens/logo_gr.png"));
@@ -72,7 +70,7 @@ public class MainFX extends Application {
 		Iterator<Category> iterator = createIteratorCategories(list);
 
 		while(iterator.hasNext()) {
-			if(!observableListCategory.contains(iterator.next())) {
+			if(!this.observableListCategory.contains(iterator.next())) {
 				observableListCategory.add(new CategoryModelClass(iterator.next()));
 			}
 		}
