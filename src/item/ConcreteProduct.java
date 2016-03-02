@@ -76,6 +76,5 @@ public class ConcreteProduct extends Product {
 
 	public void setCategory(Category category) {
 		this.category = category;
-		//		this.category.notifyAllObservers();
 	}
 }
