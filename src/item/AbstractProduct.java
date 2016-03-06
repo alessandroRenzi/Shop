@@ -16,6 +16,22 @@ public abstract class AbstractProduct extends Product {
 	}
 
 	@Override
+	public Category getCategory() {
+		if(this.product != null) {
+			return this.product.getCategory();
+		}
+		return null;
+	}
+
+	@Override
+	public String getDescription(){
+		if(this.product != null){
+			return this.product.getDescription();
+		}
+		return null;
+	}
+
+	@Override
 	public void printItem() {
 		if(this.product != null) {
 			this.product.printItem();
@@ -36,23 +52,7 @@ public abstract class AbstractProduct extends Product {
 		}
 		return null;
 	}
-	
-	@Override
-	public Category getCategory() {
-		if(this.product != null) {
-			return this.product.getCategory();
-		}
-		return null;
-	}
 
-	@Override
-	public String getDescription(){
-		if(this.product != null){
-			return this.product.getDescription();
-		}
-		return null;
-	}
-	
 	public abstract void accept(Visitor visitor);
 	public abstract double getPrice();	
 }

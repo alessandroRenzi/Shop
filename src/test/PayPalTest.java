@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import cart.Cart;
 import cart.ShoppingCart;
-import category.ItemCategory;
+import category.ConcreteCategory;
 import customer.UnRegisteredCustomer;
 import item.ConcreteProduct;
 import payment.ConcretePayment;
@@ -24,7 +24,7 @@ public class PayPalTest {
 
 
 		shoppingCart = new ShoppingCart(new UnRegisteredCustomer("Jimmy Page","M","1944-09-19"));
-		shoppingCart.addToCart(new ConcreteProduct("Ten - Pearl Jam - 1991",  new ItemCategory("CD e Vinili"), 7.50),1);
+		shoppingCart.addToCart(new ConcreteProduct("Ten - Pearl Jam - 1991",  new ConcreteCategory("CD e Vinili"), 7.50),1);
 		payment = new PayPal(new ConcretePayment(shoppingCart.getTotalPrice()));
 	}
 

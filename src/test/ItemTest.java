@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import category.ItemCategory;
+import category.ConcreteCategory;
 import item.ConcreteProduct;
 import item.Item;
 
@@ -15,8 +15,8 @@ public class ItemTest {
 	
 	@Before
 	public void setUp() {
-		item1 = new ConcreteProduct("Fear of the Dark - Iron Maiden - 1992",  new ItemCategory("CD e Vinili"), 11.49);
-		item2 = new ConcreteProduct("A Matter of Life and Death - Iron Maiden - 2006", new ItemCategory("CD e Vinili"), 7.99);
+		item1 = new ConcreteProduct("Fear of the Dark - Iron Maiden - 1992",  new ConcreteCategory("CD e Vinili"), 11.49);
+		item2 = new ConcreteProduct("A Matter of Life and Death - Iron Maiden - 2006", new ConcreteCategory("CD e Vinili"), 7.99);
 	}
 	
 	@Test

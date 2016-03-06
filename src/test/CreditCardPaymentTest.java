@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import cart.ShoppingCart;
-import category.ItemCategory;
+import category.ConcreteCategory;
 import customer.UnRegisteredCustomer;
 import item.ConcreteProduct;
 import payment.ConcretePayment;
@@ -21,7 +21,7 @@ public class CreditCardPaymentTest {
 	@Before
 	public void setUp() {
 		shoppingCart = new ShoppingCart(new UnRegisteredCustomer("DA","M","1944-09-03"));
-		shoppingCart.addToCart(new ConcreteProduct("Ten - Pearl Jam - 1991",  new ItemCategory("CD e Vinili"),7.50),1);
+		shoppingCart.addToCart(new ConcreteProduct("Ten - Pearl Jam - 1991",  new ConcreteCategory("CD e Vinili"),7.50),1);
 
 		payment = new CreditCard(new ConcretePayment(shoppingCart.getTotalPrice()));
 	}

@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
-import category.ItemCategory;
+import category.ConcreteCategory;
 import customer.Customer;
 import customer.UnRegisteredCustomer;
 import item.ConcreteProduct;
@@ -24,7 +24,7 @@ public class RentalTest {
 	@Before
 	public void setUp() throws Exception {
 		customer = new UnRegisteredCustomer("Alessandro", "Renzi", "1985-04-26");
-		rent = new ConcreteProduct("Hurricane", new ItemCategory("DVD"), 30);
+		rent = new ConcreteProduct("Hurricane", new ConcreteCategory("DVD"), 30);
 		rental = new Rentals(customer, rent, "2016-01-22");
 		endDate = LocalDate.parse("2016-02-25");
 

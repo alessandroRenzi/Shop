@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import cart.Cart;
 import cart.ShoppingCart;
-import category.ItemCategory;
+import category.ConcreteCategory;
 import customer.Customer;
 import customer.UnRegisteredCustomer;
 import item.Composite;
@@ -35,9 +35,9 @@ public class ShoppingCartTest {
 		outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
 
-		product1 = new ConcreteProduct("Nevermind - Nirvana - 1991",  new ItemCategory("CD e Vinili"), 19.12);
-		product2 = new ConcreteProduct("Ten - Pearl Jam - 1991",  new ItemCategory("CD e Vinili"), 7.50);
-		product3 = new ConcreteProduct("The Wall - Pink Floyd - 1979",  new ItemCategory("CD e Vinili"), 30.72);
+		product1 = new ConcreteProduct("Nevermind - Nirvana - 1991",  new ConcreteCategory("CD e Vinili"), 19.12);
+		product2 = new ConcreteProduct("Ten - Pearl Jam - 1991",  new ConcreteCategory("CD e Vinili"), 7.50);
+		product3 = new ConcreteProduct("The Wall - Pink Floyd - 1979",  new ConcreteCategory("CD e Vinili"), 30.72);
 
 		customer1 = new UnRegisteredCustomer("Matteo Gori","M","1995-04-15");
 		customer2 = new UnRegisteredCustomer("Alessandro Renzi","M","1982-12-02");

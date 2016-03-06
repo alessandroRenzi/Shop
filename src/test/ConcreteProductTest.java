@@ -8,7 +8,7 @@ import java.io.PrintStream;
 import org.junit.Before;
 import org.junit.Test;
 
-import category.ItemCategory;
+import category.ConcreteCategory;
 import discount.TotalDiscount;
 import item.ConcreteProduct;
 
@@ -21,7 +21,7 @@ public class ConcreteProductTest {
 		outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
 
-		product = new ConcreteProduct("The Wall - Pink Floyd - 1979",  new ItemCategory("CD e Vinili"), 6.99);
+		product = new ConcreteProduct("The Wall - Pink Floyd - 1979",  new ConcreteCategory("CD e Vinili"), 6.99);
 	}
 
 	@Test

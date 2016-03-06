@@ -1,15 +1,18 @@
 package item;
 
-import category.Category;
 import discount.Discount;
 import report.Visitor;
+import stock.ConcreteStock;
+import stock.Stock;
 
 public class DecoratedProduct extends AbstractProduct {
 	private int percentage;
+	private Stock stock = ConcreteStock.getInstance();
 
 	public DecoratedProduct(Product product, int percentage) {
 		super(product);
 		this.percentage = percentage;
+		this.stock.addItem(this);
 	}
 
 	public int getPercentage() {
@@ -59,10 +62,4 @@ public class DecoratedProduct extends AbstractProduct {
 	public String decoratedProductToString() {
 		return " | Discount: " + getPercentage() + "% | Discounted price: " + getPrice();	
 	}
-
-	@Override
-	public Category getCategory() {
-		return super.getCategory();
-	}
-
 }

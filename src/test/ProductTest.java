@@ -3,7 +3,7 @@ package test;
 import org.junit.Before;
 import org.junit.Test;
 
-import category.ItemCategory;
+import category.ConcreteCategory;
 import item.ConcreteProduct;
 import item.Product;
 
@@ -13,8 +13,8 @@ public class ProductTest {
 	
 	@Before 
 	public void setUp() {
-		product1 = new ConcreteProduct("Ten - Pearl Jam - 1991",  new ItemCategory("CD e Vinili"), 8.72);
-		product2 = new ConcreteProduct("Vs. - Pearl Jam - 1993",  new ItemCategory("CD e Vinili"), 19.12);
+		product1 = new ConcreteProduct("Ten - Pearl Jam - 1991",  new ConcreteCategory("CD e Vinili"), 8.72);
+		product2 = new ConcreteProduct("Vs. - Pearl Jam - 1993",  new ConcreteCategory("CD e Vinili"), 19.12);
 	}
 	
 	@Test(expected= Exception.class)

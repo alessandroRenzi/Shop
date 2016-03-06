@@ -1,6 +1,5 @@
 package item;
 
-import category.Category;
 import discount.Discount;
 import report.Visitor;
 
@@ -8,6 +7,7 @@ public interface Item extends Comparable<Item>{
 	void accept(Visitor visitor);
 	void add(Item item) throws Exception;
 
+	@Override
 	public default int compareTo(Item itemToCompare) {
 		int result = 0;
 		if(this.getPrice() > itemToCompare.getPrice()) {
@@ -18,10 +18,10 @@ public interface Item extends Comparable<Item>{
 		return result;
 	}
 
+	String getDescription();
 	double getPrice();
 	void printItem();
+	void remove(Item item) throws Exception;
 	void setDiscount(Discount discount);
-	String getDescription();
-	Category getCategory();
 }
 

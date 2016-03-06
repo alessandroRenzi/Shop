@@ -1,9 +1,7 @@
 package category;
 
-import database.Categories;
-
 public interface Category {
 	String getCategory();
+	boolean equals(Category category);
 	void setCategory(String category);
-	Categories getCategories();
 }

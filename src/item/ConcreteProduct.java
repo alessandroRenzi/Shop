@@ -1,25 +1,33 @@
 package item;
 
 import category.Category;
-import database.Stock;
 import discount.BaseDiscount;
 import discount.Discount;
 import report.Visitor;
+import stock.ConcreteStock;
+import stock.Stock;
 
 public class ConcreteProduct extends Product {
+	private Category category;
 	private String description;
 	private Discount discount;
-	private Category category;
 	private double price;
-	private Stock stock = Stock.getInstance();
+	private Stock stock = ConcreteStock.getInstance();
 
 	public ConcreteProduct(String description, Category category, double price) {
+		this.category = category;
 		this.description = description;
 		this.discount = new BaseDiscount();
-		this.category = category;
 		this.price = price;
+		this.stock.addItem(this);
+	}
 
-		generate();
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public String getDescription() {
@@ -28,6 +36,10 @@ public class ConcreteProduct extends Product {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Discount getDiscount() {
+		return discount;
 	}
 
 	public void setPrice(double price) {
@@ -63,18 +75,5 @@ public class ConcreteProduct extends Product {
 		double discountedPrice = discount.doDiscount(price,discount.getPercentage());
 		double rounding = Math.pow(10,2);
 		return Math.round(discountedPrice*rounding)/rounding;
-	}
-
-	@Override
-	public Category getCategory() {
-		return this.category;
-	}
-
-	public void generate() {
-		this.stock.addItem(this);
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
 	}
 }

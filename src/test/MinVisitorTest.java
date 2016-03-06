@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import category.ItemCategory;
+import category.ConcreteCategory;
 import item.ConcreteProduct;
 import report.MinVisitor;
 
@@ -18,8 +18,8 @@ public class MinVisitorTest {
 	public void setUp() {
 		min = new MinVisitor();
 
-		product1 = new ConcreteProduct("Highway 61 Revisited - Bob Dylan - 1965",  new ItemCategory("CD e Vinili"), 21.50);
-		product2 = new ConcreteProduct("Desire - Bob Dylan - 1976",  new ItemCategory("CD e Vinili"), 20.00);
+		product1 = new ConcreteProduct("Highway 61 Revisited - Bob Dylan - 1965",  new ConcreteCategory("CD e Vinili"), 21.50);
+		product2 = new ConcreteProduct("Desire - Bob Dylan - 1976",  new ConcreteCategory("CD e Vinili"), 20.00);
 	}
 
 	@Test

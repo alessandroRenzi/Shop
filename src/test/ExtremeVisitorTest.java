@@ -8,7 +8,7 @@ import java.io.PrintStream;
 import org.junit.Before;
 import org.junit.Test;
 
-import category.ItemCategory;
+import category.ConcreteCategory;
 import item.*;
 import report.MaxVisitor;
 
@@ -26,8 +26,8 @@ public class ExtremeVisitorTest {
 		outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
 
-		product1 = new ConcreteProduct("Who's Next - The Who - 1971",  new ItemCategory("CD e Vinili"), 22.95);
-		product2 = new DecoratedProduct(new ConcreteProduct("My Generation - The Who - 1965",  new ItemCategory("CD e Vinili"), 19.12), 20);
+		product1 = new ConcreteProduct("Who's Next - The Who - 1971",  new ConcreteCategory("CD e Vinili"), 22.95);
+		product2 = new DecoratedProduct(new ConcreteProduct("My Generation - The Who - 1965",  new ConcreteCategory("CD e Vinili"), 19.12), 20);
 
 		pack = new Composite("Who's Next Generation? - The Who - 2015");
 		try {

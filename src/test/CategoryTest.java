@@ -6,14 +6,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import category.Category;
-import category.ItemCategory;
+import category.ConcreteCategory;
 
 public class CategoryTest {
 	private Category category;
 	
 	@Before
 	public void setUp(){
-		this.category = new ItemCategory("CD");
+		this.category = new ConcreteCategory("CD");
 	}
 	@Test
 	public void getCategoryTest() {

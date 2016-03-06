@@ -8,7 +8,7 @@ import java.io.PrintStream;
 import org.junit.Before;
 import org.junit.Test;
 
-import category.ItemCategory;
+import category.ConcreteCategory;
 import discount.SummerDiscount;
 import item.ConcreteProduct;
 import item.DecoratedProduct;
@@ -24,7 +24,7 @@ public class DecoratedProductTest {
 		outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
 
-		product = new ConcreteProduct("Green River - Creedence Clearwater Revival - 1969",  new ItemCategory("CD e Vinili"), 23.49);
+		product = new ConcreteProduct("Green River - Creedence Clearwater Revival - 1969",  new ConcreteCategory("CD e Vinili"), 23.49);
 		decoratedProduct = new DecoratedProduct(product, 10);
 	}
 
