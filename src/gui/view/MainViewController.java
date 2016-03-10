@@ -14,32 +14,31 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainViewController {
-	private MainFX mainFx;
-	
+	private MainFX mainFX;
+
 	@FXML
 	public void Close(ActionEvent actionEvent) {
 		Platform.exit();
 	}
 
 	@FXML
-	public void AboutGeR(ActionEvent actionEvent) throws IOException {
+	public void AboutGeR(ActionEvent actionEvent) throws IOException {	
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(MainFX.class.getResource("about/MainAbout.fxml"));
 		AnchorPane mainAbout = loader.load();
 
 		Stage addMainAbout = new Stage();
 		addMainAbout.getIcons().add(new Image("http://www.helisaaugusto.com.br/site/2011/imagens/logo_gr.png"));
-		addMainAbout.setTitle("About G&R");
 		addMainAbout.initModality(Modality.WINDOW_MODAL);
-		addMainAbout.initOwner(this.mainFx.getPrimaryStage());
+		addMainAbout.initOwner(this.mainFX.getPrimaryStage());
+		addMainAbout.setTitle("About G&R");
 
 		Scene scene = new Scene(mainAbout);
 		addMainAbout.setScene(scene);
 		addMainAbout.showAndWait();
-	
 	}
 
 	public void setMainApp(MainFX mainFx){
-		this.mainFx = mainFx;
+		this.mainFX = mainFx;
 	}
 }
