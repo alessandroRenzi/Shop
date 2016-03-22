@@ -29,7 +29,6 @@
                     </columns>
                   </TableView>
                   <TableView fx:id="itemTable" layoutX="150.0" layoutY="-1.0" maxHeight="567.0" maxWidth="151.0" prefHeight="567.0" prefWidth="151.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
-                  <TableView fx:id="itemTable" layoutX="150.0" prefHeight="596.0" prefWidth="151.0">
                     <columns>
                       <TableColumn fx:id="itemsColumn" minWidth="0.0" prefWidth="0.0" text="Items" />
                     </columns>
