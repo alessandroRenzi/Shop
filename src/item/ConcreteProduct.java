@@ -10,14 +10,13 @@ import stock.Stock;
 public class ConcreteProduct extends Product {
 	private Category category;
 	private String description;
-	private Discount discount;
+	private Discount discount = new BaseDiscount();
 	private double price;
 	private Stock stock = ConcreteStock.getInstance();
 
 	public ConcreteProduct(String description, Category category, double price) {
 		this.category = category;
 		this.description = description;
-		this.discount = new BaseDiscount();
 		this.price = price;
 		this.stock.addItem(this);
 	}
@@ -38,6 +37,7 @@ public class ConcreteProduct extends Product {
 		this.description = description;
 	}
 
+	@Override
 	public Discount getDiscount() {
 		return discount;
 	}

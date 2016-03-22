@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.shoppingCart.ShoppingCartController">
+   <bottom>
+      <Pane prefHeight="112.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="754.0" layoutY="56.0" prefHeight="19.0" prefWidth="109.0" text="Total Price:">
+               <font>
+                  <Font name="DejaVu Sans Mono Bold" size="13.0" />
+               </font></Label>
+            <Label fx:id="totalPrice" layoutX="863.0" layoutY="56.0" prefHeight="16.0" prefWidth="126.0" />
+         </children>
+      </Pane>
+   </bottom>
+   <center>
+      <TableView fx:id="shoppingCart" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="categoryColumn" prefWidth="193.0" text="Category" />
+          <TableColumn fx:id="descriptionColumn" prefWidth="350.0" text="Description" />
+            <TableColumn fx:id="quantityColumn" minWidth="0.0" prefWidth="147.0" text="Quantity" />
+            <TableColumn fx:id="discountColumn" prefWidth="206.0" text="DIscount" />
+            <TableColumn fx:id="unitPriceColumn" minWidth="0.0" prefWidth="127.0" text="Price" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </center>
+   <top>
+      <Pane prefHeight="127.0" prefWidth="1024.0" BorderPane.alignment="CENTER" />
+   </top>
+</BorderPane>

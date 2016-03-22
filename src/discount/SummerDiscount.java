@@ -16,4 +16,9 @@ public class SummerDiscount extends AbstractDiscount {
 	public double calcDiscount(double price, double percentage) {
 		return price-((price*percentage)/100);
 	}
+
+	@Override
+	String discountDescription() {
+		return "Summer Discount";
+	}
 }

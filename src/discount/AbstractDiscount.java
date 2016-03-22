@@ -6,4 +6,12 @@ public abstract class AbstractDiscount implements Discount {
 	}
 
 	abstract double calcDiscount(double price, double percentage);
+	@Override
+	public String toString(){
+		String result = "";
+		result = discountDescription();
+		return result;
+	}
+
+	abstract String discountDescription();
 }

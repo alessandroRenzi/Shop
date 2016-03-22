@@ -52,6 +52,10 @@ public abstract class AbstractProduct extends Product {
 		}
 		return null;
 	}
+	
+	public Discount getDiscount(){
+		return this.product.getDiscount();
+	}
 
 	public abstract void accept(Visitor visitor);
 	public abstract double getPrice();	

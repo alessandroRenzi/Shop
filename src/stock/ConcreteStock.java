@@ -1,3 +1,4 @@
+
 package stock;
 
 import java.util.Iterator;
@@ -8,7 +9,7 @@ import category.Category;
 import item.Item;
 
 public class ConcreteStock extends AbstractStock {
-	private static ConcreteStock instance = null;
+	private static ConcreteStock instance ;
 
 	private List<Category> listCategories;
 	private List<Item> listItems;
@@ -18,7 +19,7 @@ public class ConcreteStock extends AbstractStock {
 		this.listItems = new LinkedList<Item>();
 	}
 
-	public static Stock getInstance() {
+	public static ConcreteStock getInstance() {
 		if(instance == null) {
 			instance = new ConcreteStock();
 		}

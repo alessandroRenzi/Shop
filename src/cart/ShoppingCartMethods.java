@@ -14,7 +14,6 @@ public abstract class ShoppingCartMethods extends ShoppingCartBase implements Ca
 	@Override
 	public void addToCart(Item item, int quantity) {
 		int quantityIndex = quantity;
-
 		while(quantityIndex != 0) {
 			getCart().add(item);
 			quantityIndex = quantityIndex-1;
@@ -26,7 +25,6 @@ public abstract class ShoppingCartMethods extends ShoppingCartBase implements Ca
 	public String cartContents() {
 		String content = "";
 		Iterator<Item> iteratorCart = getIterator();
-
 		while(iteratorCart.hasNext()) {
 			Item currentItem = iteratorCart.next();
 			content = content+currentItem.toString() + "\n";

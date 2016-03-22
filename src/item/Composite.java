@@ -40,7 +40,8 @@ public class Composite implements Item {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
+	
+	@Override
 	public Discount getDiscount() {
 		return discount;
 	}

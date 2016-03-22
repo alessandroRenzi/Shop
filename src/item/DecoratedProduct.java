@@ -62,4 +62,9 @@ public class DecoratedProduct extends AbstractProduct {
 	public String decoratedProductToString() {
 		return " | Discount: " + getPercentage() + "% | Discounted price: " + getPrice();	
 	}
+
+	@Override
+	public Discount getDiscount() {
+		return super.getDiscount();
+	}
 }

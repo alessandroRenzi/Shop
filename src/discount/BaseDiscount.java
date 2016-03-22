@@ -10,4 +10,9 @@ public class BaseDiscount extends AbstractDiscount {
 	public double calcDiscount(double price, double percentage) {
 		return price;
 	}
+
+	@Override
+	String discountDescription() {
+		return "Base Discount";
+	}
 }

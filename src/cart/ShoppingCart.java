@@ -1,5 +1,7 @@
 package cart;
 
+import java.util.Iterator;
+
 import customer.Customer;
 import item.Item;
 import observer.Observer;
@@ -19,4 +21,10 @@ public class ShoppingCart extends ShoppingCartObserver implements Cart {
 			observer.update(this,index,item,quantity);
 		}
 	}
+
+	@Override
+	public Iterator<Item> getItemIterator() {
+		return this.getIterator();
+	}
+
 }

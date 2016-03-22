@@ -1,5 +1,6 @@
 package item;
 
+import category.Category;
 import discount.Discount;
 import report.Visitor;
 
@@ -23,5 +24,7 @@ public interface Item extends Comparable<Item>{
 	void printItem();
 	void remove(Item item) throws Exception;
 	void setDiscount(Discount discount);
+	Discount getDiscount();
+	Category getCategory();
 }
 

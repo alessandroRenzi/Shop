@@ -5,12 +5,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 import customer.Customer;
+import customer.UnRegisteredCustomer;
 
 public class Customers {
 	private List<Customer> listCustomers;
 
 	public Customers() {
 		listCustomers = new LinkedList<Customer>();
+		this.listCustomers.add(new UnRegisteredCustomer("Blank","Blank","1985-04-26"));
 	}
 
 	public List<Customer> getListRegister() {
