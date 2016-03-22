@@ -16,7 +16,7 @@
 
 <BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.items.MainItemsController">
    <top>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="170.0" prefWidth="1024.0" BorderPane.alignment="CENTER" />
    </top>
    <center>
       <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -25,10 +25,11 @@
                <children>
                   <TableView fx:id="categoryTable" layoutY="-1.0" maxHeight="567.0" maxWidth="152.0" prefHeight="567.0" prefWidth="152.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="149.0" AnchorPane.topAnchor="-1.0">
                     <columns>
-                      <TableColumn fx:id="categoryColumn" prefWidth="150.5" text="Category" />
+                      <TableColumn fx:id="categoryColumn" prefWidth="149.0" text="Category" />
                     </columns>
                   </TableView>
                   <TableView fx:id="itemTable" layoutX="150.0" layoutY="-1.0" maxHeight="567.0" maxWidth="151.0" prefHeight="567.0" prefWidth="151.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+                  <TableView fx:id="itemTable" layoutX="150.0" prefHeight="596.0" prefWidth="151.0">
                     <columns>
                       <TableColumn fx:id="itemsColumn" minWidth="0.0" prefWidth="0.0" text="Items" />
                     </columns>

@@ -2,7 +2,98 @@
 
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane layoutY="330.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="70.0" prefWidth="600.0" SplitPane.resizableWithParent="false">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="135.0" layoutX="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/gitHubLogo.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="50.0" fitWidth="135.0" layoutX="232.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/EclipseLogo.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="50.0" fitWidth="135.0" layoutX="423.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/JavaFXLogo.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="3.0" layoutY="50.0" prefHeight="21.0" prefWidth="592.0" text="G&amp;R Megastore s.r.l. di Gori M. e Renzi A. © Copyright 2016 - All rights reserved">
+                     <font>
+                        <Font name="Calibri" size="10.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+      <ImageView fitHeight="101.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="299.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="450.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../../images/G&amp;RLogo.png" />
+         </image></ImageView>
+      <Label layoutX="116.0" layoutY="10.0" prefHeight="41.0" prefWidth="465.0" text="G&amp;R MEGASTORE s.r.l.">
+         <font>
+            <Font name="Calibri Bold" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="126.0" layoutY="42.0" text="di Gori M. e Renzi A.">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="126.0" layoutY="60.0" text="Viale Giovan Battista Morgagni, 66 - 50134 Firenze (Fi) - Italy">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="126.0" layoutY="78.0" prefHeight="18.0" prefWidth="474.0" text="Tel: 055.653258 - VAT: 00231500246 - E-mail: gerMegastore@gmail.com">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="-1.0" layoutY="137.0" prefHeight="21.0" prefWidth="598.0" text="G&amp;R Megastore nasce dalla volontà di offrire prodotti di qualità a prezzi vantaggiosi,">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="158.0" prefHeight="21.0" prefWidth="592.0" text="senza sacrificare la qualità del servizio offerto ai Clienti." textAlignment="CENTER">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="-3.0" layoutY="190.0" prefHeight="18.0" prefWidth="600.0" text="Tutte le foto dei prodotti raffigurano esattamente gli oggetti in vendita presenti">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="5.0" layoutY="208.0" prefHeight="21.0" prefWidth="592.0" text="nei nostri magazzini salvo ove diversamente indicato.">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutY="237.0" prefHeight="18.0" prefWidth="600.0" text="La disponibilità immediata dei prodotti e la rapidità ed affidabilità del servizio">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutY="255.0" prefHeight="21.0" prefWidth="600.0" text="di spedizione utilizzato Vi permettono di acquistare da G&amp;R Megastore in tutta tranquillità,">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="-2.0" layoutY="276.0" prefHeight="21.0" prefWidth="598.0" text="sapendo anche di poter contare su un eccellente Servizio Clienti">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutY="297.0" prefHeight="21.0" prefWidth="598.0" text="pronto a risolvere tempestivamente ogni problema e a chiarire ogni Vostro dubbio.">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>
