@@ -72,7 +72,7 @@ public class ConcreteProduct extends Product {
 	}
 
 	public double calcPrice() {
-		double discountedPrice = discount.doDiscount(price,discount.getPercentage());
+		double discountedPrice = discount.doDiscount(price);
 		double rounding = Math.pow(10,2);
 		return Math.round(discountedPrice*rounding)/rounding;
 	}

@@ -13,7 +13,7 @@ public class UnRegisteredCustomerTest {
 
 	@Before
 	public void setUp(){
-		this.customer = new UnRegisteredCustomer("Alessandro", "Renzi", "1985-04-26");
+		this.customer = new UnRegisteredCustomer("Alessandro Renzi", "Male", "1985-04-26");
 	}
 
 	@Test
@@ -23,16 +23,16 @@ public class UnRegisteredCustomerTest {
 
 	@Test
 	public void testGetName(){
-		assertEquals("Alessandro", customer.getName());
+		assertEquals("Alessandro Renzi", customer.getNominative());
 	}
 
 	@Test
 	public void testGetSurname(){
-		assertEquals("Renzi", customer.getSurname());
+		assertEquals("Male", customer.getGenre());
 	}
 
 	@Test 
 	public void testToString(){
-		assertEquals("Name: Alessandro | Surname: Renzi | Age: 31", customer.toString());
+		assertEquals("Nominative: Alessandro Renzi | Genre: Male | Age: 31", customer.toString());
 	}
 }

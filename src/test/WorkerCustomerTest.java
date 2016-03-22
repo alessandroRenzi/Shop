@@ -12,45 +12,52 @@ public class WorkerCustomerTest {
 	private WorkerCustomer customer;
 
 	@Before
-	public void setUp(){
-		customer = new WorkerCustomer("Alessandro", "Renzi", "1985-04-26","Male","Via Belgio","Television");
+	public void setUp() {
+		customer = new WorkerCustomer("Eddie van Halen","Male","1955-01-26","Eruption Road, 2","CDs and vinyls");
 	}
 
 	@Test
 	public void testGetAge() {
-		assertEquals(31, customer.getAge());
+		assertEquals(61,customer.getAge());
 	}
 
 	@Test
-	public void testGetName(){
-		assertEquals("Alessandro", customer.getName());
+	public void testGetName() {
+		assertEquals("Eddie van Halen",customer.getNominative());
 	}
 
 	@Test
-	public void testGetSurname(){
-		assertEquals("Renzi", customer.getSurname());
+	public void testGetGenre() {
+		assertEquals("Male",customer.getGenre());
 	}
 
 	@Test
-	public void testGetGenre(){
-		assertEquals("Male", customer.getGenre());
+	public void testGetStreet() {
+		assertEquals("Eruption Road, 2",customer.getStreet());
 	}
 
 	@Test
-	public void testGetStreet(){
-		assertEquals("Via Belgio", customer.getStreet());
-	}
-
-	@Test 
-	public void testGetWorkingArea(){
-		assertEquals("Television", customer.getWorkingArea());
-	}
-
-	@Test 
-	public void testToString(){
-		assertEquals("Name: Alessandro | Surname: Renzi | Age: 31 | Genre: Male | Street: Via Belgio | WorkingArea: Television", customer.toString());
+	public void testSetStreet() {
+		customer.setStreet("Ice Cream Man Boulevard, 10");
+		assertEquals("Ice Cream Man Boulevard, 10",customer.getStreet());
 	}
 	
+	@Test 
+	public void testGetWorkingArea() {
+		assertEquals("CDs and vinyls",customer.getWorkingArea());
+	}
+	
+	@Test
+	public void testSetWorkingArea() {
+		customer.setWorkingArea("Electronics");
+		assertEquals("Electronics",customer.getWorkingArea());
+	}
+
+	@Test 
+	public void testToString() {
+		assertEquals("Nominative: Eddie van Halen | Genre: Male | Age: 61 | Street: Eruption Road, 2 | WorkingArea: CDs and vinyls",customer.toString());
+	}
+
 	@Test
 	public void testGetCard() {
 		equals(customer.getCard().equals(new GoldCard()));

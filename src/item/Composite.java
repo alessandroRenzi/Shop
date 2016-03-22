@@ -109,7 +109,7 @@ public class Composite implements Item {
 	}
 
 	public double roundingPrice(double sum) {
-		double discountedSum = discount.doDiscount(sum,discount.getPercentage());
+		double discountedSum = discount.doDiscount(sum);
 		double rounding = Math.pow(10,2);
 		return Math.round(discountedSum*rounding)/rounding;
 	}

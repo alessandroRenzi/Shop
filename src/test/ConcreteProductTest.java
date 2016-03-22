@@ -35,12 +35,6 @@ public class ConcreteProductTest {
 		assertEquals("The Dark Side of the Moon - Pink Floyd - 1973", product.getDescription());
 	}
 
-//	@Test
-//	public void testSetCategory() {
-//		product.setCategory("Musica digitale");
-//		assertEquals("Musica digitale", product.getCategory());
-//	}
-
 	@Test
 	public void testSetPrice() {
 		product.setPrice(5.99);

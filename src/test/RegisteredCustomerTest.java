@@ -15,17 +15,12 @@ public class RegisteredCustomerTest {
 
 	@Before
 	public void setUp(){
-		this.customer = new RegisteredCustomer("Paul David","Hewson","1960-05-10","Male","No Name Road");
+		this.customer = new RegisteredCustomer("Paul David Hewson","Male","1960-05-10","Good life road, 69");
 	}
 
 	@After
 	public void resetId(){
 		customer.resetId();
-	}
-
-	@Test
-	public void testGetGenre(){
-		assertEquals("Male",customer.getGenre());
 	}
 
 	@Test
@@ -35,7 +30,13 @@ public class RegisteredCustomerTest {
 
 	@Test
 	public void testGetStreet(){
-		assertEquals("No Name Road",customer.getStreet());
+		assertEquals("Good life road, 69",customer.getStreet());
+	}
+	
+	@Test
+	public void testSetStreet(){
+		customer.setStreet("Afterlife Boulevard, 23");
+		assertEquals("Afterlife Boulevard, 23",customer.getStreet());
 	}
 
 	@Test
@@ -44,17 +45,17 @@ public class RegisteredCustomerTest {
 	}
 
 	@Test
-	public void testGetName(){
-		assertEquals("Paul David",customer.getName());
+	public void testGetNominative(){
+		assertEquals("Paul David Hewson",customer.getNominative());
 	}
 
 	@Test
-	public void testGetSurname(){
-		assertEquals("Hewson",customer.getSurname());
+	public void testGetSGenre(){
+		assertEquals("Male",customer.getGenre());
 	}
 
 	@Test 
 	public void toStringTest(){
-		assertEquals("Name: Paul David | Surname: Hewson | Age: 56 | Genre: Male | Street: No Name Road | Id: CST1",customer.toString());
+		assertEquals("Nominative: Paul David Hewson | Genre: Male | Age: 56 | Street: Good life road, 69 | Id: CST1",customer.toString());
 	}
 }

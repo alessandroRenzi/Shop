@@ -13,15 +13,15 @@ public abstract class AbstractCategory implements Category {
 	}
 
 	@Override
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	@Override
 	public boolean equals(Category category) {
 		if(this.getCategory().toString() == category.getCategory()) {
 			return true;
 		}
 		return false;
-	}
-
-	@Override
-	public void setCategory(String category) {
-		this.category = category;
 	}
 }

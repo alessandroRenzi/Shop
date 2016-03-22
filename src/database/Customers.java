@@ -5,22 +5,16 @@ import java.util.LinkedList;
 import java.util.List;
 
 import customer.Customer;
-import customer.UnRegisteredCustomer;
 
 public class Customers {
 	private List<Customer> listCustomers;
 
 	public Customers() {
 		listCustomers = new LinkedList<Customer>();
-		this.listCustomers.add(new UnRegisteredCustomer("Blank","Blank","1985-04-26"));
 	}
 
 	public List<Customer> getListRegister() {
 		return listCustomers;
-	}
-
-	public void setListRegister(List<Customer> listRegister) {
-		this.listCustomers = listRegister;
 	}
 
 	public void addToListRegister(Customer registered) {
@@ -34,9 +28,10 @@ public class Customers {
 	public void print() {
 		Iterator<Customer> iteratorCustomers = listCustomers.iterator();
 
+		System.out.print("Customers:\n");
 		while(iteratorCustomers.hasNext()) {
 			Customer currentCustomer = iteratorCustomers.next();
-			System.out.println(currentCustomer.toString());
+			System.out.print(currentCustomer.toString() + "\n");
 		}
 	}
 }

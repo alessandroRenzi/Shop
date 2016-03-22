@@ -11,19 +11,31 @@ import category.ConcreteCategory;
 public class CategoryTest {
 	private Category category;
 	private Category other;
+
 	@Before
 	public void setUp(){
-		this.category = new ConcreteCategory("CD");
-		this.other = new ConcreteCategory("Telefonia");
+		this.category = new ConcreteCategory("CDs and vinyls");
+		this.other = new ConcreteCategory("Electronics");
 	}
+
 	@Test
-	public void getCategoryTest() {
-		assertEquals (this.category.getCategory(), "CD");
+	public void testGetCategory() {
+		assertEquals("CDs and vinyls",category.getCategory());
+	}
+
+	@Test
+	public void testSetCategory() {
+		category.setCategory("Electronics");
+		assertEquals("Electronics",category.getCategory());
 	}
 
 	@Test 
-	public void equalsTest(){
-		assertFalse(this.category.equals(this.other));
+	public void testEqualsFalse(){
+		assertFalse(category.equals(other));
 	}
-	
+
+	@Test 
+	public void testEqualsTrue(){
+		assertTrue(category.equals(category));
+	}
 }

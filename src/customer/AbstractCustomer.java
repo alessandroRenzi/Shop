@@ -8,15 +8,15 @@ public abstract class AbstractCustomer implements Customer{
 	private int age;
 	private LocalDate birthDay;
 	private Card card;
-	private String name;
-	private String surname;
+	private String nominative;
+	private String genre;
 
-	public AbstractCustomer(String name, String surname, String birthDay){
+	public AbstractCustomer(String nominative, String genre, String birthDay){
 		this.birthDay = LocalDate.parse(birthDay);
 		ageEvaluator();
 		this.assignCard();
-		this.name = name;
-		this.surname = surname;
+		this.nominative = nominative;
+		this.genre = genre;
 	}
 
 	public Card getCard(){
@@ -29,18 +29,18 @@ public abstract class AbstractCustomer implements Customer{
 	}
 
 	@Override
-	public String getName() {
-		return name;
+	public String getGenre() {
+		return genre;
 	}
 
 	@Override
-	public String getSurname() {
-		return surname;
+	public String getNominative() {
+		return nominative;
 	}
 
 	private void ageEvaluator() {
 		LocalDate temp = LocalDate.now();
-		int tempAge = temp.getYear() - birthDay.getYear();
+		int tempAge = temp.getYear()-birthDay.getYear();
 		this.age = tempAge;
 	}
 
@@ -48,8 +48,9 @@ public abstract class AbstractCustomer implements Customer{
 		this.card = myCard();
 	}
 
+	@Override
 	public  String toString(){
-		String result = "Name: " + getName() + " | Surname: " + getSurname() + " | Age: " + getAge();
+		String result = "Nominative: " + getNominative() + " | Genre: " + getGenre() + " | Age: " + getAge();
 		result = result+addInformation(result);
 		return result;
 	}

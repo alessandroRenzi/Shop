@@ -20,9 +20,6 @@ public class PayPalTest {
 
 	@Before
 	public void setUp() {
-
-
-
 		shoppingCart = new ShoppingCart(new UnRegisteredCustomer("Jimmy Page","M","1944-09-19"));
 		shoppingCart.addToCart(new ConcreteProduct("Ten - Pearl Jam - 1991",  new ConcreteCategory("CD e Vinili"), 7.50),1);
 		payment = new PayPal(new ConcretePayment(shoppingCart.getTotalPrice()));
@@ -33,5 +30,4 @@ public class PayPalTest {
 		payment.doPay();
 		assertEquals("Paid by PayPal: 7.5", payment.getPay());
 	}
-	
 }

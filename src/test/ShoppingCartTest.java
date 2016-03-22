@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import cart.Cart;
 import cart.ShoppingCart;
+import cart.ShoppingCartObserver;
 import category.ConcreteCategory;
 import customer.Customer;
 import customer.UnRegisteredCustomer;
@@ -129,10 +130,9 @@ public class ShoppingCartTest {
 				+ "\n" + "Quantity: 1	Total price: 26.62",outContent.toString());
 	}
 
-	@SuppressWarnings("static-access")
 	@Test 
 	public void testRemoveObserver() {
 		shopCart1.removeObserver(observer);
-		assertEquals(2,shopCart1.getListObserver().size());
+		assertEquals(2,ShoppingCartObserver.getListObserver().size());
 	}
 }

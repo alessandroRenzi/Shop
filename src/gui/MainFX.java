@@ -38,7 +38,7 @@ public class MainFX extends Application {
 	public Stage getPrimaryStage() {
 		return primaryStage;
 	}
-	
+
 	public BorderPane getMainLayout() {
 		return mainLayout;
 	}
@@ -54,11 +54,11 @@ public class MainFX extends Application {
 	public Iterator<Item> createIteratorItems(List<Item> list) {
 		return list.iterator();
 	}
-	
+
 	public Iterator<CategoryModelClass> getCategoryModelClassIterator(){
 		return this.observableListCategory.iterator();
 	}
-	
+
 	public Iterator<ItemsModelClass> getItemsModelClassIterator(){
 		return this.observableListItems.iterator();
 	}
@@ -78,7 +78,6 @@ public class MainFX extends Application {
 			observableListItems.add(new ItemsModelClass(iterator.next()));
 		}
 	}
-
 
 	private List<Category> removeDuplicate(List<Category> list) {
 		for(int i = 0; i < list.size()-1; i++) {
@@ -131,5 +130,4 @@ public class MainFX extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-
 }

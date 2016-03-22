@@ -14,7 +14,6 @@ import javafx.scene.control.TableView;
 
 
 public class ShoppingCartController {
-	
 	@FXML
 	private TableView<ShoppingCartModelClass> shoppingCart;
 	@FXML
@@ -29,9 +28,8 @@ public class ShoppingCartController {
 	private TableColumn<ShoppingCartModelClass, Number> unitPriceColumn;
 	@FXML
 	private Label totalPrice;
-	
-	private ObservableList<ShoppingCartModelClass> shoppingList = FXCollections.observableArrayList();
 
+	private ObservableList<ShoppingCartModelClass> shoppingList = FXCollections.observableArrayList();
 
 	@FXML
 	public void initialize(){
@@ -42,8 +40,7 @@ public class ShoppingCartController {
 		this.unitPriceColumn.setCellValueFactory(cellData -> cellData.getValue().getPriceProperty());
 		this.discountColumn.setCellValueFactory(cellData -> cellData.getValue().getDiscountProperty());
 	}
-	
-	
+
 	public void generateShoppingList(Cart cart){
 		this.totalPrice.setText(Double.toString(cart.getTotalPrice()));
 		Iterator<Item> shoppingList = cart.getItemIterator();

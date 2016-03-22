@@ -4,9 +4,8 @@ import card.Card;
 import card.NoCard;
 
 public class UnRegisteredCustomer extends AbstractCustomer {
-
-	public UnRegisteredCustomer(String name, String surname, String birthDay){
-		super(name,surname,birthDay);
+	public UnRegisteredCustomer(String nominative, String genre, String birthDay){
+		super(nominative,genre,birthDay);
 	}
 
 	@Override

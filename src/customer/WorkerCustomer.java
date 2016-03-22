@@ -4,19 +4,13 @@ import card.Card;
 import card.GoldCard;
 
 public class WorkerCustomer extends AbstractCustomer {
-	private String genre;
 	private String street;
 	private String workingArea;
 
-	public WorkerCustomer(String name, String surname, String birthDay, String genre, String street, String workingArea){
-		super(name,surname,birthDay);
-		this.genre = genre;
+	public WorkerCustomer(String nominative, String genre, String birthDay, String street, String workingArea){
+		super(nominative,genre,birthDay);
 		this.street = street;
 		this.workingArea = workingArea;
-	}
-
-	public String getGenre(){
-		return this.genre;
 	}
 
 	public String getStreet(){
@@ -27,9 +21,17 @@ public class WorkerCustomer extends AbstractCustomer {
 		return this.workingArea;
 	}
 
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public void setWorkingArea(String workingArea) {
+		this.workingArea = workingArea;
+	}
+
 	@Override
 	public String addInformation(String result) {
-		return result = " | Genre: " + getGenre() + " | Street: " + getStreet() + " | WorkingArea: " + getWorkingArea();
+		return result = " | Street: " + getStreet() + " | WorkingArea: " + getWorkingArea();
 	}
 
 	@Override

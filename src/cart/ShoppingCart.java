@@ -26,5 +26,4 @@ public class ShoppingCart extends ShoppingCartObserver implements Cart {
 	public Iterator<Item> getItemIterator() {
 		return this.getIterator();
 	}
-
 }

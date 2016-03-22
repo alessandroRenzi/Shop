@@ -1,17 +1,17 @@
 package discount;
 
 public abstract class AbstractDiscount implements Discount {
-	public double doDiscount(double price, double percentage) {
-		return calcDiscount(price,percentage);
+	public double doDiscount(double price) {
+		return calcDiscount(price);
 	}
 
-	abstract double calcDiscount(double price, double percentage);
 	@Override
 	public String toString(){
 		String result = "";
 		result = discountDescription();
 		return result;
 	}
-
+	
+	abstract double calcDiscount(double price);
 	abstract String discountDescription();
 }

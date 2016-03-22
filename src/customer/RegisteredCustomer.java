@@ -7,19 +7,13 @@ import card.Card;
 
 public class RegisteredCustomer extends AbstractCustomer {
 	private static AtomicInteger counter = new AtomicInteger(0);
-	private String genre;
 	private String id;
 	private String street;
 
-	public RegisteredCustomer(String name, String surname, String birthDay, String genre, String street){
-		super(name,surname,birthDay);
-		this.genre = genre;
+	public RegisteredCustomer(String nominative, String genre, String birthDay, String street){
+		super(nominative,genre,birthDay);
 		this.id = "CST" + counter.incrementAndGet();
 		this.street = street;
-	}
-
-	public String getGenre(){
-		return this.genre;
 	}
 
 	public String getId() {
@@ -30,9 +24,13 @@ public class RegisteredCustomer extends AbstractCustomer {
 		return this.street;
 	}
 
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
 	@Override
 	public String addInformation(String result) {
-		return result = " | Genre: " + getGenre() + " | Street: " + getStreet() + " | Id: " + getId();
+		return result = " | Street: " + getStreet() + " | Id: " + getId();
 	}
 
 	@Override

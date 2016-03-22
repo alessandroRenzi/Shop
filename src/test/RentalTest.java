@@ -23,7 +23,7 @@ public class RentalTest {
 
 	@Before
 	public void setUp() throws Exception {
-		customer = new UnRegisteredCustomer("Alessandro", "Renzi", "1985-04-26");
+		customer = new UnRegisteredCustomer("Alessandro Renzi", "Male", "1985-04-26");
 		rent = new ConcreteProduct("Hurricane", new ConcreteCategory("DVD"), 30);
 		rental = new Rentals(customer, rent, "2016-01-22");
 		endDate = LocalDate.parse("2016-02-25");
@@ -33,7 +33,7 @@ public class RentalTest {
 
 	@Test
 	public void testGetGetCostumer(){
-		assertEquals("Alessandro",rental.getCustomer().getName());
+		assertEquals("Alessandro Renzi",rental.getCustomer().getNominative());
 	}
 
 	@Test
@@ -49,7 +49,7 @@ public class RentalTest {
 
 	@Test
 	public void testRentalPriceCalc(){
-		assertEquals(rental.rentalPriceCalc(), 10.2,0.1);
+		assertEquals(rental.rentalPriceCalc(),10.2,0.1);
 	}
 
 	@Test
@@ -57,5 +57,4 @@ public class RentalTest {
 		rental.setTypeOfRental(new GoldRentalCalc(endDate));
 		assertEquals(rental.rentalPriceCalc(), 6.8, 0.1);
 	}
-
 }

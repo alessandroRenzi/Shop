@@ -7,12 +7,12 @@ public class TotalDiscount extends AbstractDiscount {
 	}
 
 	@Override
-	public double calcDiscount(double price, double percentage) {
+	public double calcDiscount(double price) {
 		return 0;
 	}
 
 	@Override
-	String discountDescription() {
-		return "Total Discount";
+	public String discountDescription() {
+		return "Total discount";
 	}
 }

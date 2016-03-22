@@ -13,12 +13,12 @@ public class ChristmasDiscount extends AbstractDiscount {
 	}
 	
 	@Override
-	public double calcDiscount(double price, double percentage) {
+	public double calcDiscount(double price) {
 		return price-((price*percentage)/100);
 	}
 
 	@Override
-	String discountDescription() {
-		return "Christmas Discount";
+	public String discountDescription() {
+		return "Christmas discount";
 	}
 }
