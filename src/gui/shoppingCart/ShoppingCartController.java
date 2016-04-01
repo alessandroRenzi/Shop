@@ -50,7 +50,6 @@ public class ShoppingCartController {
 		int temp = this.shoppingCart.getSelectionModel().getSelectedIndex();
 		if(temp>=0){
 			this.shoppingList.remove(temp);
-			System.out.println(temp);
 			this.removeItemFromCart(temp);
 		}
 		
