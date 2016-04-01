@@ -15,13 +15,13 @@ public class ShoppingCartModelClass {
 	private StringProperty description;
 	private StringProperty discount;
 	private DoubleProperty price;
-	private IntegerProperty quantity;
+	private IntegerProperty quantity; 
 
 	public ShoppingCartModelClass(Item item, Cart cart ){
 		this.category =new SimpleStringProperty(item.getCategory().getCategory());
 		this.description = new SimpleStringProperty(item.getDescription());
 		this.discount  = new SimpleStringProperty(item.getDiscount().toString());
-		this.price = new SimpleDoubleProperty(item.getPrice());
+		this.price = new SimpleDoubleProperty(item.getPrice()); 
 		this.quantity = new SimpleIntegerProperty(cart.getQuantityItems());
 	}
 

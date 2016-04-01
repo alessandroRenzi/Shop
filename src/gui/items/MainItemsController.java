@@ -5,9 +5,11 @@ import java.util.Iterator;
 
 import cart.Cart;
 import cart.ShoppingCart;
-import database.Customers;
+import customer.AbstractCustomer;
+import customer.RegisteredCustomer;
 import gui.MainFX;
 import gui.shoppingCart.ShoppingCartController;
+import gui.shoppingCart.ShoppingCartModelClass;
 import item.Item;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -44,9 +46,14 @@ public class MainItemsController {
 	@FXML
 	private Button showCart;
 
+	private ObservableList<ShoppingCartModelClass> cartObservableList = FXCollections.observableArrayList();
+
 	private MainFX mainFX;
+	
 	private Cart cart;
-	private Customers customer = new Customers() ;
+	
+	private AbstractCustomer customer = new RegisteredCustomer("name","male","1960-05-10","street");
+	
 
 	@FXML
 	private void initialize() {
@@ -56,7 +63,7 @@ public class MainItemsController {
 		/**
 		 * RIVEDERE
 		 */
-		this.cart = new ShoppingCart(this.customer.getListRegister().get(0));    
+		this.cart = new ShoppingCart(this.customer);    
 		this.categoryTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showCategoryDetails(newValue));
 		this.categoryTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showItemColum(newValue));
 		this.itemTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showItemsDetails(newValue));
@@ -71,6 +78,7 @@ public class MainItemsController {
 			Item temp = it.next();
 			if(temp.getDescription().equals(this.description.getText())){
 				this.cart.addToCart(temp, 1);
+				this.cartObservableList.add(new ShoppingCartModelClass(temp, this.cart));
 			}
 		}
 	}
@@ -82,7 +90,7 @@ public class MainItemsController {
 		BorderPane shoppingCart = loader.load();
 
 		ShoppingCartController controller = loader.getController();
-		controller.generateShoppingList(this.cart);
+		controller.setMainItemsController(this);
 
 		Stage shoppingStage = new Stage();
 		shoppingStage.setTitle("Shopping Cart");
@@ -137,6 +145,20 @@ public class MainItemsController {
 		}
 	}
 
+	public double getCartTotalPrice(){
+		return this.cart.getTotalPrice();
+	}
+	
+	public void removeFromCart(int index){
+		int count = index;
+		Iterator<Item> iterator = this.cart.getItemIterator();
+		while(iterator.hasNext() && count >0){
+			iterator.next();
+			count = count-1;
+		}
+		this.cart.removeFromCart(iterator.next(), 1);
+	}
+	
 	public MainFX getMainFX() {
 		return mainFX;
 	}
@@ -147,5 +169,9 @@ public class MainItemsController {
 
 	public Cart getCart() {
 		return cart;
+	}
+
+	public ObservableList<ShoppingCartModelClass> getObservableListCart() {
+		return this.cartObservableList;
 	}
 }
