@@ -7,6 +7,4 @@ public class ShopTransaction extends AbsTransaction {
 	public ShopTransaction(Payment payment) {
 		super(payment);
 	}
-	
-	
 }

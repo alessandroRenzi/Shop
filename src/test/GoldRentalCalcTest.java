@@ -10,8 +10,8 @@ import org.junit.Test;
 import category.ConcreteCategory;
 import item.ConcreteProduct;
 import item.Item;
-import utilRentals.GoldRentalCalc;
-import utilRentals.CalcRental;
+import util.Rentals.CalcRental;
+import util.Rentals.GoldRentalCalc;
 
 public class GoldRentalCalcTest {
 	CalcRental goldCalculate;

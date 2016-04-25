@@ -31,4 +31,10 @@ public class CreditCardPaymentTest {
 		payment.doPay();
 		assertEquals("Paid with credit card: 7.5",payment.getPay());
 	}
+	
+	@Test
+	public void testSetPay() {
+		payment.setPay("8.5");
+		assertEquals("8.5",payment.getPay());
+	}
 }

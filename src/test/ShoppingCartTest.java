@@ -135,4 +135,9 @@ public class ShoppingCartTest {
 		shopCart1.removeObserver(observer);
 		assertEquals(2,ShoppingCartObserver.getListObserver().size());
 	}
+
+	@Test 
+	public void testGetItemIterator() {
+		shopCart1.getItemIterator();
+	}
 }

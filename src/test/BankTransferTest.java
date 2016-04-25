@@ -31,4 +31,10 @@ public class BankTransferTest {
 		payment.doPay();
 		assertEquals("Paid by bank transfer: 7.5",payment.getPay());
 	}
+	
+	@Test
+	public void testSetPay() {
+		payment.setPay("8.5");
+		assertEquals("8.5",payment.getPay());
+	}
 }

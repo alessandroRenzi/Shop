@@ -1,4 +1,4 @@
-package utilInvoice;
+package util.Invoice;
 
 public class ShopTaxCalculator implements TaxCalculator {
 

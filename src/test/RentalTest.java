@@ -13,7 +13,7 @@ import customer.UnRegisteredCustomer;
 import item.ConcreteProduct;
 import item.Item;
 import rentals.Rentals;
-import utilRentals.GoldRentalCalc;
+import util.Rentals.GoldRentalCalc;
 
 public class RentalTest {
 	private Customer customer;
@@ -39,6 +39,11 @@ public class RentalTest {
 	@Test
 	public void testGetRentalStartDate(){
 		assertTrue(rental.getRentalStartDate().isEqual(LocalDate.parse("2016-01-22")));
+	}
+	
+	@Test
+	public void testGetRentalEndDate(){
+		assertTrue(rental.getEndRentalDate().isEqual(LocalDate.parse("2016-02-25")));
 	}
 
 	@Test

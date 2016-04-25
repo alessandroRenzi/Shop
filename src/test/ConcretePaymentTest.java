@@ -11,10 +11,9 @@ import category.ConcreteCategory;
 import customer.UnRegisteredCustomer;
 import item.ConcreteProduct;
 import payment.ConcretePayment;
-import payment.Payment;
 
 public class ConcretePaymentTest {
-	private Payment payment;
+	private ConcretePayment payment;
 	private ShoppingCart shoppingCart;
 
 	@Before
@@ -29,5 +28,16 @@ public class ConcretePaymentTest {
 	public void testBankTransfer() {
 		payment.doPay();
 		assertEquals("7.5",payment.getPay());
+	}
+
+	@Test
+	public void testSetPay() {
+		payment.setPay("8.5");
+		assertEquals("8.5",payment.getPay());
+	}
+	
+	@Test
+	public void testGetTotalPrice() {
+		assertEquals(7.5,payment.getTotalPrice(),1);
 	}
 }

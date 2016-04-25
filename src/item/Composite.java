@@ -29,10 +29,6 @@ public class Composite implements Item {
 		return category;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-
 	public String getDescription() {
 		return description;
 	}
@@ -40,7 +36,7 @@ public class Composite implements Item {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	@Override
 	public Discount getDiscount() {
 		return discount;

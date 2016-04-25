@@ -3,8 +3,8 @@ package rentals;
 import java.time.LocalDate;
 import customer.Customer;
 import item.Item;
-import utilRentals.FullRentalCalc;
-import utilRentals.CalcRental;
+import util.Rentals.CalcRental;
+import util.Rentals.FullRentalCalc;
 
 public class Rentals implements Hire {
 	private LocalDate startRentalDate;

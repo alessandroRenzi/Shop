@@ -1,4 +1,4 @@
-package utilRentals;
+package util.Rentals;
 
 import java.time.LocalDate;
 

@@ -5,8 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import utilInvoice.ShopTaxCalculator;
-import utilInvoice.TaxCalculator;
+import util.Invoice.ShopTaxCalculator;
+import util.Invoice.TaxCalculator;
 
 public class ShopTaxCalculatorTest {
 TaxCalculator taxCalculator;

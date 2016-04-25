@@ -1,4 +1,4 @@
-package utilInvoice;
+package util.Invoice;
 
 public interface TaxCalculator {
 	public double taxCalculate(double price, int vat);
