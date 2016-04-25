@@ -31,6 +31,11 @@ public class CompositeTest {
 	}
 
 	@Test
+	public void testGetCategory() {
+		assertEquals("Composite", composite.getCategory().getCategory());
+	}
+
+	@Test
 	public void testGetDescription() {
 		assertEquals("Complete Audioslave",composite.getDescription());
 	}
@@ -40,6 +45,11 @@ public class CompositeTest {
 		composite.setDescription("Audioslave discography");
 		assertEquals("Audioslave discography",composite.getDescription());
 	}
+	
+	@Test
+	public void testGetDiscount() {
+		assertEquals("Base discount",composite.getDiscount().toString());
+	}
 
 	@Test
 	public void testGetPrice() {
@@ -47,7 +57,7 @@ public class CompositeTest {
 	}
 
 	@Test
-	public void testPrint() {
+	public void testPrintItem() {
 		composite.printItem();
 		assertEquals("Description: Complete Audioslave | Content:\n" 
 				+ "Description: Out of Exile - Audioslave - 2005 | Category: CD e Vinili | Price: 9.89" + "\n" 
@@ -55,7 +65,19 @@ public class CompositeTest {
 				+ "Description: Audioslave - Audioslave - 2002 | Category: CD e Vinili | Price: 5.74" + "\n"
 				+ "Quantity of items: 3 | Price: 26.52",outContent.toString());
 	}
-
+	
+	@Test
+	public void testRemove() throws Exception {
+		composite.remove(concreteProduct);
+		assertEquals(2, composite.getMyItems().size(), 0.1);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testRemoveException() throws Exception {
+		Composite composite = new Composite(null);
+		composite.remove(composite);
+	}
+	
 	@Test
 	public void testSetDiscount() {
 		composite.setDiscount(new ChristmasDiscount(20));

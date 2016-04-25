@@ -59,4 +59,9 @@ public class DecoratedProductTest {
 		decoratedProduct.setDiscount(new SummerDiscount(30));
 		assertEquals(14.7987,decoratedProduct.getPrice(),0.1);
 	}
+	
+	@Test
+	public void testGetDiscount() {
+		assertEquals("Base discount", decoratedProduct.getDiscount().toString());
+	}
 }

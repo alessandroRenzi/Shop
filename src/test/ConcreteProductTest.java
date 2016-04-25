@@ -25,6 +25,17 @@ public class ConcreteProductTest {
 	}
 
 	@Test
+	public void testGetCategory() {
+		assertEquals("CD e Vinili", product.getCategory().getCategory());
+	}
+
+	@Test
+	public void testSetCategory() {
+		product.setCategory(new ConcreteCategory("Elettrodomestici"));
+		assertEquals("Elettrodomestici", product.getCategory().getCategory());
+	}
+
+	@Test
 	public void testGetDescription() {
 		assertEquals("The Wall - Pink Floyd - 1979", product.getDescription());
 	}
@@ -36,25 +47,30 @@ public class ConcreteProductTest {
 	}
 
 	@Test
+	public void testGetPrice() {
+		assertEquals(6.99,product.getPrice(),0.1);
+	}
+
+	@Test
 	public void testSetPrice() {
 		product.setPrice(5.99);
 		assertEquals(5.99,product.getPrice(),0.1);
 	}
 
 	@Test
-	public void testGetPrice() {
-		assertEquals(6.99,product.getPrice(),0.1);
-	}
-
-	@Test
-	public void testPrint() {
-		product.printItem();
-		assertEquals("Description: The Wall - Pink Floyd - 1979 | Category: CD e Vinili | Price: 6.99", outContent.toString());
+	public void testGetDiscount() {
+		assertEquals("Base discount",product.getDiscount().toString());
 	}
 
 	@Test
 	public void testSetDiscount() {
 		product.setDiscount(new TotalDiscount());
 		assertEquals(0.00,product.getPrice(),0.1);
+	}
+
+	@Test
+	public void testPrint() {
+		product.printItem();
+		assertEquals("Description: The Wall - Pink Floyd - 1979 | Category: CD e Vinili | Price: 6.99", outContent.toString());
 	}
 }

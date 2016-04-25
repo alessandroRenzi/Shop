@@ -20,7 +20,6 @@ public class BankTransferTest {
 
 	@Before
 	public void setUp() {
-
 		shoppingCart = new ShoppingCart(new UnRegisteredCustomer("DA","M","1944-09-03"));
 		shoppingCart = new ShoppingCart(new UnRegisteredCustomer("DA","M","1944-01-09"));
 		shoppingCart.addToCart(new ConcreteProduct("Ten - Pearl Jam - 1991", new ConcreteCategory("CD e Vinili"),7.50),1);
