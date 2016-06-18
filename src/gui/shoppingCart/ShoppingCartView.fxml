@@ -14,22 +14,28 @@
 	<bottom>
 		<Pane prefHeight="112.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
 			<children>
-				<Label layoutX="754.0" layoutY="56.0" prefHeight="19.0" prefWidth="109.0" text="Total Price:">
+            <Label fx:id="totalQuantity" layoutX="676.0" layoutY="57.0" prefHeight="21.0" prefWidth="80.0" />
+				<Label layoutX="769.0" layoutY="56.0" prefHeight="21.0" prefWidth="127.0" text="Total Price:">
 					<font>
-						<Font name="DejaVu Sans Mono Bold" size="13.0" />
+						<Font name="System Bold" size="15.0" />
 					</font>
 				</Label>
-				<Label fx:id="totalPrice" layoutX="863.0" layoutY="56.0" prefHeight="16.0" prefWidth="126.0" />
+				<Label fx:id="totalPrice" layoutX="897.0" layoutY="55.0" prefHeight="21.0" prefWidth="127.0" />
+            <Label layoutX="549.0" layoutY="55.0" prefHeight="21.0" prefWidth="127.0" text="Total Quantity:">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+            </Label>
 			</children>
 		</Pane>
 	</bottom>
 	<center>
 		<TableView fx:id="shoppingCart" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 			<columns>
-				<TableColumn fx:id="categoryColumn" prefWidth="193.0" text="Category" />
-				<TableColumn fx:id="descriptionColumn" prefWidth="350.0" text="Description" />
-				<TableColumn fx:id="quantityColumn" minWidth="0.0" prefWidth="147.0" text="Quantity" />
-				<TableColumn fx:id="discountColumn" prefWidth="206.0" text="DIscount" />
+				<TableColumn fx:id="categoryColumn" prefWidth="210.0" resizable="false" text="Category" />
+				<TableColumn fx:id="descriptionColumn" prefWidth="450.0" resizable="false" text="Description" />
+				<TableColumn fx:id="quantityColumn" minWidth="0.0" resizable="false" text="Quantity" />
+				<TableColumn fx:id="discountColumn" prefWidth="150.0" resizable="false" text="Discount" />
 				<TableColumn fx:id="unitPriceColumn" minWidth="0.0" prefWidth="127.0" text="Price" />
 			</columns>
 			<columnResizePolicy>
@@ -40,7 +46,10 @@
 	<top>
 		<Pane prefHeight="127.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="deleteButton" layoutX="740.0" layoutY="14.0" mnemonicParsing="false" onAction="#trashEvent" prefHeight="75.0" prefWidth="122.0" />
+            <Button fx:id="deleteButton" layoutX="900.0" layoutY="14.0" mnemonicParsing="false" onAction="#trashEvent" prefHeight="40.0" prefWidth="110.0" text="Remove item">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
             <ToggleButton layoutX="384.0" layoutY="14.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="97.0" text="ToggleButton">
                <effect>
                   <ImageInput />

@@ -12,12 +12,14 @@ public class ConcreteProduct extends Product {
 	private String description;
 	private Discount discount = new BaseDiscount();
 	private double price;
+	private int quantity;
 	private Stock stock = ConcreteStock.getInstance();
 
 	public ConcreteProduct(String description, Category category, double price) {
 		this.category = category;
 		this.description = description;
 		this.price = price;
+		this.quantity = 1;
 		this.stock.addItem(this);
 	}
 
@@ -44,6 +46,14 @@ public class ConcreteProduct extends Product {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	@Override

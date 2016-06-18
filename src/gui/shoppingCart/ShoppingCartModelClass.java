@@ -17,51 +17,91 @@ public class ShoppingCartModelClass {
 	private DoubleProperty price;
 	private IntegerProperty quantity; 
 
-	public ShoppingCartModelClass(Item item, Cart cart ){
-		this.category =new SimpleStringProperty(item.getCategory().getCategory());
+	public ShoppingCartModelClass(Item item, Cart cart ) {
+		this.category = new SimpleStringProperty(item.getCategory().getCategory());
 		this.description = new SimpleStringProperty(item.getDescription());
 		this.discount  = new SimpleStringProperty(item.getDiscount().toString());
 		this.price = new SimpleDoubleProperty(item.getPrice()); 
-		this.quantity = new SimpleIntegerProperty(cart.getQuantityItems());
+		this.quantity = new SimpleIntegerProperty(item.getQuantity());
 	}
 
+	public String getCategory() {
+		return this.category.get();
+	}
+
+	public String getDescription() {
+		return this.description.get();
+	}
+
+	public String getDiscount() {
+		return this.discount.get();
+	}
+
+	public Double getPrice() {
+		return this.price.get();
+	}
+
+	public Integer getQuantity() {
+		return this.quantity.get();
+	}
+
+	public void setCategory(String category){
+		this.category.set(category);
+	}
+
+	public void setDescription(String description) {
+		this.description.set(description);
+	}
+	
+	public void setDiscount(String discount) {
+		this.discount.set(discount);
+	}
+
+	public void setPrice(Double price){
+		this.price.set(price);
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity.set(quantity);
+	}
+	
 	public StringProperty getCategoryProperty() {
 		return this.category;
-	}
-
-	public String getCategory(){
-		return this.category.get();
 	}
 
 	public StringProperty getDescriptionProperty() {
 		return this.description;
 	}
 
-	public String getDescription(){
-		return this.description.get();
-	}
-
 	public StringProperty getDiscountProperty() {
 		return discount;
-	}
-
-	public String getDiscount(){
-		return this.discount.get();
 	}
 
 	public DoubleProperty getPriceProperty() {
 		return price;
 	}
 
-	public Double getPrice(){
-		return this.price.get();
-	}
-
-	public int getQuantity(){
-		return this.quantity.get();
-	}
-
 	public IntegerProperty getQuantityProperty() {
 		return quantity;
+	}
+
+	public void setCategory(StringProperty category) {
+		this.category = category;
+	}
+
+	public void setDescription(StringProperty description) {
+		this.description = description;
+	}
+
+	public void setDiscount(StringProperty discount) {
+		this.discount = discount;
+	}
+
+	public void setPrice(DoubleProperty price) {
+		this.price = price;
+	}
+
+	public void setQuantity(IntegerProperty quantity) {
+		this.quantity = quantity;
 	}
 }

@@ -67,4 +67,22 @@ public class DecoratedProduct extends AbstractProduct {
 	public Discount getDiscount() {
 		return super.getDiscount();
 	}
+
+	@Override
+	public int getQuantity() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setQuantity(int quantity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int compareTo(Item o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

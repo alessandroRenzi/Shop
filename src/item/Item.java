@@ -18,6 +18,14 @@ public interface Item extends Comparable<Item>{
 		}
 		return result;
 	}
+	
+	public default boolean equals(Item item) {
+		if(item.getDescription().equals(this.getDescription())) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	String getDescription();
 	double getPrice();
@@ -26,5 +34,7 @@ public interface Item extends Comparable<Item>{
 	void setDiscount(Discount discount);
 	Discount getDiscount();
 	Category getCategory();
+	int getQuantity();
+	void setQuantity(int quantity);
 }
 

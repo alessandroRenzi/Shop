@@ -11,9 +11,10 @@ import item.Item;
 public abstract class AbstractStock implements Stock {
 	@Override
 	public void initialize() {
-		new ConcreteProduct("Nevermind - Nirvana - 1991",  new ConcreteCategory("CD e Vinili"), 19.12);
-		new ConcreteProduct("Ten - Pearl Jam - 1991",  new ConcreteCategory("CD e Vinili"), 7.50);
-		new ConcreteProduct("Samsung Galaxy Note 5 N920i",  new ConcreteCategory("Telefonia"), 690.00);
+		new ConcreteProduct("The Old Man and The Sea by Ernest Hemingway",  new ConcreteCategory("Books"), 8.30);
+		new ConcreteProduct("Nevermind - Nirvana - Audio CD",  new ConcreteCategory("CDs & Vinyl"), 12.06);
+		new ConcreteProduct("Ten - Pearl Jam - Vinyl",  new ConcreteCategory("CDs & Vinyl"), 24.00);
+		new ConcreteProduct("Samsung Galaxy S7 Edge Factory Unlocked Phone 32 GB",  new ConcreteCategory("Cell Phones & Accessories"), 677.80);
 	}
 
 	public void print() {

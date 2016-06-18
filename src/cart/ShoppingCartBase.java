@@ -1,5 +1,6 @@
 package cart;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ public abstract class ShoppingCartBase implements CartBase {
 	private Customer customer;
 	private int quantityItems;
 	private double totalPrice;
+	private static final double ROUNDING = Math.pow(10,2);
 
 	public ShoppingCartBase(Customer customer) {
 		this.cart = new LinkedList<Item>();
@@ -35,7 +37,7 @@ public abstract class ShoppingCartBase implements CartBase {
 
 	@Override
 	public double getTotalPrice() {
-		return totalPrice;
+		return Math.round(totalPrice*ROUNDING)/ROUNDING;
 	}
 
 	@Override
@@ -45,6 +47,10 @@ public abstract class ShoppingCartBase implements CartBase {
 
 	@Override
 	public void setTotalPrice(double totalPrice) {
-		this.totalPrice = totalPrice;
+		this.totalPrice = Math.round(totalPrice*ROUNDING)/ROUNDING;
+	}
+
+	public Iterator<Item> getIterator() {
+		return getCart().iterator();
 	}
 }

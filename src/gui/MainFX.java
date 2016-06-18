@@ -122,8 +122,8 @@ public class MainFX extends Application {
 		generateItemsObservList(stock.getItems());
 
 		this.primaryStage = primaryStage;
-		primaryStage.getIcons().add(new Image("http://www.helisaaugusto.com.br/site/2011/imagens/logo_gr.png"));
-		primaryStage.setTitle("G&R Megastore");
+		primaryStage.getIcons().add(new Image("logo_gr.png"));
+		primaryStage.setTitle("G&R Megastore: home");
 		showMainView();
 	}
 

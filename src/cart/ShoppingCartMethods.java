@@ -5,18 +5,26 @@ import java.util.Iterator;
 import customer.Customer;
 import item.Item;
 
-public abstract class ShoppingCartMethods extends ShoppingCartBase implements CartMethods {
-
+public abstract class ShoppingCartMethods extends ShoppingCartBase implements CartMethods {	
 	public ShoppingCartMethods(Customer customer) {
 		super(customer);
 	}
 
 	@Override
 	public void addToCart(Item item, int quantity) {
-		int quantityIndex = quantity;
-		while(quantityIndex != 0) {
+		Iterator<Item> iteratorCart = getIterator();
+		boolean result = false;
+
+		while(iteratorCart.hasNext()) {
+			Item currentItem = iteratorCart.next();
+
+			if(item.equals(currentItem)) {
+				currentItem.setQuantity(currentItem.getQuantity()+quantity);
+				result = true;
+			}
+		}
+		if(!result) {
 			getCart().add(item);
-			quantityIndex = quantityIndex-1;
 		}
 		notifyAllObservers(0,item,quantity);
 	}
@@ -25,9 +33,10 @@ public abstract class ShoppingCartMethods extends ShoppingCartBase implements Ca
 	public String cartContents() {
 		String content = "";
 		Iterator<Item> iteratorCart = getIterator();
+
 		while(iteratorCart.hasNext()) {
 			Item currentItem = iteratorCart.next();
-			content = content+currentItem.toString() + "\n";
+			content = content + currentItem.toString() + " | Quantity: " + currentItem.getQuantity() + "\n";
 		}
 		return content;
 	}
@@ -37,10 +46,10 @@ public abstract class ShoppingCartMethods extends ShoppingCartBase implements Ca
 		String content = "\nQuantity: " + getQuantityItems() + "\tTotal price: " + getTotalPrice();
 		return content;
 	}
-	
+
 	@Override
 	public String toString() {
-		return cartContents() + cartTotal();
+		return cartContents()+cartTotal();
 	}
 
 	@Override
@@ -50,17 +59,22 @@ public abstract class ShoppingCartMethods extends ShoppingCartBase implements Ca
 
 	@Override
 	public void removeFromCart(Item item, int quantity) {
-		int quantityIndex = quantity;
+		Iterator<Item> iteratorCart = getIterator();
+		boolean result = false;
 
-		while(quantityIndex != 0) {
+		while(iteratorCart.hasNext()) {
+			Item currentItem = iteratorCart.next();
+
+			if(item.equals(currentItem)) {
+				currentItem.setQuantity(currentItem.getQuantity()-quantity);
+				result = true;
+			}
+		}
+
+		if(!result) {
 			getCart().remove(item);
-			quantityIndex = quantityIndex-1;
 		}
 		notifyAllObservers(1,item,quantity);
-	}
-
-	public Iterator<Item> getIterator() {
-		return getCart().iterator();
 	}
 
 	abstract void notifyAllObservers(int index, Item item, int quantity);

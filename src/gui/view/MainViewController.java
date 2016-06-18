@@ -28,10 +28,10 @@ public class MainViewController {
 		AnchorPane mainAbout = loader.load();
 
 		Stage addMainAbout = new Stage();
-		addMainAbout.getIcons().add(new Image("http://www.helisaaugusto.com.br/site/2011/imagens/logo_gr.png"));
+		addMainAbout.getIcons().add(new Image("logo_gr.png"));
 		addMainAbout.initModality(Modality.WINDOW_MODAL);
 		addMainAbout.initOwner(this.mainFX.getPrimaryStage());
-		addMainAbout.setTitle("About G&R");
+		addMainAbout.setTitle("G&R Megastore: about");
 
 		Scene scene = new Scene(mainAbout);
 		addMainAbout.setScene(scene);

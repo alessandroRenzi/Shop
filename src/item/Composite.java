@@ -109,4 +109,22 @@ public class Composite implements Item {
 		double rounding = Math.pow(10,2);
 		return Math.round(discountedSum*rounding)/rounding;
 	}
+
+	@Override
+	public int compareTo(Item o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getQuantity() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setQuantity(int quantity) {
+		// TODO Auto-generated method stub
+		
+	}
 }
