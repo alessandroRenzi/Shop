@@ -16,13 +16,12 @@ import javafx.stage.Stage;
 public class MainViewController {
 	private MainFX mainFX;
 
-	@FXML
-	public void Close(ActionEvent actionEvent) {
-		Platform.exit();
+	public void setMainApp(MainFX mainFx){
+		this.mainFX = mainFx;
 	}
 
 	@FXML
-	public void AboutGeR(ActionEvent actionEvent) throws IOException {	
+	private void AboutGeR(ActionEvent actionEvent) throws IOException {	
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(MainFX.class.getResource("about/MainAbout.fxml"));
 		AnchorPane mainAbout = loader.load();
@@ -38,7 +37,8 @@ public class MainViewController {
 		addMainAbout.showAndWait();
 	}
 
-	public void setMainApp(MainFX mainFx){
-		this.mainFX = mainFx;
+	@FXML
+	private void Close(ActionEvent actionEvent) {
+		Platform.exit();
 	}
 }

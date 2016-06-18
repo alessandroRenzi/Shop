@@ -6,6 +6,8 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.effect.ImageInput?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -46,7 +48,7 @@
 	<top>
 		<Pane prefHeight="127.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="deleteButton" layoutX="900.0" layoutY="14.0" mnemonicParsing="false" onAction="#trashEvent" prefHeight="40.0" prefWidth="110.0" text="Remove item">
+            <Button fx:id="deleteButton" layoutX="900.0" layoutY="14.0" mnemonicParsing="false" onAction="#removeEvent" prefHeight="40.0" prefWidth="110.0" text="Remove item">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
@@ -55,6 +57,28 @@
                   <ImageInput />
                </effect>
             </ToggleButton>
+            <ImageView fitHeight="120.0" fitWidth="200.0" layoutX="10.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/logo_gr.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="152.0" layoutY="14.0" prefHeight="41.0" prefWidth="465.0" text="G&amp;R MEGASTORE s.r.l.">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="158.0" layoutY="45.0" text="di Gori M. e Renzi A.">
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="158.0" layoutY="64.0" text="Viale Giovan Battista Morgagni, 66 - 50134 Firenze (Fi) - Italy" />
+            <Label layoutX="158.0" layoutY="82.0" prefHeight="18.0" prefWidth="474.0" text="Tel: 055.653258 - VAT: 00231500246 - E-mail: grmegastore@gmail.com" />
+            <Button fx:id="proceedButton" layoutX="900.0" layoutY="62.0" mnemonicParsing="false" onAction="#proceedEvent" prefHeight="40.0" prefWidth="110.0" text="Proceed...">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
          </children></Pane>
 	</top>
 </BorderPane>

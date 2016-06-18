@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 import cart.Cart;
 import cart.ShoppingCart;
-import customer.AbstractCustomer;
+import customer.Customer;
 import customer.RegisteredCustomer;
 import gui.MainFX;
 import gui.shoppingCart.ShoppingCartController;
@@ -30,6 +30,18 @@ import javafx.stage.Stage;
 import stock.ConcreteStock;
 
 public class MainItemsController {
+	private static final double ROUNDING = Math.pow(10,2);
+
+	@FXML
+	private Button addToCart;
+	@FXML
+	private Button showCart;
+	@FXML
+	private Label category;
+	@FXML
+	private Label description;
+	@FXML 
+	private Label price;
 	@FXML
 	private TableColumn<CategoryModelClass, String> categoryColumn;
 	@FXML
@@ -38,36 +50,46 @@ public class MainItemsController {
 	private TableColumn<ItemsModelClass, String> itemsColumn;
 	@FXML
 	private TableView<ItemsModelClass> itemTable;
-	@FXML
-	private Label category;
-	@FXML
-	private Label description;
-	@FXML 
-	private Label price;
-	@FXML
-	private Button addToCart;
-	@FXML
-	private Button showCart;
 
+	private Cart cart;
 	private ObservableList<ShoppingCartModelClass> cartObservableList = FXCollections.observableArrayList();
 	private MainFX mainFX;
-	private Cart cart;
-	private AbstractCustomer customer = new RegisteredCustomer("name","male","1960-05-10","street");
+	private Customer customer = new RegisteredCustomer("Nominative","Genre","1960-05-10","Street");
 
-	private static final double ROUNDING = Math.pow(10,2);
+	public Cart getCart() {
+		return this.cart;
+	}
 
-	@FXML
-	private void initialize() {
-		categoryColumn.setCellValueFactory(cellData -> cellData.getValue().getCategoryProperty());
-		showCategoryDetails(null);
-		showItemsDetails(null);
-		/**
-		 * RIVEDERE
-		 */
-		this.cart = new ShoppingCart(this.customer);    
-		this.categoryTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showCategoryDetails(newValue));
-		this.categoryTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showItemColum(newValue));
-		this.itemTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showItemsDetails(newValue));
+	public ObservableList<ShoppingCartModelClass> getCartObservableList() {
+		return this.cartObservableList;
+	}
+
+	public double getCartTotalPrice() {
+		return roundPrice(this.cart);
+	}
+
+	public Customer getCustomer() {
+		return this.customer;
+	}
+
+	public MainFX getMainFX() {
+		return this.mainFX;
+	}
+
+	public void setItemTable(ObservableList<ItemsModelClass> obsItemModelClass) {
+		if(obsItemModelClass.size() != 0) {
+			this.itemTable.setItems(obsItemModelClass);
+			this.itemsColumn.setCellValueFactory(cellData -> cellData.getValue().getDescriptionProperty());
+		}
+	}
+
+	public void setMainApp(MainFX mainFX){
+		this.setMainFX(mainFX);
+		this.categoryTable.setItems(mainFX.getObservableListCategory());
+	}
+
+	public void setMainFX(MainFX mainFX) {
+		this.mainFX = mainFX;
 	}
 
 	@FXML
@@ -89,8 +111,23 @@ public class MainItemsController {
 		}
 	}
 
+	@FXML
+	private void initialize() {
+		/*
+		 * Rivedere!
+		 */
+		this.cart = new ShoppingCart(this.customer);  
+		this.categoryColumn.setCellValueFactory(cellData -> cellData.getValue().getCategoryProperty());
+		this.categoryTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showCategoryDetails(newValue));
+		this.categoryTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showItemColum(newValue));
+		this.itemTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showItemsDetails(newValue));
+
+		this.showCategoryDetails(null);
+		this.showItemsDetails(null);
+	}
+
 	private boolean itemPresenceControl(Cart cart, Item item, int id) {
-		Iterator<ShoppingCartModelClass> iteratorCart = getObservableListCart().iterator();
+		Iterator<ShoppingCartModelClass> iteratorCart = getCartObservableList().iterator();
 		boolean result = false;
 
 		while(iteratorCart.hasNext()) {
@@ -99,83 +136,16 @@ public class MainItemsController {
 
 			if(item.getDescription().equals(currentItem.getDescription()) && id == 0) {
 				currentItem.setQuantity(new SimpleIntegerProperty(currentItem.getQuantity()+1));
-				currentItem.setPrice(new SimpleDoubleProperty(Math.round((currentItem.getPrice()+item.getPrice())*ROUNDING)/ROUNDING));
+				currentItem.setPrice(new SimpleDoubleProperty(roundPrice(currentItem, id, item)));
 				result = true;
 			} else if (item.getDescription().equals(currentItem.getDescription()) && id == 1 && count != 0){
 				count++;
 				currentItem.setQuantity(new SimpleIntegerProperty(currentItem.getQuantity()-1));
-				currentItem.setPrice(new SimpleDoubleProperty(Math.round((currentItem.getPrice()-item.getPrice())*ROUNDING)/ROUNDING));
+				currentItem.setPrice(new SimpleDoubleProperty(roundPrice(currentItem, id, item)));
 				result = true;
 			}
 		}
 		return result;
-	}
-
-	@FXML
-	public void showItemPressed(ActionEvent event) throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(MainFX.class.getResource("shoppingCart/ShoppingCartView.fxml"));
-		
-		BorderPane shoppingCart = loader.load();
-		Scene scene = new Scene(shoppingCart);
-
-		ShoppingCartController controller = loader.getController();
-		controller.setMainItemsController(this);
-
-		Stage shoppingStage = new Stage();
-		shoppingStage.getIcons().add(new Image("logo_gr.png"));
-		shoppingStage.initModality(Modality.WINDOW_MODAL);
-		shoppingStage.initOwner(this.mainFX.getPrimaryStage());
-		shoppingStage.setTitle("G&R Megastore: cart");
-		shoppingStage.setScene(scene);
-		shoppingStage.showAndWait();	
-	}
-
-	public void setMainApp(MainFX mainFX){
-		setMainFX(mainFX);
-		categoryTable.setItems(mainFX.getObservableListCategory());
-	}
-
-	public void showCategoryDetails(CategoryModelClass category){
-		if(category != null) {
-			this.category.setText(category.getCategory());
-		} else {
-			this.category.setText("");
-		}
-	}
-
-	public void showItemsDetails(ItemsModelClass item){
-		if(item != null) {
-			this.description.setText(item.getDescription());
-			this.price.setText(Double.toString(item.getPrice()));
-		} else {
-			this.description.setText("");
-			this.price.setText("");
-		}
-	}
-
-	public void showItemColum(CategoryModelClass category) {
-		Iterator<ItemsModelClass> it = this.mainFX.getItemsModelClassIterator();
-		ObservableList<ItemsModelClass> obsListTemp = FXCollections.observableArrayList();
-
-		while(it.hasNext()) {
-			ItemsModelClass itemTemp = it.next();
-			if(category.getCategory().equals(itemTemp.getCategory())) {
-				obsListTemp.add(itemTemp);
-			}
-		}
-		this.setItemTable(obsListTemp);
-	}
-
-	public void setItemTable(ObservableList<ItemsModelClass> obsItemModelClass) {
-		if(obsItemModelClass.size() != 0) {
-			this.itemTable.setItems(obsItemModelClass);
-			itemsColumn.setCellValueFactory(cellData -> cellData.getValue().getDescriptionProperty());
-		}
-	}
-
-	public double getCartTotalPrice() {
-		return Math.round((this.cart.getTotalPrice())*ROUNDING)/ROUNDING;
 	}
 
 	public void removeFromCart(int index) {
@@ -195,19 +165,68 @@ public class MainItemsController {
 		}
 	}
 
-	public MainFX getMainFX() {
-		return mainFX;
+	private double roundPrice(Cart cart) {
+		return Math.round(cart.getTotalPrice()*ROUNDING)/ROUNDING;
 	}
 
-	private void setMainFX(MainFX mainFX) {
-		this.mainFX = mainFX;
+	private double roundPrice(ShoppingCartModelClass currentItem, int id, Item item) {
+		double priceCI = currentItem.getPrice();
+		double priceI = item.getPrice();
+
+		if(id == 0) {
+			return Math.round((priceCI+priceI)*ROUNDING)/ROUNDING;
+		}
+		return Math.round((priceCI-priceI)*ROUNDING)/ROUNDING;
 	}
 
-	public Cart getCart() {
-		return cart;
+	public void showCategoryDetails(CategoryModelClass category){
+		if(category != null) {
+			this.category.setText(category.getCategory());
+		} else {
+			this.category.setText("");
+		}
 	}
 
-	public ObservableList<ShoppingCartModelClass> getObservableListCart() {
-		return this.cartObservableList;
+	public void showItemColum(CategoryModelClass category) {
+		Iterator<ItemsModelClass> it = this.mainFX.getItemsModelClassIterator();
+		ObservableList<ItemsModelClass> obsListTemp = FXCollections.observableArrayList();
+
+		while(it.hasNext()) {
+			ItemsModelClass itemTemp = it.next();
+			if(category.getCategory().equals(itemTemp.getCategory())) {
+				obsListTemp.add(itemTemp);
+			}
+		}
+		this.setItemTable(obsListTemp);
+	}
+
+	public void showItemsDetails(ItemsModelClass item){
+		if(item != null) {
+			this.description.setText(item.getDescription());
+			this.price.setText(Double.toString(item.getPrice()));
+		} else {
+			this.description.setText("");
+			this.price.setText("");
+		}
+	}
+
+	@FXML
+	public void showItemPressed(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(MainFX.class.getResource("shoppingCart/ShoppingCartView.fxml"));
+
+		BorderPane shoppingCart = loader.load();
+		Scene scene = new Scene(shoppingCart);
+
+		ShoppingCartController controller = loader.getController();
+		controller.setMainItemsController(this);
+
+		Stage shoppingStage = new Stage();
+		shoppingStage.getIcons().add(new Image("logo_gr.png"));
+		shoppingStage.initModality(Modality.WINDOW_MODAL);
+		shoppingStage.initOwner(this.mainFX.getPrimaryStage());
+		shoppingStage.setTitle("G&R Megastore: cart");
+		shoppingStage.setScene(scene);
+		shoppingStage.showAndWait();	
 	}
 }
