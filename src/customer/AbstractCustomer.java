@@ -19,13 +19,18 @@ public abstract class AbstractCustomer implements Customer{
 		this.genre = genre;
 	}
 
-	public Card getCard(){
-		return card;
-	}
-
 	@Override
 	public int getAge() {
 		return age;
+	}
+
+	@Override
+	public LocalDate getBirthDay() {
+		return birthDay;
+	}
+
+	public Card getCard(){
+		return card;
 	}
 
 	@Override
@@ -36,6 +41,26 @@ public abstract class AbstractCustomer implements Customer{
 	@Override
 	public String getNominative() {
 		return nominative;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public void setBirthDay(String birthDay) {
+		this.birthDay = LocalDate.parse(birthDay);
+	}
+
+	public void setCard(Card card) {
+		this.card = card;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public void setNominative(String nominative) {
+		this.nominative = nominative;
 	}
 
 	private void ageEvaluator() {

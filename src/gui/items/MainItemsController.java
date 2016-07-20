@@ -5,7 +5,6 @@ import java.util.Iterator;
 
 import cart.Cart;
 import cart.ShoppingCart;
-import customer.Customer;
 import customer.RegisteredCustomer;
 import gui.MainFX;
 import gui.shoppingCart.ShoppingCartController;
@@ -54,7 +53,7 @@ public class MainItemsController {
 	private Cart cart;
 	private ObservableList<ShoppingCartModelClass> cartObservableList = FXCollections.observableArrayList();
 	private MainFX mainFX;
-	private Customer customer = new RegisteredCustomer("Nominative","Genre","1960-05-10","Street");
+	private RegisteredCustomer customer = new RegisteredCustomer("Nominative","Genre","1960-05-10","Street");
 
 	public Cart getCart() {
 		return this.cart;
@@ -68,7 +67,7 @@ public class MainItemsController {
 		return roundPrice(this.cart);
 	}
 
-	public Customer getCustomer() {
+	public RegisteredCustomer getCustomer() {
 		return this.customer;
 	}
 
@@ -113,9 +112,6 @@ public class MainItemsController {
 
 	@FXML
 	private void initialize() {
-		/*
-		 * Rivedere!
-		 */
 		this.cart = new ShoppingCart(this.customer);  
 		this.categoryColumn.setCellValueFactory(cellData -> cellData.getValue().getCategoryProperty());
 		this.categoryTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showCategoryDetails(newValue));

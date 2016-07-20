@@ -7,10 +7,6 @@ import javafx.beans.property.StringProperty;
 public class CategoryModelClass {
 	private StringProperty category;
 
-	public CategoryModelClass() {
-
-	}
-
 	public CategoryModelClass(Category category) {
 		this.category = new SimpleStringProperty(category.getCategory());
 	}

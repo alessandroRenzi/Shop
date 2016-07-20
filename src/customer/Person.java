@@ -1,6 +1,9 @@
 package customer;
 
+import java.time.LocalDate;
+
 public interface Person {
-	String getNominative();
+	LocalDate getBirthDay();
 	String getGenre();
+	String getNominative();
 }

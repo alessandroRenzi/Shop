@@ -1,15 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65">
-   <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0">
-         <center>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-         </center>
-      </BorderPane>
-   </children>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.payment.PaymentController">
+   <top>
+      <AnchorPane prefHeight="100.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="120.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="888.0" AnchorPane.topAnchor="2.0">
+               <image>
+                  <Image url="@../../../images/logo_gr.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="41.0" prefWidth="465.0" text="G&amp;R MEGASTORE s.r.l." AnchorPane.leftAnchor="145.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="15.0">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label text="di Gori M. e Renzi A." AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="750.0" AnchorPane.topAnchor="47.0">
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+            </Label>
+            <Label text="Payment" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="65.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="1022.0" BorderPane.alignment="CENTER">
+         <children>
+            <SplitPane orientation="VERTICAL" prefHeight="600.0" prefWidth="1024.0">
+               <items>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1024.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Full name:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

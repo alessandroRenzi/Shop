@@ -24,6 +24,7 @@ public class MainViewController {
 	private void AboutGeR(ActionEvent actionEvent) throws IOException {	
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(MainFX.class.getResource("about/MainAbout.fxml"));
+		
 		AnchorPane mainAbout = loader.load();
 
 		Stage addMainAbout = new Stage();

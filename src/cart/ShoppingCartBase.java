@@ -8,11 +8,12 @@ import customer.Customer;
 import item.Item;
 
 public abstract class ShoppingCartBase implements CartBase {
+	private static final double ROUNDING = Math.pow(10,2);
+	
 	private List<Item> cart;
 	private Customer customer;
 	private int quantityItems;
 	private double totalPrice;
-	private static final double ROUNDING = Math.pow(10,2);
 
 	public ShoppingCartBase(Customer customer) {
 		this.cart = new LinkedList<Item>();

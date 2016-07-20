@@ -1,34 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.items.MainItemsController">
 	<top>
-		<AnchorPane prefHeight="170.0" prefWidth="1024.0" BorderPane.alignment="CENTER" />
+		<AnchorPane prefHeight="100.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="120.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="888.0" AnchorPane.topAnchor="2.0">
+               <image>
+                  <Image url="@../../../images/logo_gr.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="41.0" prefWidth="465.0" text="G&amp;R MEGASTORE s.r.l." AnchorPane.leftAnchor="145.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="15.0">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label text="di Gori M. e Renzi A." AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="750.0" AnchorPane.topAnchor="47.0">
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+            </Label>
+            <Label text="Home" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="65.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
 	</top>
 	<center>
 		<SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 			<items>
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
 					<children>
-						<TableView fx:id="categoryTable" layoutY="-1.0" maxHeight="567.0" maxWidth="152.0" prefHeight="567.0" prefWidth="152.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="149.0" AnchorPane.topAnchor="-1.0">
+						<TableView fx:id="categoryTable" layoutY="-1.0" maxHeight="567.0" maxWidth="152.0" prefHeight="567.0" prefWidth="152.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="0.0">
 							<columns>
 								<TableColumn fx:id="categoryColumn" prefWidth="149.0" text="Categories" />
 							</columns>
 						</TableView>
-						<TableView fx:id="itemTable" layoutX="150.0" layoutY="-1.0" maxHeight="567.0" maxWidth="151.0" prefHeight="567.0" prefWidth="151.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+						<TableView fx:id="itemTable" layoutX="150.0" layoutY="-1.0" maxHeight="567.0" maxWidth="152.0" prefHeight="567.0" prefWidth="152.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="0.0">
 							<columns>
 								<TableColumn fx:id="itemsColumn" minWidth="0.0" prefWidth="150.0" text="Items" />
 							</columns>
@@ -40,14 +63,12 @@
 				</AnchorPane>
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
 					<children>
-						<SplitPane dividerPositions="0.8" layoutX="127.0" layoutY="93.0" maxHeight="566.0" maxWidth="713.0" orientation="VERTICAL" prefHeight="566.0" prefWidth="713.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-							<items>
-								<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="711.0" SplitPane.resizableWithParent="false">
+								<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="711.0">
 									<children>
-										<GridPane layoutY="-2.0" prefHeight="195.0" prefWidth="713.0" AnchorPane.bottomAnchor="254.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="-2.0">
+										<GridPane layoutY="-2.0" prefHeight="195.0" prefWidth="713.0" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 											<columnConstraints>
-												<ColumnConstraints hgrow="SOMETIMES" maxWidth="351.0" minWidth="10.0" prefWidth="179.0" />
-												<ColumnConstraints hgrow="SOMETIMES" maxWidth="534.0" minWidth="10.0" prefWidth="534.0" />
+												<ColumnConstraints hgrow="SOMETIMES" maxWidth="351.0" minWidth="10.0" percentWidth="0.0" prefWidth="179.0" />
+												<ColumnConstraints hgrow="SOMETIMES" maxWidth="534.0" minWidth="10.0" percentWidth="0.0" prefWidth="534.0" />
 											</columnConstraints>
 											<rowConstraints>
 												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -55,32 +76,47 @@
 												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 											</rowConstraints>
 											<children>
-												<Label fx:id="category" text="Label" GridPane.columnIndex="1" />
-												<Label fx:id="description" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-												<Label fx:id="price" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Category:" />
-												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Item:" GridPane.rowIndex="1" />
-												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" GridPane.rowIndex="2" />
+												<Label fx:id="category" text="Label" textAlignment="CENTER" GridPane.columnIndex="1" />
+												<Label fx:id="description" text="Label" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+												<Label fx:id="price" text="Label" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Category:" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Text>
+												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Item:" textAlignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Text>
+												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" textAlignment="CENTER" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Text>
 											</children>
 										</GridPane>
-										<ImageView fitHeight="150.0" fitWidth="200.0" layoutX="256.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true" />
 									</children>
 								</AnchorPane>
-								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="96.0" prefWidth="711.0" SplitPane.resizableWithParent="false">
-									<children>
-										<ButtonBar layoutX="481.0" layoutY="30.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="481.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
-											<buttons>
-												<Button fx:id="showCart" mnemonicParsing="false" onAction="#showItemPressed" text="Show Cart" />
-												<Button fx:id="addToCart" mnemonicParsing="false" onAction="#addToCartPressed" text="Add to Cart" />
-											</buttons>
-										</ButtonBar>
-									</children>
-								</AnchorPane>
-							</items>
-						</SplitPane>
 					</children>
 				</AnchorPane>
 			</items>
 		</SplitPane>
 	</center>
+   <bottom>
+								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="50.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+									<children>
+												<Button fx:id="addToCart" mnemonicParsing="false" onAction="#addToCartPressed" prefHeight="40.0" prefWidth="110.0" text="Add to cart" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+												<Button fx:id="showCart" mnemonicParsing="false" onAction="#showItemPressed" prefHeight="40.0" prefWidth="110.0" text="Show cart" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+									</children>
+								</AnchorPane>
+   </bottom>
 </BorderPane>

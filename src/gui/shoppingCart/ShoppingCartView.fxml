@@ -4,28 +4,27 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.effect.ImageInput?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.shoppingCart.ShoppingCartController">
 	<bottom>
-		<Pane prefHeight="112.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+		<Pane prefHeight="50.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
 			<children>
-            <Label fx:id="totalQuantity" layoutX="676.0" layoutY="57.0" prefHeight="21.0" prefWidth="80.0" />
-				<Label layoutX="769.0" layoutY="56.0" prefHeight="21.0" prefWidth="127.0" text="Total Price:">
+            <Label fx:id="totalQuantity" layoutX="665.0" layoutY="15.0" prefHeight="21.0" prefWidth="80.0" />
+				<Label layoutX="807.0" layoutY="13.0" prefHeight="21.0" prefWidth="90.0" text="Total price:">
 					<font>
-						<Font name="System Bold" size="15.0" />
+						<Font name="System Bold" size="16.0" />
 					</font>
 				</Label>
-				<Label fx:id="totalPrice" layoutX="897.0" layoutY="55.0" prefHeight="21.0" prefWidth="127.0" />
-            <Label layoutX="549.0" layoutY="55.0" prefHeight="21.0" prefWidth="127.0" text="Total Quantity:">
+				<Label fx:id="totalPrice" layoutX="897.0" layoutY="15.0" prefHeight="21.0" prefWidth="127.0" />
+            <Label layoutX="545.0" layoutY="13.0" prefHeight="21.0" prefWidth="120.0" text="Total quantity:">
                <font>
-                  <Font name="Calibri Bold" size="18.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
 			</children>
@@ -45,40 +44,39 @@
 			</columnResizePolicy>
 		</TableView>
 	</center>
-	<top>
-		<Pane prefHeight="127.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+   <top>
+      <AnchorPane prefHeight="100.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="deleteButton" layoutX="900.0" layoutY="14.0" mnemonicParsing="false" onAction="#removeEvent" prefHeight="40.0" prefWidth="110.0" text="Remove item">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Button>
-            <ToggleButton layoutX="384.0" layoutY="14.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="97.0" text="ToggleButton">
-               <effect>
-                  <ImageInput />
-               </effect>
-            </ToggleButton>
-            <ImageView fitHeight="120.0" fitWidth="200.0" layoutX="10.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="120.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="888.0" AnchorPane.topAnchor="2.0">
                <image>
                   <Image url="@../../../images/logo_gr.png" />
                </image>
             </ImageView>
-            <Label layoutX="152.0" layoutY="14.0" prefHeight="41.0" prefWidth="465.0" text="G&amp;R MEGASTORE s.r.l.">
+            <Label prefHeight="41.0" prefWidth="465.0" text="G&amp;R MEGASTORE s.r.l." AnchorPane.leftAnchor="145.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="15.0">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="158.0" layoutY="45.0" text="di Gori M. e Renzi A.">
+            <Label text="di Gori M. e Renzi A." AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="750.0" AnchorPane.topAnchor="47.0">
                <font>
                   <Font name="Calibri" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="158.0" layoutY="64.0" text="Viale Giovan Battista Morgagni, 66 - 50134 Firenze (Fi) - Italy" />
-            <Label layoutX="158.0" layoutY="82.0" prefHeight="18.0" prefWidth="474.0" text="Tel: 055.653258 - VAT: 00231500246 - E-mail: grmegastore@gmail.com" />
-            <Button fx:id="proceedButton" layoutX="900.0" layoutY="62.0" mnemonicParsing="false" onAction="#proceedEvent" prefHeight="40.0" prefWidth="110.0" text="Proceed...">
+            <Label text="Cart" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="690.0" AnchorPane.topAnchor="65.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="deleteButton" layoutX="900.0" layoutY="18.0" mnemonicParsing="false" onAction="#removeEvent" prefHeight="40.0" prefWidth="110.0" text="Remove item" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button fx:id="proceedButton" layoutX="900.0" layoutY="65.0" mnemonicParsing="false" onAction="#proceedEvent" prefHeight="40.0" prefWidth="110.0" text="Proceed..." AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-         </children></Pane>
-	</top>
+         </children>
+      </AnchorPane>
+   </top>
 </BorderPane>
