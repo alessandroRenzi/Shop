@@ -84,14 +84,15 @@ public class MainFX extends Application {
 	}
 
 	private List<Category> removeDuplicate(List<Category> list) {
-		for(int i = 0; i < list.size()-1; i++) {
-			if(list.get(i).equals(list.get(i+1))) {
-				list.remove(i);
-				i--;
+		for(int i = 0; i < list.size(); i++) {
+			for(int j = i+1; j < list.size(); j++) {
+				if(list.get(i).equals(list.get(j))) {
+					list.remove(j);
+				}
 			}
 		}
 		return list; 
-	}	
+	}		
 	
 	public void showMainItems() throws IOException{
 		FXMLLoader loader = new FXMLLoader();
