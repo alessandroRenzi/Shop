@@ -2,7 +2,7 @@ package gui;
 
 public class Main {
 	public void run() {
-
+		
 	}
 
 	public static void main(String[] args) {

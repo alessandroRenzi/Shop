@@ -20,11 +20,12 @@ public interface Item extends Comparable<Item>{
 	}
 	
 	public default boolean equals(Item item) {
-		if(item.getDescription().equals(this.getDescription())) {
-			return true;
-		} else {
-			return false;
+		boolean result = false;
+		
+		if(this.getDescription().equals(item.getDescription())) {
+			result = true;
 		}
+		return result;
 	}
 
 	String getDescription();

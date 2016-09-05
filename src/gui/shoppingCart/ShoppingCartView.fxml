@@ -15,18 +15,18 @@
 	<bottom>
 		<Pane prefHeight="50.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
 			<children>
+            <Label layoutX="545.0" layoutY="15.0" prefHeight="21.0" prefWidth="120.0" text="Total quantity:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
             <Label fx:id="totalQuantity" layoutX="665.0" layoutY="15.0" prefHeight="21.0" prefWidth="80.0" />
-				<Label layoutX="807.0" layoutY="13.0" prefHeight="21.0" prefWidth="90.0" text="Total price:">
+				<Label layoutX="807.0" layoutY="15.0" prefHeight="21.0" prefWidth="90.0" text="Total price:">
 					<font>
-						<Font name="System Bold" size="16.0" />
+						<Font name="System Bold" size="15.0" />
 					</font>
 				</Label>
 				<Label fx:id="totalPrice" layoutX="897.0" layoutY="15.0" prefHeight="21.0" prefWidth="127.0" />
-            <Label layoutX="545.0" layoutY="13.0" prefHeight="21.0" prefWidth="120.0" text="Total quantity:">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
 			</children>
 		</Pane>
 	</bottom>

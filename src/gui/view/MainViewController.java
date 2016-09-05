@@ -3,7 +3,6 @@ package gui.view;
 import java.io.IOException;
 
 import gui.MainFX;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,11 +14,19 @@ import javafx.stage.Stage;
 
 public class MainViewController {
 	private MainFX mainFX;
-
-	public void setMainApp(MainFX mainFx){
-		this.mainFX = mainFx;
+	
+	public MainFX getMainFX() {
+		return mainFX;
 	}
 
+	public void setMainApp(MainFX mainFx){
+		this.setMainFX(mainFx);
+	}
+
+	public void setMainFX(MainFX mainFX) {
+		this.mainFX = mainFX;
+	}
+	
 	@FXML
 	private void AboutGeR(ActionEvent actionEvent) throws IOException {	
 		FXMLLoader loader = new FXMLLoader();
@@ -30,7 +37,6 @@ public class MainViewController {
 		Stage addMainAbout = new Stage();
 		addMainAbout.getIcons().add(new Image("logo_gr.png"));
 		addMainAbout.initModality(Modality.WINDOW_MODAL);
-		addMainAbout.initOwner(this.mainFX.getPrimaryStage());
 		addMainAbout.setTitle("G&R Megastore: about");
 
 		Scene scene = new Scene(mainAbout);
@@ -40,6 +46,6 @@ public class MainViewController {
 
 	@FXML
 	private void Close(ActionEvent actionEvent) {
-		Platform.exit();
+		System.exit(0);
 	}
 }

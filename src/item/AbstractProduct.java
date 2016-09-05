@@ -30,6 +30,14 @@ public abstract class AbstractProduct extends Product {
 		}
 		return null;
 	}
+	
+	@Override
+	public int getQuantity(){
+		if(this.product != null){
+			return this.product.getQuantity();
+		}
+		return -1;
+	}
 
 	@Override
 	public void printItem() {
@@ -42,6 +50,13 @@ public abstract class AbstractProduct extends Product {
 	public void setDiscount(Discount discount) {
 		if(this.product != null) {
 			this.product.setDiscount(discount);
+		}
+	}
+	
+	@Override
+	public void setQuantity(int quantity) {
+		if(this.product != null) {
+			this.product.setQuantity(quantity);
 		}
 	}
 

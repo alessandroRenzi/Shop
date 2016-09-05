@@ -9,9 +9,11 @@ public class BubbleSortDecrescent<E extends Comparable<E>> extends BubbleSorter<
 	@Override
 	protected boolean outOfOrder(int j) {
 			boolean result = false;
+			
 			E current = super.getElement(j);
 			E toCompare = super.getElement(j-1);
-			if(toCompare.compareTo(current)<0){
+			
+			if(toCompare.compareTo(current) < 0) {
 				result = true;
 			}
 			return result;
@@ -20,8 +22,7 @@ public class BubbleSortDecrescent<E extends Comparable<E>> extends BubbleSorter<
 	@Override
 	protected void swap(int j) {
 		E temp = super.getElement(j-1);
-		super.setElement(j-1,super.getElement(j));
-		super.setElement(j,temp);
+		super.setElement(j-1, super.getElement(j));
+		super.setElement(j, temp);
 	}
-
 }

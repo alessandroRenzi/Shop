@@ -14,25 +14,59 @@ public class DecoratedProduct extends AbstractProduct {
 		this.percentage = percentage;
 		this.stock.addItem(this);
 	}
+	
+	public double getDecoratedPrice() {
+		double rounding = Math.pow(10,2);
+		double decoratedPrice = (getProduct().getPrice()*(100-this.percentage))/100;
+		return Math.round(decoratedPrice*rounding)/rounding;
+	}
+	
+	@Override
+	public Discount getDiscount() {
+		return super.getDiscount();
+	}
 
 	public int getPercentage() {
 		return percentage;
 	}
+	
+	@Override
+	public double getPrice() {
+		return getDecoratedPrice();
+	}
+	
+	@Override
+	public int getQuantity() {
+		return super.getQuantity();
+	}
+	
+	@Override
+	public void setDiscount(Discount discount) {
+		super.setDiscount(discount);
+	}
 
 	public void setPercentage(int percentage) {
 		this.percentage = percentage;
+	}
+	
+	@Override
+	public void setQuantity(int quantity) {
+		super.setQuantity(quantity);
 	}
 
 	@Override
 	public void accept(Visitor visitor) {
 		visitor.visitDecoratedProduct(this);
 	}
-
-	@Override
-	public double getPrice() {
-		return getDecoratedPrice();
+	
+	public String decoratedProductToString() {
+		return " | Discount: " + getPercentage() + "% | Discounted price: " + getPrice();	
 	}
 
+	public void printDecoratedProduct() {
+		System.out.print(this.decoratedProductToString());
+	}
+	
 	@Override
 	public void printItem() {
 		super.printItem();
@@ -40,49 +74,7 @@ public class DecoratedProduct extends AbstractProduct {
 	}
 
 	@Override
-	public void setDiscount(Discount discount) {
-		super.setDiscount(discount);
-	}
-
-	public double getDecoratedPrice() {
-		double rounding = Math.pow(10,2);
-		double decoratedPrice = (getProduct().getPrice()*(100-this.percentage))/100;
-		return Math.round(decoratedPrice*rounding)/rounding;
-	}
-
-	public void printDecoratedProduct() {
-		System.out.print(this.decoratedProductToString());
-	}
-
-	@Override
 	public String toString() {
 		return super.toString() + this.decoratedProductToString();
-	}
-
-	public String decoratedProductToString() {
-		return " | Discount: " + getPercentage() + "% | Discounted price: " + getPrice();	
-	}
-
-	@Override
-	public Discount getDiscount() {
-		return super.getDiscount();
-	}
-
-	@Override
-	public int getQuantity() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void setQuantity(int quantity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int compareTo(Item o) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 }

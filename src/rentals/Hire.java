@@ -2,7 +2,7 @@ package rentals;
 
 import java.time.LocalDate;
 
-import util.Rentals.CalcRental;
+import util.rentals.CalcRental;
 
 public interface Hire {
 	LocalDate getRentalStartDate();

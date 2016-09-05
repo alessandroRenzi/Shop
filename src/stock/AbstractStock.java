@@ -11,10 +11,12 @@ import item.Item;
 public abstract class AbstractStock implements Stock {
 	@Override
 	public void initialize() {
-		new ConcreteProduct("The Old Man and The Sea by Ernest Hemingway",  new ConcreteCategory("Books"), 8.30);
+		new ConcreteProduct("Fender American Elite Stratocaster HSS Shawbucker", new ConcreteCategory("Musical Instruments"), 1929.00);
 		new ConcreteProduct("Nevermind - Nirvana - Audio CD",  new ConcreteCategory("CDs & Vinyl"), 12.06);
-		new ConcreteProduct("Ten - Pearl Jam - Vinyl",  new ConcreteCategory("CDs & Vinyl"), 24.00);
-		new ConcreteProduct("Samsung Galaxy S7 Edge Factory Unlocked Phone 32 GB",  new ConcreteCategory("Cell Phones & Accessories"), 677.80);
+		new ConcreteProduct("Paul Reed Smith SE 30th Anniversary Custom 24", new ConcreteCategory("Musical Instruments"), 1643.75);
+		new ConcreteProduct("Samsung Galaxy S7 Edge Factory Unlocked Phone 32 GB", new ConcreteCategory("Cell Phones & Accessories"), 677.80);
+		new ConcreteProduct("Ten - Pearl Jam - Vinyl", new ConcreteCategory("CDs & Vinyl"), 24.00);
+		new ConcreteProduct("The Old Man and The Sea by Ernest Hemingway", new ConcreteCategory("Books"), 8.30);
 	}
 
 	public void print() {

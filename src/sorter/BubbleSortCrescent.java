@@ -2,7 +2,6 @@ package sorter;
 
 
 public class BubbleSortCrescent<E extends Comparable<E>> extends BubbleSorter<E> {
-
 	public BubbleSortCrescent() {
 		super();
 	}
@@ -10,9 +9,11 @@ public class BubbleSortCrescent<E extends Comparable<E>> extends BubbleSorter<E>
 	@Override
 	protected boolean outOfOrder(int j) {
 		boolean result = false;
+		
 		E current = super.getElement(j);
 		E toCompare = super.getElement(j-1);
-		if(toCompare.compareTo(current)>0){
+		
+		if(toCompare.compareTo(current) > 0) {
 			result = true;
 		}
 		return result;
@@ -21,9 +22,7 @@ public class BubbleSortCrescent<E extends Comparable<E>> extends BubbleSorter<E>
 	@Override
 	protected void swap(int j) {
 		E temp = super.getElement(j-1);
-		super.setElement(j-1,super.getElement(j));
-		super.setElement(j,temp);
-		
+		super.setElement(j-1, super.getElement(j));
+		super.setElement(j, temp);
 	}
-
 }

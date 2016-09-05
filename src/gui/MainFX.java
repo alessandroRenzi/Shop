@@ -26,6 +26,18 @@ public class MainFX extends Application {
 	private ObservableList<ItemsModelClass> observableListItems = FXCollections.observableArrayList();
 	private Stage primaryStage;
 	private Stock stock = ConcreteStock.getInstance();
+	
+	public Iterator<CategoryModelClass> getCategoryModelClassIterator(){
+		return this.observableListCategory.iterator();
+	}
+	
+	public Iterator<ItemsModelClass> getItemsModelClassIterator(){
+		return this.observableListItems.iterator();
+	}
+	
+	public BorderPane getMainLayout() {
+		return mainLayout;
+	}
 
 	public ObservableList<CategoryModelClass> getObservableListCategory() {
 		return observableListCategory;
@@ -37,10 +49,6 @@ public class MainFX extends Application {
 
 	public Stage getPrimaryStage() {
 		return primaryStage;
-	}
-
-	public BorderPane getMainLayout() {
-		return mainLayout;
 	}
 
 	public Stock getStock() {
@@ -55,19 +63,11 @@ public class MainFX extends Application {
 		return list.iterator();
 	}
 
-	public Iterator<CategoryModelClass> getCategoryModelClassIterator(){
-		return this.observableListCategory.iterator();
-	}
-
-	public Iterator<ItemsModelClass> getItemsModelClassIterator(){
-		return this.observableListItems.iterator();
-	}
-
 	public void generateCategoryObservList(List<Category> list){
 		Iterator<Category> iterator = createIteratorCategory(removeDuplicate(list));
 
 		while(iterator.hasNext()) {
-			observableListCategory.add(new CategoryModelClass(iterator.next()));
+			this.observableListCategory.add(new CategoryModelClass(iterator.next()));
 		}
 	}
 
@@ -75,8 +75,12 @@ public class MainFX extends Application {
 		Iterator<Item> iterator = createIteratorItems(list);
 
 		while(iterator.hasNext()) {
-			observableListItems.add(new ItemsModelClass(iterator.next()));
+			this.observableListItems.add(new ItemsModelClass(iterator.next()));
 		}
+	}
+	
+	public static void mainFX(String[] args) {
+		launch(args);
 	}
 
 	private List<Category> removeDuplicate(List<Category> list) {
@@ -88,22 +92,7 @@ public class MainFX extends Application {
 		}
 		return list; 
 	}	
-
-	private void showMainView() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(MainFX.class.getResource("view/MainView.fxml"));
-		mainLayout = loader.load();
-
-		MainViewController controller = loader.getController();
-		controller.setMainApp(this);
-
-		showMainItems();
-
-		Scene scene = new Scene(mainLayout);
-		primaryStage.setScene(scene);
-		primaryStage.show();
-	}
-
+	
 	public void showMainItems() throws IOException{
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(MainFX.class.getResource("items/MainItems.fxml"));
@@ -115,19 +104,31 @@ public class MainFX extends Application {
 		this.mainLayout.setCenter(mainItems);
 	}
 
+	public void showMainView() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(MainFX.class.getResource("view/MainView.fxml"));
+		
+		this.mainLayout = loader.load();
+
+		MainViewController controller = loader.getController();
+		controller.setMainApp(this);
+
+		showMainItems();
+
+		Scene scene = new Scene(this.mainLayout);
+		this.primaryStage.setScene(scene);
+		this.primaryStage.show();
+	}
+	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		stock.initialize();
-		generateCategoryObservList(stock.getCategories());
-		generateItemsObservList(stock.getItems());
+		this.stock.initialize();
+		generateCategoryObservList(this.stock.getCategories());
+		generateItemsObservList(this.stock.getItems());
 
 		this.primaryStage = primaryStage;
 		primaryStage.getIcons().add(new Image("logo_gr.png"));
 		primaryStage.setTitle("G&R Megastore: home");
 		showMainView();
-	}
-
-	public static void main(String[] args) {
-		launch(args);
 	}
 }

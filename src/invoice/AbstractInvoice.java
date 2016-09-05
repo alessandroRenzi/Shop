@@ -4,12 +4,22 @@ import cart.Cart;
 import database.Company;
 
 public abstract class AbstractInvoice implements Invoice {
+	private static final double ROUNDING = Math.pow(10,2);
+	
 	private Company company = Company.getInstance();
 	private Cart shoppingCart;
-	private int vat = 22;
+	private int vat = 22; 
 
 	public AbstractInvoice(Cart shoppingCart) {
 		this.shoppingCart = shoppingCart;
+	}
+	
+	public Company getCompany() {
+		return company;
+	}
+	
+	public Cart getShoppingCart() {
+		return shoppingCart;
 	}
 
 	public int getVat() {
@@ -19,20 +29,7 @@ public abstract class AbstractInvoice implements Invoice {
 	public void setVat(int vat) {
 		this.vat = vat;
 	}
-
-	public Company getCompany() {
-		return company;
-	}
-
-	public Cart getShoppingCart() {
-		return shoppingCart;
-	}
-
-	@Override
-	public String doInvoice() {
-		return invoiceDetails() + "\n\n" + companyInfo() + "\n\n" + customerInfo() + "\n\n" + itemsDetails();
-	}
-
+	
 	private String companyInfo() {
 		String content = getCompany().toString();
 		return content;
@@ -42,17 +39,20 @@ public abstract class AbstractInvoice implements Invoice {
 		String content = "Customer:\n" + shoppingCart.getCustomer().toString();
 		return content;
 	}
-
-	public double taxable(double totalPrice) {
-		double rounding = Math.pow(10,2);
-		double taxable = (totalPrice*(100-getVat()))/100;
-		return Math.round(taxable*rounding)/rounding;
+	
+	@Override
+	public String doInvoice() {
+		return invoiceDetails() + "\n\n" + companyInfo() + "\n\n" + customerInfo() + "\n\n" + itemsDetails();
+	}
+	
+	public double tax(double totalPrice) {
+		double tax = (totalPrice*(getVat()))/100;
+		return Math.round(tax*ROUNDING)/ROUNDING;
 	}
 
-	public double tax(double totalPrice) {
-		double rounding = Math.pow(10,2);
-		double tax = (totalPrice*(getVat()))/100;
-		return Math.round(tax*rounding)/rounding;
+	public double taxable(double totalPrice) {
+		double taxable = (totalPrice*(100-getVat()))/100;
+		return Math.round(taxable*ROUNDING)/ROUNDING;
 	}
 
 	abstract String invoiceDetails();

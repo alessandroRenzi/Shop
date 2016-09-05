@@ -11,10 +11,10 @@ public abstract class ShoppingCartMethods extends ShoppingCartBase implements Ca
 	}
 
 	@Override
-	public void addToCart(Item item, int quantity) {
+	public void addToCart(Item item, int quantity) throws Exception {
 		Iterator<Item> iteratorCart = getIterator();
 		boolean result = false;
-
+		
 		while(iteratorCart.hasNext()) {
 			Item currentItem = iteratorCart.next();
 
@@ -24,26 +24,27 @@ public abstract class ShoppingCartMethods extends ShoppingCartBase implements Ca
 			}
 		}
 		if(!result) {
+			item.setQuantity(quantity);
 			getCart().add(item);
 		}
-		notifyAllObservers(0,item,quantity);
+		notifyAllObservers(0, item, quantity);
 	}
 
 	@Override
 	public String cartContents() {
 		String content = "";
-		Iterator<Item> iteratorCart = getIterator();
+		Iterator<Item> iteratorCart = this.getIterator();
 
 		while(iteratorCart.hasNext()) {
 			Item currentItem = iteratorCart.next();
-			content = content + currentItem.toString() + " | Quantity: " + currentItem.getQuantity() + "\n";
+			content = content + currentItem.toString() + "\n";
 		}
 		return content;
 	}
 
 	@Override
 	public String cartTotal() {
-		String content = "\nQuantity: " + getQuantityItems() + "\tTotal price: " + getTotalPrice();
+		String content = "Total quantity: " + getQuantityItems() + "\tTotal price: " + getTotalPrice();
 		return content;
 	}
 
@@ -54,12 +55,12 @@ public abstract class ShoppingCartMethods extends ShoppingCartBase implements Ca
 
 	@Override
 	public void printCart() {
-		System.out.print(this.toString());
+		System.out.print(toString());
 	}
 
 	@Override
-	public void removeFromCart(Item item, int quantity) {
-		Iterator<Item> iteratorCart = getIterator();
+	public void removeFromCart(Item item, int quantity) throws Exception {
+		Iterator<Item> iteratorCart = this.getIterator();
 		boolean result = false;
 
 		while(iteratorCart.hasNext()) {
@@ -70,7 +71,6 @@ public abstract class ShoppingCartMethods extends ShoppingCartBase implements Ca
 				result = true;
 			}
 		}
-
 		if(!result) {
 			getCart().remove(item);
 		}

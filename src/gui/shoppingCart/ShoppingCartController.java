@@ -23,6 +23,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ShoppingCartController {
+	private static final double ROUNDING = Math.pow(10,2);
+	
 	@FXML
 	private TableColumn<ShoppingCartModelClass, String> categoryColumn;
 	@FXML 
@@ -31,6 +33,8 @@ public class ShoppingCartController {
 	private TableColumn<ShoppingCartModelClass, String>	descriptionColumn;
 	@FXML
 	private TableColumn<ShoppingCartModelClass, String> discountColumn;
+	@FXML
+	private BorderPane mainLayout;
 	@FXML
 	private TableColumn<ShoppingCartModelClass, Number> quantityColumn;
 	@FXML
@@ -43,20 +47,24 @@ public class ShoppingCartController {
 	private TableColumn<ShoppingCartModelClass, Number> unitPriceColumn;
 
 	private RegisteredCustomer customer;
-	private MainItemsController mainItems;
+	private MainItemsController mainIC;
 	private ObservableList<ShoppingCartModelClass> shoppingList;
-
-	public void setMainItemsController(MainItemsController mainItems) {
-		this.mainItems = mainItems;
-		this.customer = this.mainItems.getCustomer();
-		this.shoppingList = this.mainItems.getCartObservableList();
-		this.shoppingCart.setItems(this.shoppingList);
-		this.setTotalPrice(this.mainItems.getCartTotalPrice());
-		this.setTotalQuantity(this.mainItems.getCart().getQuantityItems());
-	}
-
+	
 	public RegisteredCustomer getCustomer() {
 		return customer;
+	}
+	
+	public MainItemsController getMainIC() {
+		return mainIC;
+	}
+	
+	public void setMainItemsController(MainItemsController mainItems) {
+		this.mainIC = mainItems;
+		this.customer = this.mainIC.getCustomer();
+		this.shoppingList = this.mainIC.getCartObservableList();
+		this.shoppingCart.setItems(this.shoppingList);
+		this.setTotalPrice(this.mainIC.getCartTotalPrice());
+		this.setTotalQuantity(this.mainIC.getCart().getQuantityItems());
 	}
 
 	public void setTotalPrice(Double total) {
@@ -71,35 +79,20 @@ public class ShoppingCartController {
 	private void initialize(){
 		this.categoryColumn.setCellValueFactory(cellData -> cellData.getValue().getCategoryProperty());
 		this.descriptionColumn.setCellValueFactory(cellData -> cellData.getValue().getDescriptionProperty());
+		this.discountColumn.setCellValueFactory(cellData -> cellData.getValue().getDiscountProperty());
 		this.quantityColumn.setCellValueFactory(cellData -> cellData.getValue().getQuantityProperty());
 		this.unitPriceColumn.setCellValueFactory(cellData -> cellData.getValue().getPriceProperty());
-		this.discountColumn.setCellValueFactory(cellData -> cellData.getValue().getDiscountProperty());
-	}
-
-	public void removeItemFromCart(int index) {
-		this.mainItems.removeFromCart(index);
-		this.setTotalPrice(this.mainItems.getCartTotalPrice());
-		this.setTotalQuantity(this.mainItems.getCart().getQuantityItems());
-	}
-
-	private double roundPrice(ShoppingCartModelClass item) {
-		double price = item.getPrice();
-		int quantity = item.getQuantity();
-		double rounding = Math.pow(10,2);
-
-		return Math.round((price-(price/quantity))*rounding)/rounding;
 	}
 
 	@FXML
 	public void proceedEvent(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(MainFX.class.getResource("customer/CustomerData.fxml"));
-
-		BorderPane customer = loader.load();
-		Scene scene = new Scene(customer);
-
-		CustomerController controller = loader.getController();
-		controller.setShoppingCartController(this);
+		loader.setLocation(MainFX.class.getResource("view/MainView.fxml"));
+		
+		this.mainLayout = loader.load();
+		Scene scene = new Scene(this.mainLayout);
+		
+		showCustomerController();
 
 		Stage customerStage = new Stage();
 		customerStage.getIcons().add(new Image("logo_gr.png"));
@@ -122,6 +115,7 @@ public class ShoppingCartController {
 			if(item.getQuantity() > 1) {
 				item.setPrice(new SimpleDoubleProperty(roundPrice(item)));
 				item.setQuantity(new SimpleIntegerProperty(item.getQuantity()-1));
+				
 				this.shoppingList.set(temp, item);
 				result = true;
 			}
@@ -130,5 +124,31 @@ public class ShoppingCartController {
 			this.shoppingList.remove(temp);
 		}
 		this.removeItemFromCart(temp);
+	}
+	
+	private void removeItemFromCart(int index) throws Exception {
+		this.mainIC.removeFromCart(index);
+		this.setTotalPrice(this.mainIC.getCartTotalPrice());
+		this.setTotalQuantity(this.mainIC.getCart().getQuantityItems());
+	}
+	
+	private double roundPrice(ShoppingCartModelClass item) {
+		double price = item.getPrice();
+		int quantity = item.getQuantity();
+
+		return Math.round((price-(price/quantity))*ROUNDING)/ROUNDING;
+	}
+	
+	@FXML
+	private void showCustomerController() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(MainFX.class.getResource("customer/CustomerData.fxml"));
+
+		BorderPane customer = loader.load();
+		
+		CustomerController controller = loader.getController();
+		controller.setShoppingCartController(this);
+		
+		this.mainLayout.setCenter(customer);
 	}
 }

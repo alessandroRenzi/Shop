@@ -34,45 +34,47 @@ public class MainItemsController {
 	@FXML
 	private Button addToCart;
 	@FXML
-	private Button showCart;
-	@FXML
 	private Label category;
-	@FXML
-	private Label description;
-	@FXML 
-	private Label price;
 	@FXML
 	private TableColumn<CategoryModelClass, String> categoryColumn;
 	@FXML
 	private TableView<CategoryModelClass> categoryTable;
 	@FXML
+	private Label description;
+	@FXML
 	private TableColumn<ItemsModelClass, String> itemsColumn;
 	@FXML
 	private TableView<ItemsModelClass> itemTable;
-
+	@FXML
+	private BorderPane mainLayout;
+	@FXML 
+	private Label price;
+	@FXML
+	private Button showCart;
+	
 	private Cart cart;
 	private ObservableList<ShoppingCartModelClass> cartObservableList = FXCollections.observableArrayList();
-	private MainFX mainFX;
 	private RegisteredCustomer customer = new RegisteredCustomer("Nominative","Genre","1960-05-10","Street");
+	private MainFX mainFX;
 
 	public Cart getCart() {
-		return this.cart;
+		return cart;
 	}
 
 	public ObservableList<ShoppingCartModelClass> getCartObservableList() {
-		return this.cartObservableList;
+		return cartObservableList;
 	}
 
 	public double getCartTotalPrice() {
-		return roundPrice(this.cart);
+		return roundPrice(cart);
 	}
 
 	public RegisteredCustomer getCustomer() {
-		return this.customer;
+		return customer;
 	}
 
 	public MainFX getMainFX() {
-		return this.mainFX;
+		return mainFX;
 	}
 
 	public void setItemTable(ObservableList<ItemsModelClass> obsItemModelClass) {
@@ -92,7 +94,7 @@ public class MainItemsController {
 	}
 
 	@FXML
-	public void addToCartPressed(ActionEvent event) {
+	public void addToCartPressed(ActionEvent event) throws Exception {
 		ConcreteStock stock = ConcreteStock.getInstance();
 		Iterator<Item> iteratorStock = stock.getIterator();
 
@@ -144,7 +146,7 @@ public class MainItemsController {
 		return result;
 	}
 
-	public void removeFromCart(int index) {
+	public void removeFromCart(int index) throws Exception {
 		Iterator<Item> iteratorItem = getCart().getItemIterator();
 
 		while(iteratorItem.hasNext()){
@@ -209,14 +211,13 @@ public class MainItemsController {
 	@FXML
 	public void showItemPressed(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(MainFX.class.getResource("shoppingCart/ShoppingCartView.fxml"));
-
-		BorderPane shoppingCart = loader.load();
-		Scene scene = new Scene(shoppingCart);
-
-		ShoppingCartController controller = loader.getController();
-		controller.setMainItemsController(this);
-
+		loader.setLocation(MainFX.class.getResource("view/MainView.fxml"));
+		
+		this.mainLayout = loader.load();
+		Scene scene = new Scene(this.mainLayout);
+		
+		showShoppingCartController();
+		
 		Stage shoppingStage = new Stage();
 		shoppingStage.getIcons().add(new Image("logo_gr.png"));
 		shoppingStage.initModality(Modality.WINDOW_MODAL);
@@ -224,5 +225,18 @@ public class MainItemsController {
 		shoppingStage.setTitle("G&R Megastore: cart");
 		shoppingStage.setScene(scene);
 		shoppingStage.showAndWait();	
+	}
+
+	@FXML
+	private void showShoppingCartController() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(MainFX.class.getResource("shoppingCart/ShoppingCartView.fxml"));
+
+		BorderPane shoppingCart = loader.load();
+
+		ShoppingCartController controller = loader.getController();
+		controller.setMainItemsController(this);
+		
+		this.mainLayout.setCenter(shoppingCart);
 	}
 }

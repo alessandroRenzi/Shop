@@ -15,6 +15,7 @@ public class Composite implements Item {
 	private String description;
 	private Discount discount;
 	private List<Item> myItems;
+	private int quantity;
 	private Stock stock = ConcreteStock.getInstance();
 
 	public Composite(String description) {
@@ -22,6 +23,7 @@ public class Composite implements Item {
 		this.description = description;
 		this.discount = new BaseDiscount();
 		this.myItems = new LinkedList<Item>();
+		this.quantity = 1;
 		this.stock.addItem(this);
 	}
 
@@ -94,9 +96,8 @@ public class Composite implements Item {
 
 		while(iteratorItems.hasNext()) {
 			Item currentItem = iteratorItems.next();
-			content = content+currentItem.toString() + "\n";
+			content = content+currentItem.toString()+"\n";
 		}
-		content = content + "Quantity of items: " + getMyItems().size() + " | Price: " + getPrice();
 		return content;
 	}
 
@@ -111,20 +112,12 @@ public class Composite implements Item {
 	}
 
 	@Override
-	public int compareTo(Item o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public int getQuantity() {
-		// TODO Auto-generated method stub
-		return 0;
+		return quantity;
 	}
 
 	@Override
 	public void setQuantity(int quantity) {
-		// TODO Auto-generated method stub
-		
+		this.quantity = quantity; 
 	}
 }

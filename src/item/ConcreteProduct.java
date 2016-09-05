@@ -78,7 +78,8 @@ public class ConcreteProduct extends Product {
 
 	@Override 
 	public String toString() {
-		return "Description: " + getDescription() + " | Category: " + this.category.getCategory() + " | Price: " + getPrice(); 
+		return "Description: " + getDescription() + " | Category: " + this.category.getCategory() 
+				+ " | Price: " + getPrice() + " | Quantity: " + getQuantity(); 
 	}
 
 	public double calcPrice() {
