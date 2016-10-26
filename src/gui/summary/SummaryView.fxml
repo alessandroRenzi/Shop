@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.summary.SummaryController">
+   <top>
+      <AnchorPane prefHeight="100.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="120.0" fitWidth="200.0" layoutX="14.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="880.0" AnchorPane.topAnchor="2.0">
+               <image>
+                  <Image url="@../../../images/logo_gr.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="41.0" prefWidth="465.0" text="G&amp;R MEGASTORE s.r.l." AnchorPane.leftAnchor="145.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="15.0">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label text="di Gori M. e Renzi A." AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="750.0" AnchorPane.topAnchor="47.0">
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+            </Label>
+            <Label text="Summary of transaction" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="640.0" AnchorPane.topAnchor="65.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="660.0" prefWidth="1024.0">
+         <children>
+            <SplitPane orientation="VERTICAL" prefHeight="600.0" prefWidth="1024.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1024.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <Label layoutX="31.0" layoutY="26.0" text="Name:" AnchorPane.bottomAnchor="557.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="946.0" AnchorPane.topAnchor="20.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="name" layoutX="105.0" layoutY="26.0" AnchorPane.bottomAnchor="557.0" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="20.0" />
+                        <Label layoutX="399.0" layoutY="26.0" text="Date:" AnchorPane.bottomAnchor="557.0" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="591.0" AnchorPane.topAnchor="20.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="date" layoutX="466.0" layoutY="26.0" AnchorPane.bottomAnchor="557.0" AnchorPane.leftAnchor="439.0" AnchorPane.topAnchor="20.0" />
+                        <Label layoutX="31.0" layoutY="61.0" text="Delivery address:" AnchorPane.bottomAnchor="520.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="870.0" AnchorPane.topAnchor="57.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="deliveryAddress" layoutX="169.0" layoutY="61.0" AnchorPane.bottomAnchor="520.0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="57.0" />
+                        <TableView fx:id="shoppingCart" layoutX="243.0" layoutY="169.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="100.0">
+                          <columns>
+                            <TableColumn fx:id="categoryColumn" prefWidth="210.0" resizable="false" text="Category" />
+                            <TableColumn fx:id="descriptionColumn" prefWidth="450.0" resizable="false" text="Description" />
+                              <TableColumn fx:id="quantityColumn" minWidth="0.0" resizable="false" text="Quantity" />
+                              <TableColumn fx:id="discountColumn" prefWidth="150.0" resizable="false" text="Discount" />
+                              <TableColumn fx:id="unitPriceColumn" prefWidth="133.0" text="Price" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="618.0" layoutY="563.0" text="Total quantity:" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="366.0" AnchorPane.topAnchor="567.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="totalQuantity" layoutX="683.0" layoutY="563.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="666.0" AnchorPane.topAnchor="567.0" />
+                        <Label layoutX="789.0" layoutY="563.0" text="Total price:" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="567.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="totalPrice" layoutX="945.0" layoutY="563.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="896.0" AnchorPane.topAnchor="567.0" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="confirmPayment" layoutX="81.0" layoutY="10.0" mnemonicParsing="false" onAction="#payEvent" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="7.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Button>
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>
