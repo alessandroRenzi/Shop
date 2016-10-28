@@ -104,7 +104,7 @@ public class PaymentController {
 		if(str.length() == length) {
 			if(str.length() != 0) {
 				try {
-					Integer.parseInt(str);
+					Double.parseDouble(str);
 				} catch(NumberFormatException e) {
 					throw new Exception("WARNING: " + card + " " + component + " must contain only numbers.");
 				}
