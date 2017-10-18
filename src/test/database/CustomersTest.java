@@ -19,29 +19,29 @@ public class CustomersTest {
 
 	@Before
 	public void setUp() {
-		customer = new UnRegisteredCustomer("Keith Richards","Male","1943-12-18");
-		customers = new Customers();
+		this.customer = new UnRegisteredCustomer("Keith Richards","Male","1943-12-18");
+		this.customers = new Customers();
 
-		outContent = new ByteArrayOutputStream();
-		System.setOut(new PrintStream(outContent));
+		this.outContent = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(this.outContent));
 	}
 
 	@Test
 	public void testAddToListRegister() {
-		customers.addToListRegister(customer);
-		assertEquals(1,customers.getListRegister().size());
+		this.customers.addToListRegister(this.customer);
+		assertEquals(1,this.customers.getListRegister().size());
 	}
 
 	@Test
 	public void testRemoveToListRegister() {
-		customers.removeFromListRegister(customer);
-		assertEquals(0,customers.getListRegister().size());
+		this.customers.removeFromListRegister(this.customer);
+		assertEquals(0,this.customers.getListRegister().size());
 	}
 
 	@Test
 	public void testPrint() {
-		customers.addToListRegister(customer);
-		customers.print();
-		assertEquals("Customers:\nNominative: Keith Richards | Genre: Male | Age: 73\n",outContent.toString());
+		this.customers.addToListRegister(customer);
+		this.customers.print();
+		assertEquals("Customers:\nNominative: Keith Richards | Genre: Male | Age: 74\n",this.outContent.toString());
 	}
 }

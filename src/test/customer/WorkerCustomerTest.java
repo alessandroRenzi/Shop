@@ -13,49 +13,49 @@ public class WorkerCustomerTest {
 
 	@Before
 	public void setUp() {
-		customer = new WorkerCustomer("Eddie van Halen","Male","1955-01-26","Eruption Road, 2","CDs and vinyls");
+		this.customer = new WorkerCustomer("Eddie van Halen","Male","1955-01-26","Eruption Road, 2","CDs and vinyls");
 	}
 
 	@Test
 	public void testGetAge() {
-		assertEquals(61,customer.getAge());
+		assertEquals(62, this.customer.getAge());
 	}
 
 	@Test
 	public void testGetName() {
-		assertEquals("Eddie van Halen",customer.getNominative());
+		assertEquals("Eddie van Halen", this.customer.getNominative());
 	}
 
 	@Test
 	public void testGetGenre() {
-		assertEquals("Male",customer.getGenre());
+		assertEquals("Male", this.customer.getGenre());
 	}
 
 	@Test
 	public void testGetStreet() {
-		assertEquals("Eruption Road, 2",customer.getStreet());
+		assertEquals("Eruption Road, 2", this.customer.getStreet());
 	}
 
 	@Test
 	public void testSetStreet() {
-		customer.setStreet("Ice Cream Man Boulevard, 10");
-		assertEquals("Ice Cream Man Boulevard, 10",customer.getStreet());
+		this.customer.setStreet("Ice Cream Man Boulevard, 10");
+		assertEquals("Ice Cream Man Boulevard, 10", this.customer.getStreet());
 	}
 	
 	@Test 
 	public void testGetWorkingArea() {
-		assertEquals("CDs and vinyls",customer.getWorkingArea());
+		assertEquals("CDs and vinyls", this.customer.getWorkingArea());
 	}
 	
 	@Test
 	public void testSetWorkingArea() {
-		customer.setWorkingArea("Electronics");
-		assertEquals("Electronics",customer.getWorkingArea());
+		this.customer.setWorkingArea("Electronics");
+		assertEquals("Electronics", this.customer.getWorkingArea());
 	}
 
 	@Test 
 	public void testToString() {
-		assertEquals("Nominative: Eddie van Halen | Genre: Male | Age: 61 | Street: Eruption Road, 2 | WorkingArea: CDs and vinyls",customer.toString());
+		assertEquals("Nominative: Eddie van Halen | Genre: Male | Age: 62 | Street: Eruption Road, 2 | WorkingArea: CDs and vinyls", this.customer.toString());
 	}
 
 	@Test

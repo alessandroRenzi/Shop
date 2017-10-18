@@ -18,21 +18,21 @@ public class UnRegisteredCustomerTest {
 
 	@Test
 	public void testGetAge() {
-		assertEquals(31, customer.getAge());
+		assertEquals(32, this.customer.getAge());
 	}
 
 	@Test
 	public void testGetName(){
-		assertEquals("Alessandro Renzi", customer.getNominative());
+		assertEquals("Alessandro Renzi", this.customer.getNominative());
 	}
 
 	@Test
 	public void testGetSurname(){
-		assertEquals("Male", customer.getGenre());
+		assertEquals("Male", this.customer.getGenre());
 	}
 
 	@Test 
 	public void testToString(){
-		assertEquals("Nominative: Alessandro Renzi | Genre: Male | Age: 31", customer.toString());
+		assertEquals("Nominative: Alessandro Renzi | Genre: Male | Age: 32", this.customer.toString());
 	}
 }
