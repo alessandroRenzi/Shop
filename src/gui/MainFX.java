@@ -36,23 +36,23 @@ public class MainFX extends Application {
 	}
 
 	public BorderPane getMainLayout() {
-		return mainLayout;
+		return this.mainLayout;
 	}
 
 	public ObservableList<CategoryModelClass> getObservableListCategory() {
-		return observableListCategory;
+		return this.observableListCategory;
 	}
 
 	public ObservableList<ItemsModelClass> getObservableListItems() {
-		return observableListItems;
+		return this.observableListItems;
 	}
 
 	public Stage getPrimaryStage() {
-		return primaryStage;
+		return this.primaryStage;
 	}
 
 	public Stock getStock() {
-		return stock;
+		return this.stock;
 	}
 
 	public Iterator<Category> createIteratorCategory(List<Category> list) {
